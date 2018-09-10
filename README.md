@@ -25,9 +25,14 @@ The README template below provides a starting point with details about what info
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what problem it solves. This is your 30-second elevator pitch for your module. Consider including OS/Puppet version it works with.
+This Puppet module implements security controls defined in the Center for Internet Security (CIS) benchmarks for the below operating systems. The benchmark versions are listed below:
 
-You can give more descriptive information in a second paragraph. This paragraph should answer the questions: "What does this module *do*?" and "Why would I use it?" If your module has a range of functionality (installation, configuration, management, etc.), this is the time to mention it.
+| Operating System | Benchmark Version |
+|------------------|-------------------|
+| RedHat 7 | 2.2.0 |
+| CentOS 7 | 2.2.0 |
+
+CIS Benchmarks can be found here.
 
 ## Setup
 
