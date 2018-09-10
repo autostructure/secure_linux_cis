@@ -13,7 +13,7 @@
 # @example
 #   include secure_linux_cis::redhat7::cis_1_1_1_1
 class secure_linux_cis::redhat7::cis_1_1_1_1 (
-  String $enabled = true,
+  Boolean $enabled = true,
 ) {
 
   if $enabled {
