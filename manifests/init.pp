@@ -7,7 +7,7 @@
 class secure_linux_cis {
 
   # Local Variable for full Operating System
-  $os = "${facts['operatingsystem']}${['operatingsystemmajrelease']}"
+  $os = "${facts['operatingsystem']}${facts['operatingsystemmajrelease']}"
 
   case $os {
     'RedHat7': {
