@@ -11,4 +11,5 @@
 #   include secure_linux_cis::redhat7
 class secure_linux_cis::redhat7 {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
+  include ::secure_linux_cis::redhat7::cis_1_1_1_2
 }
