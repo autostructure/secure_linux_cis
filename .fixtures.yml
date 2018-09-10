@@ -4,3 +4,4 @@
 fixtures:
   forge_modules:
      kmod: "camptocamp/kmod"
+     stdlib: "puppetlabs/stdlib"
