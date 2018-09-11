@@ -12,10 +12,10 @@
 # @example
 #   include secure_linux_cis::redhat7::cis_2_1_1
 class secure_linux_cis::redhat7::cis_2_1_1 (
-  Boolean $enabled = true,
+  Boolean $enforced = true,
 ) {
 
-  if $enabled {
+  if $enforced {
     service { 'chargen-dgram':
       ensure => stopped,
       enable => false,

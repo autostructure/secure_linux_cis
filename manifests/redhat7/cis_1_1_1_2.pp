@@ -13,10 +13,10 @@
 # @example
 #   include secure_linux_cis::redhat7::cis_1_1_1_2
 class secure_linux_cis::redhat7::cis_1_1_1_2 (
-  Boolean $enabled = true,
+  Boolean $enforced = true,
 ) {
 
-  if $enabled {
+  if $enforced {
     kmod::install { 'freevxfs':
       command => '/bin/true',
     }

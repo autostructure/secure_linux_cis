@@ -14,10 +14,10 @@
 # @example
 #   include secure_linux_cis::redhat7::cis_2_2_14
 class secure_linux_cis::redhat7::cis_2_2_14 (
-  Boolean $enabled = true,
+  Boolean $enforced = true,
 ) {
 
-  if $enabled {
+  if $enforced {
 
     service { 'snmpd':
       ensure => stopped,
