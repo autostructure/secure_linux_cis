@@ -3,8 +3,8 @@
 ---
 fixtures:
   forge_modules:
-     kmod: "camptocamp/kmod"
-     stdlib: "puppetlabs/stdlib"
+    kmod: "camptocamp/kmod"
+    stdlib: "puppetlabs/stdlib"
     augeasproviders_core:
       repo: "herculesteam/augeasproviders_core"
       ref: "2.1.3"
