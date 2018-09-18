@@ -9,6 +9,22 @@
     {
       "name": "camptocamp/kmod",
       "version_requirement": ">= 2.0.0 < 3.0.0"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.0.0 <= 5.0.0"
+    },
+    {
+      "name": "herculesteam/augeasproviders_core",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
+    },
+    {
+      "name": "herculesteam/augeasproviders_sysctl",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
+    },
+    {
+      "name": "kemra102/auditd",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
     }
   ],
   "operatingsystem_support": [

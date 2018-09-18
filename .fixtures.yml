@@ -5,6 +5,7 @@ fixtures:
   forge_modules:
     kmod: "camptocamp/kmod"
     stdlib: "puppetlabs/stdlib"
+    auditd: "kemra102/auditd"
     augeasproviders_core:
       repo: "herculesteam/augeasproviders_core"
       ref: "2.1.3"
