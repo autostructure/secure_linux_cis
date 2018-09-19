@@ -90,4 +90,25 @@ class secure_linux_cis::redhat7 {
   include ::secure_linux_cis::redhat7::cis_3_2_6
   include ::secure_linux_cis::redhat7::cis_3_2_7
   include ::secure_linux_cis::redhat7::cis_3_2_8
+
+  include ::secure_linux_cis::redhat7::cis_4_1_1_1
+  include ::secure_linux_cis::redhat7::cis_4_1_1_2
+  include ::secure_linux_cis::redhat7::cis_4_1_1_3
+  include ::secure_linux_cis::redhat7::cis_4_1_2
+  include ::secure_linux_cis::redhat7::cis_4_1_3
+  include ::secure_linux_cis::redhat7::cis_4_1_4
+  include ::secure_linux_cis::redhat7::cis_4_1_5
+  include ::secure_linux_cis::redhat7::cis_4_1_6
+  include ::secure_linux_cis::redhat7::cis_4_1_7
+  include ::secure_linux_cis::redhat7::cis_4_1_8
+  include ::secure_linux_cis::redhat7::cis_4_1_9
+  include ::secure_linux_cis::redhat7::cis_4_1_10
+  include ::secure_linux_cis::redhat7::cis_4_1_11
+  #include ::secure_linux_cis::redhat7::cis_4_1_12
+  include ::secure_linux_cis::redhat7::cis_4_1_13
+  include ::secure_linux_cis::redhat7::cis_4_1_14
+  include ::secure_linux_cis::redhat7::cis_4_1_15
+  include ::secure_linux_cis::redhat7::cis_4_1_16
+  include ::secure_linux_cis::redhat7::cis_4_1_17
+  #include ::secure_linux_cis::redhat7::cis_4_1_18
 }
