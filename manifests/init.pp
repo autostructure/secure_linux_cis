@@ -6,6 +6,7 @@
 #   include secure_linux_cis
 class secure_linux_cis (
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
+  String $logging_host = 'loghost.example.com',
 ) {
 
   # Local Variable for full Operating System
@@ -14,7 +15,8 @@ class secure_linux_cis (
   case $os {
     'RedHat7': {
       class { '::secure_linux_cis::redhat7':
-        logging => $logging,
+        logging      => $logging,
+        logging_host => $logging_host,
       }
     }
     default: {
