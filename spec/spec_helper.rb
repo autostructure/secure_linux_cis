@@ -34,7 +34,6 @@ RSpec.configure do |c|
     # by default Puppet runs at warning level
     Puppet.settings[:strict] = :warning
   end
-
 end
 
 def ensure_module_defined(module_name)
