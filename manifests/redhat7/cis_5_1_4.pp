@@ -1,4 +1,4 @@
-# A description of what this class does
+# 5.1.4 Ensure permissions on /etc/cron.daily are configured (Scored)
 #
 # Description:
 # The /etc/cron.daily directory contains system cron jobs that need to run on a

@@ -1,4 +1,4 @@
-# A description of what this class does
+# 5.1.3 Ensure permissions on /etc/cron.hourly are configured (Scored)
 #
 # Description:
 # This directory contains system cron jobs that need to run on an hourly basis.

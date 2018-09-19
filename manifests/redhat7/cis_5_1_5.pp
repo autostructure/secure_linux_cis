@@ -1,4 +1,4 @@
-# A description of what this class does
+# 5.1.5 Ensure permissions on /etc/cron.weekly are configured (Scored)
 #
 # Description:
 # The /etc/cron.weekly directory contains system cron jobs that need to run on a

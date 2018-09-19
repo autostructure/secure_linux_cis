@@ -1,4 +1,4 @@
-# A description of what this class does
+# 5.1.1 Ensure cron daemon is enabled (Scored)
 #
 # Description:
 # The cron daemon is used to execute batch jobs on the system.

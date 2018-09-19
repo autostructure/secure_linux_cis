@@ -1,4 +1,4 @@
-# A description of what this class does
+# 5.1.2 Ensure permissions on /etc/crontab are configured (Scored)
 #
 #
 # Description:
