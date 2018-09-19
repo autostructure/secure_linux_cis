@@ -14,6 +14,7 @@
 #   include secure_linux_cis::redhat7::cis_4_2_1_3
 class secure_linux_cis::redhat7::cis_4_2_1_3 (
   Boolean $enforced = true,
+  Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
 ) {
 
   if $enforced {

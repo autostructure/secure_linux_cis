@@ -5,7 +5,7 @@
 # @example
 #   include secure_linux_cis
 class secure_linux_cis (
-  $logging = 'none',
+  Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
 ) {
 
   # Local Variable for full Operating System
@@ -13,7 +13,9 @@ class secure_linux_cis (
 
   case $os {
     'RedHat7': {
-      include ::secure_linux_cis::redhat7
+      class { '::secure_linux_cis::redhat7':
+        logging => $logging,
+      }
     }
     default: {
       fail("Operating System: ${os} is not supported at this time.")

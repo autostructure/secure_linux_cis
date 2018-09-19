@@ -13,9 +13,10 @@
 #   include secure_linux_cis::redhat7::cis_4_2_1_1
 class secure_linux_cis::redhat7::cis_4_2_1_1 (
   Boolean $enforced = true,
+  Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
 ) {
 
-  if $enforced and $secure_linux_cis::logging == 'rsyslog' {
+  if $enforced and $logging == 'rsyslog' {
 
     package { 'rsyslog':
       ensure => installed,
@@ -26,8 +27,6 @@ class secure_linux_cis::redhat7::cis_4_2_1_1 (
       ensure => running,
       enable => true,
     }
-
-    notify { 'rsyslog stuff is happening': }
 
   }
 }

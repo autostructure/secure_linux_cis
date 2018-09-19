@@ -9,7 +9,9 @@
 #
 # @example
 #   include secure_linux_cis::redhat7
-class secure_linux_cis::redhat7 {
+class secure_linux_cis::redhat7 (
+  Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
+) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
   include ::secure_linux_cis::redhat7::cis_1_1_1_3
@@ -112,7 +114,9 @@ class secure_linux_cis::redhat7 {
   include ::secure_linux_cis::redhat7::cis_4_1_17
   #include ::secure_linux_cis::redhat7::cis_4_1_18
 
-  include ::secure_linux_cis::redhat7::cis_4_2_1_1
+  class { '::secure_linux_cis::redhat7::cis_4_2_1_1':
+    logging => $logging,
+  }
   #include ::secure_linux_cis::redhat7::cis_4_2_1_2
   include ::secure_linux_cis::redhat7::cis_4_2_1_3
   #include ::secure_linux_cis::redhat7::cis_4_2_1_4
