@@ -17,6 +17,12 @@ class secure_linux_cis::redhat7::cis_4_1_2 (
 
   if $enforced {
 
+    # Also ensuring the package is installed before the service
+    package { 'audit':
+      ensure => installed,
+      before => Service['auditd'],
+    }
+
     service { 'auditd':
       ensure => running,
       enable => true,
