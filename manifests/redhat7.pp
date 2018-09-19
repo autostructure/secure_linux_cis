@@ -9,7 +9,11 @@
 #
 # @example
 #   include secure_linux_cis::redhat7
-class secure_linux_cis::redhat7 {
+class secure_linux_cis::redhat7 (
+  Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
+  String $logging_host = 'loghost.example.com',
+  Boolean $is_logging_host = false,
+) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
   include ::secure_linux_cis::redhat7::cis_1_1_1_3
@@ -90,4 +94,47 @@ class secure_linux_cis::redhat7 {
   include ::secure_linux_cis::redhat7::cis_3_2_6
   include ::secure_linux_cis::redhat7::cis_3_2_7
   include ::secure_linux_cis::redhat7::cis_3_2_8
+
+  include ::secure_linux_cis::redhat7::cis_4_1_1_1
+  include ::secure_linux_cis::redhat7::cis_4_1_1_2
+  include ::secure_linux_cis::redhat7::cis_4_1_1_3
+  include ::secure_linux_cis::redhat7::cis_4_1_2
+  include ::secure_linux_cis::redhat7::cis_4_1_3
+  include ::secure_linux_cis::redhat7::cis_4_1_4
+  include ::secure_linux_cis::redhat7::cis_4_1_5
+  include ::secure_linux_cis::redhat7::cis_4_1_6
+  include ::secure_linux_cis::redhat7::cis_4_1_7
+  include ::secure_linux_cis::redhat7::cis_4_1_8
+  include ::secure_linux_cis::redhat7::cis_4_1_9
+  include ::secure_linux_cis::redhat7::cis_4_1_10
+  include ::secure_linux_cis::redhat7::cis_4_1_11
+  #include ::secure_linux_cis::redhat7::cis_4_1_12
+  include ::secure_linux_cis::redhat7::cis_4_1_13
+  include ::secure_linux_cis::redhat7::cis_4_1_14
+  include ::secure_linux_cis::redhat7::cis_4_1_15
+  include ::secure_linux_cis::redhat7::cis_4_1_16
+  include ::secure_linux_cis::redhat7::cis_4_1_17
+  #include ::secure_linux_cis::redhat7::cis_4_1_18
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_1_1':
+    logging => $logging,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_1_2':
+    logging => $logging,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_1_3':
+    logging => $logging,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_1_4':
+    logging      => $logging,
+    logging_host => $logging_host,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_1_5':
+    logging         => $logging,
+    is_logging_host => $is_logging_host,
+  }
 }
