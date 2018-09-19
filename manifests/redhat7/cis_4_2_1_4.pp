@@ -12,7 +12,7 @@ class secure_linux_cis::redhat7::cis_4_2_1_4 (
 
   if $enforced and $logging == 'rsyslog' {
 
-    file_line { 'audit.rules sudo.log 1':
+    file_line { 'rsyslog.conf logging_host':
       ensure => present,
       path   => '/etc/rsyslog.conf',
       line   => "*.* @@${logging_host}",
