@@ -22,7 +22,7 @@ class secure_linux_cis::redhat7::cis_5_1_2 (
 ) {
 
   if $enforced {
-    file { 'etc/crontab':
+    file { '/etc/crontab':
       ensure => file,
       group  => 'root',
       owner  => 'root',
