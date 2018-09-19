@@ -122,7 +122,7 @@ class secure_linux_cis::redhat7 (
     logging => $logging,
   }
 
-  class { '::secure_linux_cis::redhat7::cis_4_2_1_1':
+  class { '::secure_linux_cis::redhat7::cis_4_2_1_3':
     logging => $logging,
   }
   #include ::secure_linux_cis::redhat7::cis_4_2_1_4
