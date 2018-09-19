@@ -7,6 +7,7 @@
 # While there may not be user jobs that need to be run on the system,
 # the system does have maintenance jobs that may include security monitoring that
 # have to run, and cron is used to execute them.
+#
 # @summary 5.1.1 Ensure cron daemon is enabled (Scored)
 #
 # @example
