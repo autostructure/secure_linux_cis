@@ -6,7 +6,6 @@ cache: bundler
 before_install:
   - bundle -v
   - rm -f Gemfile.lock
-  - gem update --system
   - gem --version
   - bundle -v
 script:
@@ -29,8 +28,8 @@ matrix:
       rvm: 2.1.9
 branches:
   only:
-    - master 
-    - /^v\d/ 
+    - master
+    - /^v\d/
 notifications:
   email: false
 deploy:
