@@ -4,7 +4,9 @@
 #
 # @example
 #   include secure_linux_cis
-class secure_linux_cis {
+class secure_linux_cis (
+  $logging = 'rsyslog',
+) {
 
   # Local Variable for full Operating System
   $os = "${facts['operatingsystem']}${facts['operatingsystemmajrelease']}"

@@ -15,7 +15,7 @@ class secure_linux_cis::redhat7::cis_4_2_1_1 (
   Boolean $enforced = true,
 ) {
 
-  if $enforced {
+  if $enforced and $secure_linux_cis::logging == 'rsyslog' {
 
     package { 'rsyslog':
       ensure => installed,
@@ -26,6 +26,8 @@ class secure_linux_cis::redhat7::cis_4_2_1_1 (
       ensure => running,
       enable => true,
     }
+
+    notify { 'rsyslog stuff is happening': }
 
   }
 }
