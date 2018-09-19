@@ -17,7 +17,7 @@ class secure_linux_cis::redhat7::cis_4_2_1_3 (
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
 ) {
 
-  if $enforced {
+  if $enforced and $logging == 'rsyslog' {
 
     file { '/etc/rsyslog.d/':
       ensure  => directory,
