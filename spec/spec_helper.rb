@@ -15,6 +15,11 @@ default_facts = {
   facterversion: Facter.version,
 }
 
+RSpec.configure do |c|
+  c.mock_with :rspec
+end
+require 'puppetlabs_spec_helper/module_spec_helper'
+
 default_facts_path = File.expand_path(File.join(File.dirname(__FILE__), 'default_facts.yml'))
 default_module_facts_path = File.expand_path(File.join(File.dirname(__FILE__), 'default_module_facts.yml'))
 
