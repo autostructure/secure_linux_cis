@@ -15,11 +15,6 @@ default_facts = {
   facterversion: Facter.version,
 }
 
-RSpec.configure do |c|
-  c.mock_with :rspec
-end
-require 'puppetlabs_spec_helper/module_spec_helper'
-
 default_facts_path = File.expand_path(File.join(File.dirname(__FILE__), 'default_facts.yml'))
 default_module_facts_path = File.expand_path(File.join(File.dirname(__FILE__), 'default_module_facts.yml'))
 
@@ -33,11 +28,13 @@ end
 
 RSpec.configure do |c|
   c.default_facts = default_facts
+  c.mock_with :rspec
   c.before :each do
     # set to strictest setting for testing
     # by default Puppet runs at warning level
     Puppet.settings[:strict] = :warning
   end
+
 end
 
 def ensure_module_defined(module_name)
