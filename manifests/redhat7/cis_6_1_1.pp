@@ -15,13 +15,13 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_6_1_1
-class secure_linux_cis::redhat7::cis_6_1_1 (
-  Boolean $enforced = true,
-) {
-
-  if $enforced {
-
-# To view installed files and their permissions, run 'facter -p file_permissions'
-
-  }
-}
+# class secure_linux_cis::redhat7::cis_6_1_1 (
+#   Boolean $enforced = true,
+# ) {
+#
+#   if $enforced {
+#
+# # To view installed files and their permissions, run 'facter -p file_permissions'
+#
+#   }
+# }
