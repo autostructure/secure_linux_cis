@@ -28,6 +28,7 @@ class secure_linux_cis::redhat7::cis_4_1_13 (
 
   if $enforced {
 
+    # 64 bit architecture
     if $facts['architecture'] =~ /64/ {
 
       file_line { 'audit.rules mounts 1':
@@ -43,6 +44,7 @@ class secure_linux_cis::redhat7::cis_4_1_13 (
       }
 
     }
+
     else {
 
       file_line { 'audit.rules mounts 1':
@@ -54,4 +56,5 @@ class secure_linux_cis::redhat7::cis_4_1_13 (
     }
 
   }
+
 }

@@ -34,4 +34,5 @@ class secure_linux_cis::redhat7::cis_4_1_15 (
     }
 
   }
+
 }

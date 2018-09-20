@@ -13,6 +13,7 @@ class secure_linux_cis::redhat7 (
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
   String $logging_host = 'loghost.example.com',
   Boolean $is_logging_host = false,
+  Integer $max_log_file = 8,
 ) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
@@ -95,7 +96,9 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_3_2_7
   include ::secure_linux_cis::redhat7::cis_3_2_8
 
-  include ::secure_linux_cis::redhat7::cis_4_1_1_1
+  class { '::secure_linux_cis::redhat7::cis_4_1_1_1':
+    max_log_file => $max_log_file,
+  }
   include ::secure_linux_cis::redhat7::cis_4_1_1_2
   include ::secure_linux_cis::redhat7::cis_4_1_1_3
   include ::secure_linux_cis::redhat7::cis_4_1_2

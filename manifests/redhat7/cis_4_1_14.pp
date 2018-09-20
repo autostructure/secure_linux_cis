@@ -23,6 +23,7 @@ class secure_linux_cis::redhat7::cis_4_1_14 (
 
   if $enforced {
 
+    # 64 bit architecture
     if $facts['architecture'] =~ /64/ {
 
       file_line { 'audit.rules file deletion 1':
@@ -38,6 +39,8 @@ class secure_linux_cis::redhat7::cis_4_1_14 (
       }
 
     }
+
+    # 32 bit architecture
     else {
 
       file_line { 'audit.rules file deletion 1':
@@ -49,4 +52,5 @@ class secure_linux_cis::redhat7::cis_4_1_14 (
     }
 
   }
+
 }

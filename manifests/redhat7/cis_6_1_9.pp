@@ -1,7 +1,8 @@
 # 6.1.9 Ensure permissions on /etc/gshadow- are configured (Scored)
 #
 # Description:
-# The /etc/gshadow- file is used to store backup information about groups that is critical to the security of those accounts, such as the hashed password and other security information.
+# The /etc/gshadow- file is used to store backup information about groups that is critical to the security
+# of those accounts, such as the hashed password and other security information.
 #
 # @summary 6.1.9 Ensure permissions on /etc/gshadow- are configured (Scored)
 #

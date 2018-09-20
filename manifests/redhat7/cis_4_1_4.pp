@@ -22,44 +22,56 @@ class secure_linux_cis::redhat7::cis_4_1_4 (
 
   if $enforced {
 
+    # 64 bit architecture
     if $facts['architecture'] =~ /64/ {
+
       file_line { 'audit.rules time 1':
         ensure => present,
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change',
       }
+
       file_line { 'audit.rules time 2':
         ensure => present,
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k timechange',
       }
+
       file_line { 'audit.rules time 3':
         ensure => present,
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b64 -S clock_settime -k time-change',
       }
+
       file_line { 'audit.rules time 4':
         ensure => present,
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S clock_settime -k time-change',
       }
+
       file_line { 'audit.rules time 5':
         ensure => present,
         path   => '/etc/audit/audit.rules',
         line   => '-w /etc/localtime -p wa -k time-change',
       }
+
     }
+
+    # 32 bit architecture
     else {
+
       file_line { 'audit.rules time 1':
         ensure => present,
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k timechange',
       }
+
       file_line { 'audit.rules time 2':
         ensure => present,
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S clock_settime -k time-change',
       }
+
       file_line { 'audit.rules time 3':
         ensure => present,
         path   => '/etc/audit/audit.rules',
@@ -69,4 +81,5 @@ class secure_linux_cis::redhat7::cis_4_1_4 (
     }
 
   }
+
 }

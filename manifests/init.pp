@@ -8,6 +8,7 @@ class secure_linux_cis (
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
   String $logging_host = 'loghost.example.com',
   Boolean $is_logging_host = false,
+  Integer $max_log_file = 8,
 ) {
 
   # Local Variable for full Operating System
@@ -19,6 +20,7 @@ class secure_linux_cis (
         logging         => $logging,
         logging_host    => $logging_host,
         is_logging_host => $is_logging_host,
+        max_log_file    => $max_log_file,
       }
     }
     default: {
