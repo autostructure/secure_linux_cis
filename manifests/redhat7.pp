@@ -13,6 +13,7 @@ class secure_linux_cis::redhat7 (
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
   String $logging_host = 'loghost.example.com',
   Boolean $is_logging_host = false,
+  Enum['1', '2', '3', '4'] $max_auth_tries = '4',
 ) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
@@ -137,4 +138,22 @@ class secure_linux_cis::redhat7 (
     logging         => $logging,
     is_logging_host => $is_logging_host,
   }
+
+  include ::secure_linux_cis::redhat7::cis_5_1_1
+  include ::secure_linux_cis::redhat7::cis_5_1_2
+  include ::secure_linux_cis::redhat7::cis_5_1_3
+  include ::secure_linux_cis::redhat7::cis_5_1_4
+  include ::secure_linux_cis::redhat7::cis_5_1_5
+  include ::secure_linux_cis::redhat7::cis_5_1_6
+  include ::secure_linux_cis::redhat7::cis_5_1_7
+  include ::secure_linux_cis::redhat7::cis_5_1_8
+  include ::secure_linux_cis::redhat7::cis_5_2_1
+  include ::secure_linux_cis::redhat7::cis_5_2_2
+  include ::secure_linux_cis::redhat7::cis_5_2_3
+  include ::secure_linux_cis::redhat7::cis_5_2_4
+
+  class { '::secure_linux_cis::redhat7::cis_5_2_5':
+    max_auth_tries => $max_auth_tries,
+  }
+
 }
