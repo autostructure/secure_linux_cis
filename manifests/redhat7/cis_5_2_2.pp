@@ -17,11 +17,14 @@ class secure_linux_cis::redhat7::cis_5_2_2 (
 ) {
 
   if $enforced {
+
     file_line { 'ssh protocol':
       ensure => present,
       path   => '/etc/ssh/sshd_config',
       line   => 'Protocol 2',
-      match  => 'Protocol.*',
+      match  => '^Protocol.*',
     }
+
   }
+
 }

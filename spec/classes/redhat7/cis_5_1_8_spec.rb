@@ -9,7 +9,9 @@ describe 'secure_linux_cis::redhat7::cis_5_1_8' do
         let(:facts) { os_facts }
         let(:params) { { 'enforced' => option } }
 
-        it { is_expected.to compile }
+        it {
+          is_expected.to compile
+        }
 
         if option
           it {
@@ -20,8 +22,6 @@ describe 'secure_linux_cis::redhat7::cis_5_1_8' do
                 group: 'root',
                 mode: '0600',
               )
-          }
-          it {
             is_expected.to contain_file('/etc/at.allow')
               .with(
                 ensure: 'file',
@@ -30,11 +30,15 @@ describe 'secure_linux_cis::redhat7::cis_5_1_8' do
                 mode: '0600',
               )
           }
-          it { is_expected.not_to contain_file('etc/cron.deny') }
-          it { is_expected.not_to contain_file('etc/at.deny') }
+          it {
+            is_expected.not_to contain_file('etc/cron.deny')
+            is_expected.not_to contain_file('etc/at.deny')
+          }
         else
-          it { is_expected.not_to contain_file('/etc/at.allow') }
-          it { is_expected.not_to contain_file('/etc/cron.allow') }
+          it {
+            is_expected.not_to contain_file('/etc/at.allow')
+            is_expected.not_to contain_file('/etc/cron.allow')
+          }
         end
       end
     end

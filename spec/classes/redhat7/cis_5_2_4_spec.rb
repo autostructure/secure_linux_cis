@@ -9,7 +9,9 @@ describe 'secure_linux_cis::redhat7::cis_5_2_4' do
         let(:facts) { os_facts }
         let(:params) { { 'enforced' => option } }
 
-        it { is_expected.to compile }
+        it {
+          is_expected.to compile
+        }
 
         if option
           it {
@@ -18,11 +20,13 @@ describe 'secure_linux_cis::redhat7::cis_5_2_4' do
                 ensure: 'present',
                 path: '/etc/ssh/sshd_config',
                 line: 'X11Forwarding no',
-                match: 'X11Forwarding.*',
+                match: '^X11Forwarding.*',
               )
           }
         else
-          it { is_expected.not_to contain_file_line('ssh x11') }
+          it {
+            is_expected.not_to contain_file_line('ssh x11')
+          }
         end
       end
     end

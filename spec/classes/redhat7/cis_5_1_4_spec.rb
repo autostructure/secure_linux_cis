@@ -9,7 +9,9 @@ describe 'secure_linux_cis::redhat7::cis_5_1_4' do
         let(:facts) { os_facts }
         let(:params) { { 'enforced' => option } }
 
-        it { is_expected.to compile }
+        it {
+          is_expected.to compile
+        }
 
         if option
           it {
@@ -22,7 +24,9 @@ describe 'secure_linux_cis::redhat7::cis_5_1_4' do
               )
           }
         else
-          it { is_expected.not_to contain_file('/etc/cron.daily') }
+          it {
+            is_expected.not_to contain_file('/etc/cron.daily')
+          }
         end
       end
     end

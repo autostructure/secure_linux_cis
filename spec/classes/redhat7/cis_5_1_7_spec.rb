@@ -22,7 +22,9 @@ describe 'secure_linux_cis::redhat7::cis_5_1_7' do
               )
           }
         else
-          it { is_expected.not_to contain_file('/etc/cron.d') }
+          it {
+            is_expected.not_to contain_file('/etc/cron.d')
+          }
         end
       end
     end

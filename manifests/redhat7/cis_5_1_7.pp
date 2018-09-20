@@ -24,11 +24,14 @@ class secure_linux_cis::redhat7::cis_5_1_7 (
 ) {
 
   if $enforced {
+
     file { '/etc/cron.d':
       ensure => directory,
       group  => 'root',
       owner  => 'root',
       mode   => '0700',
     }
+
   }
+
 }
