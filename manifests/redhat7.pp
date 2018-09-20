@@ -155,5 +155,8 @@ class secure_linux_cis::redhat7 (
   class { '::secure_linux_cis::redhat7::cis_5_2_5':
     max_auth_tries => $max_auth_tries,
   }
-
+  include ::secure_linux_cis::redhat7::cis_5_2_6
+  include ::secure_linux_cis::redhat7::cis_5_2_7
+  include ::secure_linux_cis::redhat7::cis_5_2_8
+  include ::secure_linux_cis::redhat7::cis_5_2_9
 }
