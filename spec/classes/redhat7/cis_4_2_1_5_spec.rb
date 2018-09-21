@@ -7,7 +7,7 @@ describe 'secure_linux_cis::redhat7::cis_4_2_1_5' do
     bool_options.each do |option|
       context "on #{os}" do
         let(:facts) { os_facts }
-        let(:params) { { 'enforced' => option } }
+        let(:params) { { 'enforced' => option, 'is_logging_host' => false } }
 
         it { is_expected.to compile }
 

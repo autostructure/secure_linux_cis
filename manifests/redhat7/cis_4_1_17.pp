@@ -1,4 +1,4 @@
-# A description of what this class does
+# 4.1.17 Ensure kernel module loading and unloading is collected (Scored)
 #
 # Description:
 # Monitor the loading and unloading of kernel modules. The programs insmod (install a
@@ -16,7 +16,7 @@
 # delete_module system calls would reflect an unauthorized user attempting to use a
 # different program to load and unload modules.
 #
-# @summary A short summary of the purpose of this class
+# @summary 4.1.17 Ensure kernel module loading and unloading is collected (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_4_1_17
@@ -26,6 +26,7 @@ class secure_linux_cis::redhat7::cis_4_1_17 (
 
   if $enforced {
 
+    # 64 bit architecture
     if $facts['architecture'] =~ /64/ {
 
       file_line { 'audit.rules kernel module 1':
@@ -53,6 +54,8 @@ class secure_linux_cis::redhat7::cis_4_1_17 (
       }
 
     }
+
+    # 32 bit architecture
     else {
 
       file_line { 'audit.rules kernel module 1':
@@ -82,4 +85,5 @@ class secure_linux_cis::redhat7::cis_4_1_17 (
     }
 
   }
+
 }
