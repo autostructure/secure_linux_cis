@@ -148,4 +148,24 @@ class secure_linux_cis::redhat7 (
   class { '::secure_linux_cis::redhat7::cis_4_2_2_2':
     logging => $logging,
   }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_2_3':
+    logging => $logging,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_2_4':
+    logging      => $logging,
+    logging_host => $logging_host,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_2_5':
+    logging         => $logging,
+    is_logging_host => $is_logging_host,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_3':
+    logging => $logging,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_4': }
 }
