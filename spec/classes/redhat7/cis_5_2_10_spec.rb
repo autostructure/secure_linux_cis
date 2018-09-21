@@ -18,7 +18,7 @@ describe 'secure_linux_cis::redhat7::cis_5_2_10' do
                 ensure: 'present',
                 path:   '/etc/ssh/sshd_config',
                 line:   'PermitUserEnvironment no',
-                match:  '^#?PermitUserEnvironment.*',
+                match:  '^#?PermitUserEnvironment',
               )
           }
         else

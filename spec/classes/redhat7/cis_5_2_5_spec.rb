@@ -18,7 +18,7 @@ describe 'secure_linux_cis::redhat7::cis_5_2_5' do
                 ensure: 'present',
                 path:   '/etc/ssh/sshd_config',
                 line:   'MaxAuthTries 4',
-                match:  '^#?MaxAuthTries.*',
+                match:  '^#?MaxAuthTries',
               )
           }
         else

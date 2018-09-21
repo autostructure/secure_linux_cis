@@ -18,7 +18,7 @@ describe 'secure_linux_cis::redhat7::cis_5_2_7' do
                 ensure: 'present',
                 path:   '/etc/ssh/sshd_config',
                 line:   'HostbasedAuthentication no',
-                match:  '^#?HostbasedAuthentication.*',
+                match:  '^#?HostbasedAuthentication',
               )
           }
         else
