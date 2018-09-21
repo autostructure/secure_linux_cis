@@ -15,6 +15,8 @@ class secure_linux_cis::redhat7 (
   Boolean $is_logging_host = false,
   Integer $max_log_file = 8,
   Enum['1', '2', '3', '4'] $max_auth_tries = '4',
+  Array $approved_mac_algorithms = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh.com','umac-128-etm@openssh.com',
+                                    'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com']
 ) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
@@ -190,4 +192,9 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_5_2_7
   include ::secure_linux_cis::redhat7::cis_5_2_8
   include ::secure_linux_cis::redhat7::cis_5_2_9
+  include ::secure_linux_cis::redhat7::cis_5_2_10
+  class { '::secure_linux_cis::redhat7::cis_5_2_11':
+    approved_mac_algorithms => $approved_mac_algorithms,
+  }
+
 }
