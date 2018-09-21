@@ -18,6 +18,7 @@ describe 'secure_linux_cis::redhat7::cis_4_2_4' do
                 ensure: 'directory',
                 recurse: true,
                 mode: 'g-wx,o-rwx',
+                ignore: 'puppet',
               )
           }
         else

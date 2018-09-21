@@ -14,6 +14,7 @@ class secure_linux_cis::redhat7::cis_4_2_4 (
       ensure  => directory,
       recurse => true,
       mode    => 'g-wx,o-rwx',
+      ignore  => 'puppet',
     }
 
   }
