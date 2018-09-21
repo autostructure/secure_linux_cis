@@ -24,7 +24,7 @@ class secure_linux_cis::redhat7::cis_5_2_4 (
       ensure => present,
       path   => '/etc/ssh/sshd_config',
       line   => 'X11Forwarding no',
-      match  => '^#?\s?X11Forwarding',
+      match  => '^#?[\r\n\f\v ]?X11Forwarding',
     }
   }
 }
