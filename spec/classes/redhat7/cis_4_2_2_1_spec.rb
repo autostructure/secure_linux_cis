@@ -2,22 +2,22 @@ require 'spec_helper'
 
 bool_options = [true, false]
 
-describe 'secure_linux_cis::redhat7::cis_4_2_1_1' do
+describe 'secure_linux_cis::redhat7::cis_4_2_2_1' do
   on_supported_os.each do |os, os_facts|
     bool_options.each do |option|
-      context "on #{os} rsyslog" do
+      context "on #{os} syslog-ng" do
         let(:facts) { os_facts }
-        let(:params) { { 'enforced' => option, 'logging' => 'rsyslog' } }
+        let(:params) { { 'enforced' => option, 'logging' => 'syslog-ng' } }
 
         it { is_expected.to compile }
 
         if option
           it {
-            is_expected.to contain_package('rsyslog')
+            is_expected.to contain_package('syslog-ng')
               .with(
                 ensure: 'installed',
               )
-            is_expected.to contain_service('rsyslog')
+            is_expected.to contain_service('syslog-ng')
               .with(
                 ensure: 'running',
                 enable: true,
@@ -25,14 +25,14 @@ describe 'secure_linux_cis::redhat7::cis_4_2_1_1' do
           }
         else
           it {
-            is_expected.not_to contain_package('rsyslog')
-            is_expected.not_to contain_service('rsyslog')
+            is_expected.not_to contain_package('syslog-ng')
+            is_expected.not_to contain_service('syslog-ng')
           }
         end
       end
-      context "on #{os} syslog-ng" do
+      context "on #{os} rsyslog" do
         let(:facts) { os_facts }
-        let(:params) { { 'enforced' => option, 'logging' => 'syslog-ng' } }
+        let(:params) { { 'enforced' => option, 'logging' => 'rsyslog' } }
 
         it { is_expected.to compile }
 
