@@ -6,7 +6,7 @@ describe 'secure_linux_cis::redhat7::cis_6_1_13' do
   on_supported_os.each do |os, os_facts|
     bool_options.each do |option|
       context "on #{os}" do
-        let(:facts) { 'suid_files' => 'true' }
+        let(:facts) { { 'suid_files' => 'true' } }
         let(:params) { { 'enforced' => option } }
 
         it { is_expected.to compile }
