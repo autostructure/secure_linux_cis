@@ -15,7 +15,7 @@ describe 'secure_linux_cis::redhat7::cis_5_1_4' do
           it {
             is_expected.to contain_file('/etc/cron.daily')
               .with(
-                ensure: 'file',
+                ensure: 'directory',
                 owner:  'root',
                 group:  'root',
                 mode:   '0700',
