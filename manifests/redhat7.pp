@@ -140,4 +140,12 @@ class secure_linux_cis::redhat7 (
     logging         => $logging,
     is_logging_host => $is_logging_host,
   }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_2_1':
+    logging => $logging,
+  }
+
+  class { '::secure_linux_cis::redhat7::cis_4_2_2_2':
+    logging => $logging,
+  }
 }

@@ -1,4 +1,4 @@
-# A description of what this class does
+# 4.1.13 Ensure successful file system mounts are collected (Scored)
 #
 # Description:
 # Monitor the use of the mount system call. The mount (and umount ) system call controls the
@@ -18,7 +18,7 @@
 # audit log and is not recommended. Recommendations on configuration options to track
 # data export to media is beyond the scope of this document.
 #
-# @summary A short summary of the purpose of this class
+# @summary 4.1.13 Ensure successful file system mounts are collected (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_4_1_13

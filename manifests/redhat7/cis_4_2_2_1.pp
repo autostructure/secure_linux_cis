@@ -1,6 +1,13 @@
-# A description of what this class does
+# 4.2.2.1 Ensure syslog-ng service is enabled (Scored)
 #
-# @summary A short summary of the purpose of this class
+# Description:
+# Once the syslog-ng package is installed it needs to be activated.
+#
+# Rationale:
+# If the syslog-ng service is not activated the system may default to the syslogd service or
+# lack logging instead.
+#
+# @summary 4.2.2.1 Ensure syslog-ng service is enabled (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_4_2_2_1
@@ -10,11 +17,6 @@ class secure_linux_cis::redhat7::cis_4_2_2_1 (
 ) {
 
   if $enforced and $logging == 'syslog-ng' {
-
-    package { 'syslog-ng':
-      ensure => installed,
-      before => Service['syslog-ng'],
-    }
 
     service { 'syslog-ng':
       ensure => running,

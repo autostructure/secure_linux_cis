@@ -13,10 +13,6 @@ describe 'secure_linux_cis::redhat7::cis_4_2_2_1' do
 
         if option
           it {
-            is_expected.to contain_package('syslog-ng')
-              .with(
-                ensure: 'installed',
-              )
             is_expected.to contain_service('syslog-ng')
               .with(
                 ensure: 'running',
@@ -25,7 +21,6 @@ describe 'secure_linux_cis::redhat7::cis_4_2_2_1' do
           }
         else
           it {
-            is_expected.not_to contain_package('syslog-ng')
             is_expected.not_to contain_service('syslog-ng')
           }
         end
@@ -37,7 +32,6 @@ describe 'secure_linux_cis::redhat7::cis_4_2_2_1' do
         it { is_expected.to compile }
 
         it {
-          is_expected.not_to contain_package('rsyslog')
           is_expected.not_to contain_service('rsyslog')
         }
       end

@@ -18,11 +18,6 @@ class secure_linux_cis::redhat7::cis_4_2_1_1 (
 
   if $enforced and $logging == 'rsyslog' {
 
-    package { 'rsyslog':
-      ensure => installed,
-      before => Service['rsyslog'],
-    }
-
     service { 'rsyslog':
       ensure => running,
       enable => true,

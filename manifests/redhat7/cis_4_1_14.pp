@@ -1,4 +1,4 @@
-# A description of what this class does
+# 4.1.14 Ensure file deletion events by users are collected (Scored)
 #
 # Description:
 # Monitor the use of system calls associated with the deletion or renaming of files and file
@@ -13,7 +13,7 @@
 # administrators will want to look for specific privileged files that are being deleted or
 # altered.
 #
-# @summary A short summary of the purpose of this class
+# @summary 4.1.14 Ensure file deletion events by users are collected (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_4_1_14

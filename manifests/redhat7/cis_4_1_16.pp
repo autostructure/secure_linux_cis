@@ -1,4 +1,4 @@
-# A description of what this class does
+# 4.1.16 Ensure system administrator actions (sudolog) are collected (Scored)
 #
 # Description:
 # Monitor the sudo log file. If the system has been properly configured to disable the use of
@@ -14,7 +14,7 @@
 # written to the audit trail with the records written to /var/log/sudo.log to verify if
 # unauthorized commands have been executed.
 #
-# @summary A short summary of the purpose of this class
+# @summary 4.1.16 Ensure system administrator actions (sudolog) are collected (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_4_1_16
