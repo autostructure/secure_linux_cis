@@ -10,6 +10,8 @@ class secure_linux_cis::redhat7::cis_4_2_4 (
 
   if $enforced {
 
+    # Recursively set permissions on /var/log
+    # Note: Ignoring puppet logs because Puppet manages it's own log permissions
     file { '/var/log':
       ensure  => directory,
       recurse => true,
