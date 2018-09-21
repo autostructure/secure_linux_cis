@@ -3,7 +3,7 @@ require 'spec_helper'
 bool_options = [true, false]
 
 describe 'secure_linux_cis::redhat7::cis_6_1_12' do
-  on_supported_os.each do |os, _os_facts|
+  on_supported_os.each do |os, os_facts|
     bool_options.each do |option|
       context "on #{os}" do
         let(:facts) { 'unowned_group_files' == 'true' }
