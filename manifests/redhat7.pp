@@ -168,4 +168,17 @@ class secure_linux_cis::redhat7 (
   }
 
   class { '::secure_linux_cis::redhat7::cis_4_2_4': }
+
+  include ::secure_linux_cis::redhat7::cis_5_1_1
+  include ::secure_linux_cis::redhat7::cis_5_1_2
+  include ::secure_linux_cis::redhat7::cis_5_1_3
+  include ::secure_linux_cis::redhat7::cis_5_1_4
+  include ::secure_linux_cis::redhat7::cis_5_1_5
+  include ::secure_linux_cis::redhat7::cis_5_1_6
+  include ::secure_linux_cis::redhat7::cis_5_1_7
+  include ::secure_linux_cis::redhat7::cis_5_1_8
+  include ::secure_linux_cis::redhat7::cis_5_2_1
+  include ::secure_linux_cis::redhat7::cis_5_2_2
+  include ::secure_linux_cis::redhat7::cis_5_2_3
+  include ::secure_linux_cis::redhat7::cis_5_2_4
 }
