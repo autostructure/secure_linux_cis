@@ -59,7 +59,7 @@ class secure_linux_cis::redhat7::cis_4_2_2_5 (
         notify => Exec['reload syslog-ng 4_2_2_5'],
       }
 
-      file_line { 'syslog-ng.conf remote 1':
+      file_line { 'syslog-ng.conf remote 2':
         ensure => present,
         path   => '/etc/syslog-ng/syslog-ng.conf',
         line   => '',
