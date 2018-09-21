@@ -21,7 +21,7 @@ class secure_linux_cis::redhat7::cis_5_2_6 (
       ensure => present,
       path   => '/etc/ssh/sshd_config',
       line   => 'IgnoreRhosts yes',
-      match  => 'IgnoreRhosts.*',
+      match  => '^#?IgnoreRhosts',
     }
 
   }

@@ -23,7 +23,7 @@ class secure_linux_cis::redhat7::cis_5_2_5 (
     ensure => present,
     path   => '/etc/ssh/sshd_config',
     line   => "MaxAuthTries ${max_auth_tries}",
-    match  => 'MaxAuthTries.*',
+    match  => '^#?MaxAuthTries',
     }
 
   }

@@ -40,7 +40,7 @@ $acceptable_values = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh
       ensure => 'present',
       path   => '/etc/ssh/sshd_config',
       line   => "MACs ${mac_algorithm_array}",
-      match  => 'MACs.*',
+      match  => '^#?MACs',
     }
 
   }
