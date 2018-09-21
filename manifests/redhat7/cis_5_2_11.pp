@@ -32,8 +32,7 @@ $acceptable_values = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh
       }
 
     }
-    join($hosts_fqdn,",")
-    $mac_algorithm_array = join($approved_mac_algorithms,",")
+    $mac_algorithm_array = join($approved_mac_algorithms,',')
     notify { 'variable check':
       message => $mac_algorithm_array,
     }
