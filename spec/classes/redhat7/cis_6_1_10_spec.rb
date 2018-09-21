@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_6_1_10' do
 
         if option
           it {
-            is_expected.to contain_notify('"You have one or more world writable files. They are: true":')
+            is_expected.to contain_notify('"You have one or more world writable files. They are: true"')
           }
         else
-          it { is_expected.not_to contain_notify('"You have one or more world writable files. They are: true":') }
+          it { is_expected.not_to contain_notify('"You have one or more world writable files. They are: true"') }
         end
       end
     end
