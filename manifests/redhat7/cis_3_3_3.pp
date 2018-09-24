@@ -18,18 +18,12 @@ class secure_linux_cis::redhat7::cis_3_3_3 (
 
   if $enforced and !$ipv6_enabled {
 
-    shellvar { 'GRUB_CMDLINE_LINUX cis_3_3_3':
-      ensure       => present,
-      variable     => 'GRUB_CMDLINE_LINUX',
-      target       => '/etc/default/grub',
-      value        => 'ipv6.disable=1',
-      array_append => true,
-      notify       => Exec['reload grub2 configuration 3_3_3'],
+    sysctl { 'net.ipv6.conf.all.disable_ipv6':
+      value => 1,
     }
 
-    exec { 'reload grub2 configuration 3_3_3':
-      command     => '/sbin/grub2-mkconfig > /boot/grub2/grub.cfg',
-      refreshonly => true,
+    sysctl { 'net.ipv6.conf.default.disable_ipv6':
+      value => 1,
     }
 
   }

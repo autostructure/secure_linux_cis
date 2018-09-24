@@ -13,24 +13,19 @@ describe 'secure_linux_cis::redhat7::cis_3_3_3' do
 
         if option
           it {
-            is_expected.to contain_shellvar('GRUB_CMDLINE_LINUX cis_3_3_3')
+            is_expected.to contain_sysctl('net.ipv6.conf.all.disable_ipv6')
               .with(
-                ensure: 'present',
-                variable: 'GRUB_CMDLINE_LINUX',
-                target: '/etc/default/grub',
-                value: 'ipv6.disable=1',
-                array_append: true,
+                value: 1,
               )
-            is_expected.to contain_exec('reload grub2 configuration 3_3_3')
+            is_expected.to contain_sysctl('net.ipv6.conf.default.disable_ipv6')
               .with(
-                command: '/sbin/grub2-mkconfig > /boot/grub2/grub.cfg',
-                refreshonly: true,
+                value: 1,
               )
           }
         else
           it {
-            is_expected.not_to contain_shellvar('GRUB_CMDLINE_LINUX')
-            is_expected.not_to contain_exec('reload grub2 configuration 3_3_3')
+            is_expected.not_to contain_sysctl('net.ipv6.conf.all.disable_ipv6')
+            is_expected.not_to contain_sysctl('net.ipv6.conf.default.disable_ipv6')
           }
         end
       end
