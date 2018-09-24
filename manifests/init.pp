@@ -5,6 +5,7 @@
 # @example
 #   include secure_linux_cis
 class secure_linux_cis (
+  Array[String] $ntp_servers = [],
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
   String $logging_host = 'loghost.example.com',
   Boolean $is_logging_host = false,
@@ -26,6 +27,7 @@ class secure_linux_cis (
         max_log_file            => $max_log_file,
         max_auth_tries          => $max_auth_tries,
         approved_mac_algorithms => $approved_mac_algorithms,
+        ntp_servers             => $ntp_servers,
       }
     }
     default: {

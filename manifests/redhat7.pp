@@ -10,6 +10,7 @@
 # @example
 #   include secure_linux_cis::redhat7
 class secure_linux_cis::redhat7 (
+  Array[String] $ntp_servers = [],
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
   String $logging_host = 'loghost.example.com',
   Boolean $is_logging_host = false,
@@ -57,7 +58,9 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_2_1_6
   include ::secure_linux_cis::redhat7::cis_2_1_7
 
-  include ::secure_linux_cis::redhat7::cis_2_2_1_1
+  class { '::secure_linux_cis::redhat7::cis_2_2_1_1':
+    ntp_servers => $ntp_servers,
+  }
   include ::secure_linux_cis::redhat7::cis_2_2_1_2
   include ::secure_linux_cis::redhat7::cis_2_2_1_3
   include ::secure_linux_cis::redhat7::cis_2_2_2
