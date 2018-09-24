@@ -18,9 +18,9 @@ class secure_linux_cis::redhat7::cis_4_1_3 (
 
   if $enforced {
 
-    shellvar { 'GRUB_CMDLINE_LINUX':
+    shellvar { 'GRUB_CMDLINE_LINUX cis_4_1_3':
       ensure       => present,
-      name         => 'GRUB_CMDLINE_LINUX cis_4_1_3',
+      variable     => 'GRUB_CMDLINE_LINUX',
       target       => '/etc/default/grub',
       value        => 'audit=1',
       array_append => true,

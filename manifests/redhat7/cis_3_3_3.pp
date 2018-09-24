@@ -18,9 +18,9 @@ class secure_linux_cis::redhat7::cis_3_3_3 (
 
   if $enforced and !$ipv6_enabled {
 
-    shellvar { 'GRUB_CMDLINE_LINUX':
+    shellvar { 'GRUB_CMDLINE_LINUX cis_3_3_3':
       ensure       => present,
-      name         => 'GRUB_CMDLINE_LINUX cis_3_3_3',
+      variable     => 'GRUB_CMDLINE_LINUX',
       target       => '/etc/default/grub',
       value        => 'ipv6.disable=1',
       array_append => true,
