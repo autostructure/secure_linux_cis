@@ -16,7 +16,7 @@ class secure_linux_cis::redhat7::cis_6_2_2 (
 
   if $enforced {
     exec { 'plus':
-      command => '/etc/grep '^\+:' /etc/passwd',
+      command => '/etc/grep \'^\+:\' /etc/passwd',
     }
   }
 }
