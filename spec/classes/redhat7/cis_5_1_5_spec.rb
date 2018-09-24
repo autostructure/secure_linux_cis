@@ -15,14 +15,16 @@ describe 'secure_linux_cis::redhat7::cis_5_1_5' do
           it {
             is_expected.to contain_file('/etc/cron.weekly')
               .with(
-                ensure: 'file',
+                ensure: 'directory',
                 owner:  'root',
                 group:  'root',
                 mode:   '0700',
               )
           }
         else
-          it { is_expected.not_to contain_file('/etc/cron.weekly') }
+          it {
+            is_expected.not_to contain_file('/etc/cron.weekly')
+          }
         end
       end
     end

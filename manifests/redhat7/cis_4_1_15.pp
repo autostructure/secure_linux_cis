@@ -1,4 +1,4 @@
-# A description of what this class does
+# 4.1.15 Ensure changes to system administration scope (sudoers) is collected (Scored)
 #
 # Description:
 # Monitor scope changes for system administrations. If the system has been properly
@@ -11,7 +11,7 @@
 # Changes in the /etc/sudoers file can indicate that an unauthorized change has been made
 # to scope of system administrator activity.
 #
-# @summary A short summary of the purpose of this class
+# @summary 4.1.15 Ensure changes to system administration scope (sudoers) is collected (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_4_1_15
@@ -34,4 +34,5 @@ class secure_linux_cis::redhat7::cis_4_1_15 (
     }
 
   }
+
 }

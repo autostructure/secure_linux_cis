@@ -22,11 +22,14 @@ class secure_linux_cis::redhat7::cis_5_2_3 (
 ) {
 
   if $enforced {
+
     file_line { 'ssh log level':
       ensure => present,
       path   => '/etc/ssh/sshd_config',
       line   => 'LogLevel Info',
-      match  => 'LogLevel.*',
+      match  => '^LogLevel.*',
     }
+
   }
+
 }

@@ -26,23 +26,29 @@ class secure_linux_cis::redhat7::cis_5_1_8 (
 ) {
 
   if $enforced {
+
     file { '/etc/cron.allow':
       ensure => file,
       owner  => 'root',
       group  => 'root',
       mode   => '0600',
     }
+
     file { '/etc/at.allow':
       ensure => file,
       owner  => 'root',
       group  => 'root',
       mode   => '0600',
     }
+
     file { '/etc/cron.deny':
       ensure => absent,
     }
+
     file { '/etc/at.deny':
       ensure => absent,
     }
+
   }
+
 }

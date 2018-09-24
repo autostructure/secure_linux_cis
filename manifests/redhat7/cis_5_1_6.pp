@@ -22,11 +22,14 @@ class secure_linux_cis::redhat7::cis_5_1_6 (
 ) {
 
   if $enforced {
+
     file { '/etc/cron.monthly':
-      ensure => file,
+      ensure => directory,
       group  => 'root',
       owner  => 'root',
       mode   => '0700',
     }
+
   }
+
 }
