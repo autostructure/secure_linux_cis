@@ -22,7 +22,7 @@ describe 'secure_linux_cis::redhat7::cis_3_6_1' do
         else
           it {
             is_expected.not_to contain_class('firewall')
-            contain_resources('firewall')
+            is_expected.not_to contain_resources('firewall')
           }
         end
       end
