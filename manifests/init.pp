@@ -26,6 +26,7 @@ class secure_linux_cis (
   Integer $max_log_file = 8,
   Enum['1', '2', '3', '4'] $max_auth_tries = '4',
   Enum['ntp', 'chrony', 'none'] $time_sync = 'ntp',
+  Boolean $ipv6_enabled = true,
   Array $approved_mac_algorithms = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh.com','umac-128-etm@openssh.com',
                                     'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com']
 ) {
@@ -44,6 +45,7 @@ class secure_linux_cis (
         approved_mac_algorithms => $approved_mac_algorithms,
         time_servers            => $time_servers,
         time_sync               => $time_sync,
+        ipv6_enabled            => $ipv6_enabled,
       }
     }
     default: {

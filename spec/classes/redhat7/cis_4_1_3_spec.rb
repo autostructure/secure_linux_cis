@@ -13,17 +13,24 @@ describe 'secure_linux_cis::redhat7::cis_4_1_3' do
 
         if option
           it {
-            is_expected.to contain_file_line('GRUB_CMDLINE_LINUX')
+            is_expected.to contain_shellvar('GRUB_CMDLINE_LINUX')
               .with(
                 ensure: 'present',
-                path: '/etc/default/grub',
-                line: 'GRUB_CMDLINE_LINUX="audit=1"',
-                match: '^GRUB_CMDLINE_LINUX=',
+                name: 'GRUB_CMDLINE_LINUX cis_4_1_3',
+                target: '/etc/default/grub',
+                value: 'audit=1',
+                array_append: true,
+              )
+            is_expected.to contain_exec('reload grub2 configuration 4_1_3')
+              .with(
+                command: '/sbin/grub2-mkconfig > /boot/grub2/grub.cfg',
+                refreshonly: true,
               )
           }
         else
           it {
-            is_expected.not_to contain_file_line('GRUB_CMDLINE_LINUX')
+            is_expected.not_to contain_shellvar('GRUB_CMDLINE_LINUX')
+            is_expected.not_to contain_exec('reload grub2 configuration 4_1_3')
           }
         end
       end
