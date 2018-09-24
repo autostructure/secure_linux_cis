@@ -108,6 +108,19 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_3_5_3
   include ::secure_linux_cis::redhat7::cis_3_5_4
 
+  include ::secure_linux_cis::redhat7::cis_3_6_1
+  include ::secure_linux_cis::redhat7::cis_3_6_2
+  include ::secure_linux_cis::redhat7::cis_3_6_3
+  include ::secure_linux_cis::redhat7::cis_3_6_4
+  include ::secure_linux_cis::redhat7::cis_3_6_5
+
+  # Set order for firewall rules to be applied
+  Class['::secure_linux_cis::redhat7::cis_3_6_1']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_3']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_4']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_5']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_2']
+
   class { '::secure_linux_cis::redhat7::cis_4_1_1_1':
     max_log_file => $max_log_file,
   }

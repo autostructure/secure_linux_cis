@@ -25,7 +25,7 @@ class secure_linux_cis (
         is_logging_host         => $is_logging_host,
         max_log_file            => $max_log_file,
         max_auth_tries          => $max_auth_tries,
-        approved_mac_algorithms => $approved_mac_algorithms
+        approved_mac_algorithms => $approved_mac_algorithms,
       }
     }
     default: {

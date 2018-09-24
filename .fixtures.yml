@@ -12,3 +12,6 @@ fixtures:
     augeasproviders_sysctl:
       repo: "herculesteam/augeasproviders_sysctl"
       ref: "2.2.0"
+    firewall:
+      repo: "puppetlabs/firewall"
+      ref: "1.9.0"
