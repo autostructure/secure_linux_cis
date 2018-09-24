@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_6_2_1' do
 
         if option
           it {
-            is_expected.to contain_exec("no_password")
+            is_expected.to contain_exec('no_password')
           }
         else
-          it { is_expected.not_to contain_exec("no_password") }
+          it { is_expected.not_to contain_exec('no_password') }
         end
       end
     end
