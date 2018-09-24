@@ -22,11 +22,14 @@ class secure_linux_cis::redhat7::cis_5_1_3 (
 ) {
 
   if $enforced {
+
     file { '/etc/cron.hourly':
       ensure => directory,
       group  => 'root',
       owner  => 'root',
       mode   => '0700',
     }
+
   }
+
 }

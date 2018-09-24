@@ -2,7 +2,7 @@ require 'spec_helper'
 
 bool_options = [true, false]
 
-describe 'secure_linux_cis::redhat7::cis_5_1_7' do
+describe 'secure_linux_cis::redhat7::cis_5_2_10' do
   on_supported_os.each do |os, os_facts|
     bool_options.each do |option|
       context "on #{os}" do
@@ -13,17 +13,17 @@ describe 'secure_linux_cis::redhat7::cis_5_1_7' do
 
         if option
           it {
-            is_expected.to contain_file('/etc/cron.d')
+            is_expected.to contain_file_line('ssh permit user environment')
               .with(
-                ensure: 'directory',
-                owner:  'root',
-                group:  'root',
-                mode:   '0700',
+                ensure: 'present',
+                path:   '/etc/ssh/sshd_config',
+                line:   'PermitUserEnvironment no',
+                match:  '^#?PermitUserEnvironment',
               )
           }
         else
           it {
-            is_expected.not_to contain_file('/etc/cron.d')
+            is_expected.not_to contain_file_line('ssh permit user environment')
           }
         end
       end

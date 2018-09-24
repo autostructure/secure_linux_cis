@@ -17,11 +17,14 @@ class secure_linux_cis::redhat7::cis_5_2_1 (
 ) {
 
   if $enforced {
+
     file { '/etc/ssh/sshd_config':
       ensure => file,
       owner  => 'root',
       group  => 'root',
       mode   => '0600',
     }
+
   }
+
 }

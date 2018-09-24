@@ -20,11 +20,14 @@ class secure_linux_cis::redhat7::cis_5_2_4 (
 ) {
 
   if $enforced {
+
     file_line { 'ssh x11':
       ensure => present,
       path   => '/etc/ssh/sshd_config',
       line   => 'X11Forwarding no',
       match  => '^#?[\r\n\f\v ]?X11Forwarding',
     }
+
   }
+
 }
