@@ -9,3 +9,6 @@ macaddress: "AA:AA:AA:AA:AA:AA"
 augeasversion: "1.8.1"
 network: '10.0.0.0'
 netmask: '255.255.255.0'
+xorg_x11_packages:
+  - 'xorg-x11-apps-7.7-7.el7.x86_64'
+  - 'xorg-x11-xkb-extras-7.7-12.el7.x86_64'
