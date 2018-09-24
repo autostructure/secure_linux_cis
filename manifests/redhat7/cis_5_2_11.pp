@@ -33,15 +33,13 @@ $acceptable_values = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh
 
     }
 
-    $mac_algorithm_array = String($approved_mac_algorithms, '%a')
-    notify { 'variable check':
-      message => $mac_algorithm_array,
-    }
+    $mac_algorithm_array = join($approved_mac_algorithms,',')
+
     file_line { 'ssh mac algorithms':
       ensure => 'present',
       path   => '/etc/ssh/sshd_config',
       line   => "MACs ${mac_algorithm_array}",
-      match  => '^MACs.*',
+      match  => '^#?MACs',
     }
 
   }

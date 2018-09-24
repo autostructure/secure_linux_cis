@@ -13,3 +13,5 @@ unowned_user_files: "true"
 unowned_group_files: "true"
 suid_files: "true"
 sgid_files: "true"
+network: '10.0.0.0'
+netmask: '255.255.255.0'
