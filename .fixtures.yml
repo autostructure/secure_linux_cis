@@ -9,6 +9,7 @@ fixtures:
     auditd: "kemra102/auditd"
     aboe: "aboe/chrony"
     postfix: "camptocamp/postfix"
+    logrotate: "puppet/logrotate"
     augeasproviders_shellvar: "herculesteam/augeasproviders_shellvar"
     augeasproviders_core:
       repo: "herculesteam/augeasproviders_core"

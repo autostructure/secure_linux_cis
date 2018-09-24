@@ -214,6 +214,8 @@ class secure_linux_cis::redhat7 (
 
   class { '::secure_linux_cis::redhat7::cis_4_2_4': }
 
+  include ::secure_linux_cis::redhat7::cis_4_3
+
   include ::secure_linux_cis::redhat7::cis_5_1_1
   include ::secure_linux_cis::redhat7::cis_5_1_2
   include ::secure_linux_cis::redhat7::cis_5_1_3
