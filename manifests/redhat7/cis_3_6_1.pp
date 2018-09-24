@@ -17,9 +17,7 @@ class secure_linux_cis::redhat7::cis_3_6_1 (
 
   if $enforced {
 
-    package { 'iptables':
-      ensure => installed,
-    }
+    class { '::firewall': }
 
     resources { 'firewall':
       purge => true,
