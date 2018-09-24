@@ -200,7 +200,7 @@ class secure_linux_cis::redhat7 (
   class { '::secure_linux_cis::redhat7::cis_5_2_11':
     approved_mac_algorithms => $approved_mac_algorithms,
   }
-  include ::secure_linux_cis::redhat7::cis_6_1_1
+  # include ::secure_linux_cis::redhat7::cis_6_1_1
   include ::secure_linux_cis::redhat7::cis_6_1_2
   include ::secure_linux_cis::redhat7::cis_6_1_3
   include ::secure_linux_cis::redhat7::cis_6_1_4
@@ -215,6 +215,7 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_6_1_13
   include ::secure_linux_cis::redhat7::cis_6_1_14
   include ::secure_linux_cis::redhat7::cis_6_2_1
+  include ::secure_linux_cis::redhat7::cis_6_2_2
 
 
 
