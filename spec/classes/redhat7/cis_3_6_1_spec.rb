@@ -13,10 +13,7 @@ describe 'secure_linux_cis::redhat7::cis_3_6_1' do
 
         if option
           it {
-            is_expected.to contain_package('iptables')
-              .with(
-                ensure: 'installed',
-              )
+            is_expected.to contain_class('firewall')
             is_expected.to contain_resources('firewall')
               .with(
                 purge: true,
@@ -24,7 +21,7 @@ describe 'secure_linux_cis::redhat7::cis_3_6_1' do
           }
         else
           it {
-            is_expected.not_to contain_package('iptables')
+            is_expected.not_to contain_class('firewall')
             contain_resources('firewall')
           }
         end
