@@ -2,6 +2,8 @@
 #
 Facter.add('xorg_x11_packages') do
   confine kernel: :linux
-  package_list = Facter::Core::Execution.exec('rpm -qa xorg-x11*')
-  package_list.split("\n")
+  setcode do
+    package_list = Facter::Core::Execution.exec('rpm -qa xorg-x11*')
+    package_list.split("\n")
+  end
 end
