@@ -13,7 +13,9 @@ class secure_linux_cis::redhat7::cis_6_1_11 (
 
   if $enforced {
       if $facts['unowned_user_files'] {
-        notify { "You have files or directories that are not owned by a user! They are: ${::unowned_user_files}": }
+        notify { 'uf':
+          message => "You have files or directories that are not owned by a user! They are: ${::unowned_user_files}",
+        }
       }
   }
 }

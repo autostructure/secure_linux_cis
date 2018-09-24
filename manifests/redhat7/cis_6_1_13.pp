@@ -16,7 +16,9 @@ class secure_linux_cis::redhat7::cis_6_1_13 (
 
   if $enforced {
     if $facts['suid_files'] {
-      notify { "You have SUID files on your system, which are not recommended. They are: ${::suid_files}": }
+      notify { 'sf':
+        message => "You have SUID files on your system, which are not recommended. They are: ${::suid_files}",
+      }
     }
   }
 }

@@ -16,7 +16,9 @@ class secure_linux_cis::redhat7::cis_6_1_14 (
 
   if $enforced {
     if $facts['sgid_files'] {
-      notify { "You have SGID files on your system. It is recommended to verify that the files have md5 checksums that match with their corresponding package. The files are: ${::sgid_files}": } # lint:ignore:140chars
+      notify { 'sgf':
+        message => "You have SGID files on your system. It is recommended to verify that the files have md5 checksums that match with their corresponding package. The files are: ${::sgid_files}", # lint:ignore:140chars
+        }
     }
   }
 }
