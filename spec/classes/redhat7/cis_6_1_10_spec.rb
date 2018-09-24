@@ -6,12 +6,7 @@ describe 'secure_linux_cis::redhat7::cis_6_1_10' do
   on_supported_os.each do |os, os_facts|
     bool_options.each do |option|
       context "on #{os}" do
-        let(:facts) do
-          {
-            'world_writable'  => 'true',
-            os_facts          => true,
-          }
-        end
+        let(:facts) { { os_facts } }
         let(:params) { { 'enforced' => option } }
 
         it { is_expected.to compile }
