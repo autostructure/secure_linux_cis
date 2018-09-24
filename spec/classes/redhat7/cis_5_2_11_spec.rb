@@ -32,4 +32,19 @@ describe 'secure_linux_cis::redhat7::cis_5_2_11' do
       end
     end
   end
+  on_supported_os.each do |os, os_facts|
+    bool_options.each do |option|
+      context "on #{os} with invalid algorithms" do
+        let(:facts) { os_facts }
+        let(:params) do
+          { 'enforced' => option, 'approved_mac_algorithms' => ['invalid@ssh.com'] }
+        end
+        if option
+          it { is_expected.not_to compile }
+        else
+          it { is_expected.to compile }
+        end
+      end
+    end
+  end
 end
