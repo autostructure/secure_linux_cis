@@ -13,21 +13,10 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_2_2_1_1
-class secure_linux_cis::redhat7::cis_2_2_1_1 (
-  Array[String] $ntp_servers = [],
-  Boolean $enforced = true,
-) {
+class secure_linux_cis::redhat7::cis_2_2_1_1 {
 
-  if $enforced {
-
-    class { '::ntp':
-      servers  => $ntp_servers,
-      restrict => [
-        '-4 default kod nomodify notrap nopeer noquery',
-        '-6 default kod nomodify notrap nopeer noquery',
-      ],
-    }
-
-  }
+  # This benchmark is handled by either secure_linux_cis::redhat7::cis_2_2_1_2
+  # or secure_linux_cis::redhat7::cis_2_2_1_3 depending on whether ntp or
+  # chrony is used for time synchronization.
 
 }

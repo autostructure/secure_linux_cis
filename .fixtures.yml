@@ -7,6 +7,7 @@ fixtures:
     stdlib: "puppetlabs/stdlib"
     ntp: "puppetlabs/ntp"
     auditd: "kemra102/auditd"
+    aboe: "aboe/chrony"
     augeasproviders_core:
       repo: "herculesteam/augeasproviders_core"
       ref: "2.1.3"
