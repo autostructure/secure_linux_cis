@@ -139,6 +139,8 @@ class secure_linux_cis::redhat7 (
   -> Class['::secure_linux_cis::redhat7::cis_3_6_5']
   -> Class['::secure_linux_cis::redhat7::cis_3_6_2']
 
+  include ::secure_linux_cis::redhat7::cis_3_7
+
   class { '::secure_linux_cis::redhat7::cis_4_1_1_1':
     max_log_file => $max_log_file,
   }
