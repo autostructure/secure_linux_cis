@@ -2,7 +2,7 @@
 # setuid/setguid bit set on execution
 #
 Facter.add('privileged_commands') do
-  confine kernel: :linux
+  confine kernel: :Linux
   setcode do
     partitions = Facter.value(:partitions)
     programs = []
