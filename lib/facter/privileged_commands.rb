@@ -1,7 +1,7 @@
 # This fact privileged_commands returns an array of commands on each partition with the
 # setuid/setguid bit set on execution
 #
-Facter.add('xorg_x11_packages') do
+Facter.add('privileged_commands') do
   confine kernel: :linux
   setcode do
     partitions = Facter.value(:partitions)
