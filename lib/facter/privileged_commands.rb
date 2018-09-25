@@ -5,7 +5,7 @@ Facter.add('privileged_commands') do
   confine kernel: :Linux
   setcode do
     partitions = Facter.value(:partitions)
-    result
+    result = []
     partitions.each_value do |_partition, attributes|
       result + Facter::Core::Execution.exec("find #{attributes['mount']} -xdev \( -perm -4000 -o -perm -2000 \) -type f").split("\n")
     end
