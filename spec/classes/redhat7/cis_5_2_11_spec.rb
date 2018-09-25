@@ -30,10 +30,7 @@ describe 'secure_linux_cis::redhat7::cis_5_2_11' do
           }
         end
       end
-    end
-  end
-  on_supported_os.each do |os, os_facts|
-    bool_options.each do |option|
+
       context "on #{os} with invalid algorithms" do
         let(:facts) { os_facts }
         let(:params) do
