@@ -15,6 +15,6 @@ Facter.add('privileged_commands') do
         results.push(result)
       end
     end
-    result
+    results
   end
 end
