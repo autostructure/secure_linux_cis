@@ -10,8 +10,8 @@ Facter.add('privileged_commands') do
     partitions.each_pair do |_partition, attributes|
       puts attributes.inspect
       result2 = Facter::Core::Execution.exec("find #{attributes['mount']} -xdev \\\( -perm -4000 -o -perm -2000 \\\) -type f")
-      result2.split("\n")
-      result2.each do |result|
+      result3 = result2.split("\n")
+      result3.each do |result|
         results.push(result)
       end
     end
