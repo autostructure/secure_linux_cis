@@ -14,7 +14,7 @@ class secure_linux_cis::redhat7::cis_6_2_1 (
 
   if $enforced {
     exec {'no_password':
-      command => "/etc/cat /etc/shadow | awk -F: '(\$2 == \"\" ) { print \$1 \" does not have a password \"}\'",
+      command => "/bin/cat /etc/shadow | awk -F: '(\$2 == \"\" ) { print \$1 \" does not have a password \"}\'",
     }
   }
 }
