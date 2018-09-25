@@ -39,6 +39,7 @@ describe 'secure_linux_cis::redhat7::cis_5_2_11' do
         let(:params) do
           { 'enforced' => option, 'approved_mac_algorithms' => ['invalid@ssh.com'] }
         end
+
         if option
           it { is_expected.not_to compile }
         else
