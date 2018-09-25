@@ -5,11 +5,15 @@ Facter.add('privileged_commands') do
   confine kernel: :Linux
   setcode do
     partitions = Facter.value(:partitions)
-    result = []
+    results = []
     puts partitions.inspect
     partitions.each_pair do |_partition, attributes|
       puts attributes.inspect
-      result.push(Facter::Core::Execution.exec("find #{attributes['mount']} -xdev \\\( -perm -4000 -o -perm -2000 \\\) -type f"))
+      result2 = Facter::Core::Execution.exec("find #{attributes['mount']} -xdev \\\( -perm -4000 -o -perm -2000 \\\) -type f")
+      result2.split("\n")
+      result2.each do |result|
+        results.push(result)
+      end
     end
     result
   end
