@@ -8,7 +8,7 @@ Facter.add('privileged_commands') do
     result = []
     puts partitions.inspect
     partitions.each_value do |_partition, attributes|
-      result.push(Facter::Core::Execution.exec("find #{attributes['mount']} -xdev \( -perm -4000 -o -perm -2000 \) -type f"))
+      result.push(Facter::Core::Execution.exec("find #{attributes[:mount]} -xdev \( -perm -4000 -o -perm -2000 \) -type f"))
     end
     result
   end
