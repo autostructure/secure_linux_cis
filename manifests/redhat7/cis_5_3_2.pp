@@ -20,6 +20,7 @@ class secure_linux_cis::redhat7::cis_5_3_2 (
   Integer $attempts = 5,
   Integer $lockout_time = 900,
 ) {
+
   $services = [
     'system-auth',
     'password-auth'
