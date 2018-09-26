@@ -41,6 +41,8 @@ class secure_linux_cis (
   Integer $ucredit = -1,
   Integer $ocredit = -1,
   Integer $lcredit = -1,
+  Integer $attempts = 5,
+  Integer $lockout_time = 900,
 ) {
 
   # Local Variable for full Operating System
@@ -70,6 +72,8 @@ class secure_linux_cis (
         ucredit                 => $ucredit,
         ocredit                 => $ocredit,
         lcredit                 => $lcredit,
+        attempts                => $attempts,
+        lockout_time            => $lockout_time,
       }
     }
     default: {

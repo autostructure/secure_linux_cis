@@ -32,6 +32,8 @@ class secure_linux_cis::redhat7 (
   Integer $ucredit = -1,
   Integer $ocredit = -1,
   Integer $lcredit = -1,
+  Integer $attempts = 5,
+  Integer $lockout_time = 900,
 ) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
@@ -273,6 +275,10 @@ class secure_linux_cis::redhat7 (
     ucredit => $ucredit,
     ocredit => $ocredit,
     lcredit => $lcredit,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_3_2':
+  attempts     => $attempts,
+  lockout_time => $lockout_time,
   }
   # include ::secure_linux_cis::redhat7::cis_6_1_1
   include ::secure_linux_cis::redhat7::cis_6_1_2
