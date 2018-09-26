@@ -2,7 +2,7 @@ require 'spec_helper'
 
 bool_options = [true, false]
 
-describe 'secure_linux_cis::redhat7::cis_6_2_2' do
+describe 'secure_linux_cis::redhat7::cis_6_2_12' do
   on_supported_os.each do |os, os_facts|
     bool_options.each do |option|
       context "on #{os}" do
@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_6_2_2' do
 
         if option
           it {
-            is_expected.to contain_notify('pp')
+            is_expected.to contain_notify('n')
           }
         else
-          it { is_expected.not_to contain_notify('pp') }
+          it { is_expected.not_to contain_notify('n') }
         end
       end
     end

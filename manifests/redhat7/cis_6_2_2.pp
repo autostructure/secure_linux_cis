@@ -15,8 +15,10 @@ class secure_linux_cis::redhat7::cis_6_2_2 (
 ) {
 
   if $enforced {
-    exec { 'plus':
-      command => '/etc/grep \'^\+:\' /etc/passwd',
+    if $facts[ 'plus_passwd' ] {
+      notify { 'pp':
+        message => 'You have "+" entries in /etc/passwd! It is recommended they are removed',
+        }
+      }
     }
   }
-}

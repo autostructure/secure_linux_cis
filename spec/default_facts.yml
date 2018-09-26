@@ -14,6 +14,18 @@ unowned_user_files: "true"
 unowned_group_files: "true"
 suid_files: "true"
 sgid_files: "true"
+plus_passwd: "true"
+plus_shadow: "true"
+plus_group: "true"
+root_uid: "true"
+root_path: "true"
+home_directory: "true"
+home_directory_permission: "true"
+home_directory_owner: "true"
+dot_file_writable: "true"
+forward_files: "true"
+netrc_files: "true"
+# ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'
 xorg_x11_packages:
