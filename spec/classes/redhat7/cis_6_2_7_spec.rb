@@ -29,7 +29,7 @@ describe 'secure_linux_cis::redhat7::cis_6_2_7' do
           #       command: '/usr/./home_directory_cis.sh',
           #       subscribe: 'File[\'/var/home_directory_cis.sh\']',
           #     )
-          # }
+           }
         else
           it { is_expected.not_to contain_file('/var/home_directory_cis.sh') }
         end
