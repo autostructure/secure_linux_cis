@@ -13,7 +13,7 @@ describe 'secure_linux_cis::redhat7::cis_6_2_7' do
 
         if option
           it {
-            is_expected.to contain_file('/var/home_directory_cis.sh')
+            is_expected.to contain_notify('hdir')
             #     .with(
             #       source: 'puppet:///modules/secure_linux_cis/home_directory.sh',
             #       notify: "Exec['home_dir']"
@@ -31,7 +31,7 @@ describe 'secure_linux_cis::redhat7::cis_6_2_7' do
             #     )
           }
         else
-          it { is_expected.not_to contain_file('/var/home_directory_cis.sh') }
+          it { is_expected.not_to contain_notify('hdir') }
         end
       end
     end

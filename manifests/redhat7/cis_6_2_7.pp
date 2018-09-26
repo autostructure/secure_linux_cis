@@ -13,13 +13,17 @@
 ) {
 
   if $enforced {
-    file { '/var/home_directory_cis.sh':
-      source => 'puppet:///modules/secure_linux_cis/home_directory.sh',
-      notify => Exec['home_dir'],
+    if $facts[ 'home_directory' ] {
+      notify { 'hdir':
+        message => '[6.2.7] You have a user(s) that does not have a home directory'}
     }
-    exec { 'home_dir':
-      command   => '/usr/./home_directory_cis.sh',
-      subscribe => File['/var/home_directory_cis.sh'],
-    }
+    # file { '/tmp/home_directory_cis.sh':
+    #   source => 'puppet:///modules/secure_linux_cis/home_directory.sh',
+    #   notify => Exec['home_dir'],
+    # }
+    # exec { 'home_dir':
+    #   command   => '/tmp/./home_directory_cis.sh',
+    #   subscribe => File['/tmp/home_directory_cis.sh'],
+    # }
   }
 }
