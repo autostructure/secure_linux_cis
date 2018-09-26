@@ -10,11 +10,14 @@
 # @example
 #   include secure_linux_cis::redhat7
 class secure_linux_cis::redhat7 (
+  Array[String] $time_servers = [],
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
   String $logging_host = 'loghost.example.com',
   Boolean $is_logging_host = false,
   Integer $max_log_file = 8,
   Enum['1', '2', '3', '4'] $max_auth_tries = '4',
+  Enum['ntp', 'chrony', 'none'] $time_sync = 'ntp',
+  Boolean $ipv6_enabled = true,
   Array $approved_mac_algorithms = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh.com','umac-128-etm@openssh.com',
                                     'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com']
 ) {
@@ -57,9 +60,14 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_2_1_6
   include ::secure_linux_cis::redhat7::cis_2_1_7
 
-  include ::secure_linux_cis::redhat7::cis_2_2_1_1
-  include ::secure_linux_cis::redhat7::cis_2_2_1_2
-  include ::secure_linux_cis::redhat7::cis_2_2_1_3
+  class { '::secure_linux_cis::redhat7::cis_2_2_1_2':
+    time_servers => $time_servers,
+    time_sync    => $time_sync,
+  }
+  class { '::secure_linux_cis::redhat7::cis_2_2_1_3':
+    time_servers => $time_servers,
+    time_sync    => $time_sync,
+  }
   include ::secure_linux_cis::redhat7::cis_2_2_2
   include ::secure_linux_cis::redhat7::cis_2_2_3
   include ::secure_linux_cis::redhat7::cis_2_2_4
@@ -99,9 +107,39 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_3_2_7
   include ::secure_linux_cis::redhat7::cis_3_2_8
 
+  class { '::secure_linux_cis::redhat7::cis_3_3_1':
+    ipv6_enabled => $ipv6_enabled,
+  }
+  class { '::secure_linux_cis::redhat7::cis_3_3_2':
+    ipv6_enabled => $ipv6_enabled,
+  }
+  class { '::secure_linux_cis::redhat7::cis_3_3_3':
+    ipv6_enabled => $ipv6_enabled,
+  }
+
   include ::secure_linux_cis::redhat7::cis_3_4_1
   include ::secure_linux_cis::redhat7::cis_3_4_2
   include ::secure_linux_cis::redhat7::cis_3_4_3
+
+  include ::secure_linux_cis::redhat7::cis_3_5_1
+  include ::secure_linux_cis::redhat7::cis_3_5_2
+  include ::secure_linux_cis::redhat7::cis_3_5_3
+  include ::secure_linux_cis::redhat7::cis_3_5_4
+
+  include ::secure_linux_cis::redhat7::cis_3_6_1
+  include ::secure_linux_cis::redhat7::cis_3_6_2
+  include ::secure_linux_cis::redhat7::cis_3_6_3
+  include ::secure_linux_cis::redhat7::cis_3_6_4
+  include ::secure_linux_cis::redhat7::cis_3_6_5
+
+  # Set order for firewall rules to be applied
+  Class['::secure_linux_cis::redhat7::cis_3_6_1']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_3']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_4']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_5']
+  -> Class['::secure_linux_cis::redhat7::cis_3_6_2']
+
+  include ::secure_linux_cis::redhat7::cis_3_7
 
   class { '::secure_linux_cis::redhat7::cis_4_1_1_1':
     max_log_file => $max_log_file,
@@ -175,6 +213,8 @@ class secure_linux_cis::redhat7 (
   }
 
   class { '::secure_linux_cis::redhat7::cis_4_2_4': }
+
+  include ::secure_linux_cis::redhat7::cis_4_3
 
   include ::secure_linux_cis::redhat7::cis_5_1_1
   include ::secure_linux_cis::redhat7::cis_5_1_2

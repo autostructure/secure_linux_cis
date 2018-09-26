@@ -18,12 +18,18 @@ class secure_linux_cis::redhat7::cis_4_1_3 (
 
   if $enforced {
 
-    # TODO: Find a way to enforce this value without overwriting other parameters on the line
-    file_line { 'GRUB_CMDLINE_LINUX':
-      ensure => present,
-      path   => '/etc/default/grub',
-      line   => 'GRUB_CMDLINE_LINUX="audit=1"',
-      match  => '^GRUB_CMDLINE_LINUX=',
+    shellvar { 'GRUB_CMDLINE_LINUX cis_4_1_3':
+      ensure       => present,
+      variable     => 'GRUB_CMDLINE_LINUX',
+      target       => '/etc/default/grub',
+      value        => 'audit=1',
+      array_append => true,
+      notify       => Exec['reload grub2 configuration 4_1_3'],
+    }
+
+    exec { 'reload grub2 configuration 4_1_3':
+      command     => '/sbin/grub2-mkconfig > /boot/grub2/grub.cfg',
+      refreshonly => true,
     }
 
   }

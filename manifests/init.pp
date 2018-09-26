@@ -1,15 +1,32 @@
-# A description of what this class does
+# 4.1.9 Ensure session initiation information is collected (Scored)
 #
 # @summary This class is the entry point for CIS hardening depending on OS.
+# Description:
+# Monitor session initiation events. The parameters in this section track changes to the files
+# associated with session events. The file /var/run/utmp file tracks all currently logged in
+# users. All audit records will be tagged with the identifier "session." The /var/log/wtmp file
+# tracks logins, logouts, shutdown, and reboot events. The file /var/log/btmp keeps track of
+# failed login attempts and can be read by entering the command /usr/bin/last -f
+# /var/log/btmp . All audit records will be tagged with the identifier "logins."
+#
+# Rationale:
+# Monitoring these files for changes could alert a system administrator to logins occurring at
+# unusual hours, which could indicate intruder activity (i.e. a user logging in at a time when
+# they do not normally log in).
+#
+# @summary 4.1.9 Ensure session initiation information is collected (Scored)
 #
 # @example
 #   include secure_linux_cis
 class secure_linux_cis (
+  Array[String] $time_servers = [],
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
   String $logging_host = 'loghost.example.com',
   Boolean $is_logging_host = false,
   Integer $max_log_file = 8,
   Enum['1', '2', '3', '4'] $max_auth_tries = '4',
+  Enum['ntp', 'chrony', 'none'] $time_sync = 'ntp',
+  Boolean $ipv6_enabled = true,
   Array $approved_mac_algorithms = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh.com','umac-128-etm@openssh.com',
                                     'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com']
 ) {
@@ -25,7 +42,10 @@ class secure_linux_cis (
         is_logging_host         => $is_logging_host,
         max_log_file            => $max_log_file,
         max_auth_tries          => $max_auth_tries,
-        approved_mac_algorithms => $approved_mac_algorithms
+        approved_mac_algorithms => $approved_mac_algorithms,
+        time_servers            => $time_servers,
+        time_sync               => $time_sync,
+        ipv6_enabled            => $ipv6_enabled,
       }
     }
     default: {
