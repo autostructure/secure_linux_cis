@@ -44,6 +44,7 @@ class secure_linux_cis (
   Integer $attempts = 5,
   Integer $lockout_time = 900,
   Integer $past_passwords = 5,
+  Integer $pass_max_days = 90,
 ) {
 
   # Local Variable for full Operating System
@@ -76,6 +77,7 @@ class secure_linux_cis (
         attempts                => $attempts,
         lockout_time            => $lockout_time,
         past_passwords          => $past_passwords,
+        pass_max_days           => $pass_max_days,
       }
     }
     default: {
