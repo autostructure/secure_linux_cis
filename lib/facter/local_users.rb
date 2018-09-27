@@ -7,8 +7,8 @@ Facter.add(:local_users) do
     user_list = Facter::Core::Execution.exec('egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1').split("\n")
     if user_list
       user_list.each do |user|
-        maximum_number_of_days_between_password_change = Facter::Core::Execution.exec("chage --list #{user}")
-        local_users[user] = maximum_number_of_days_between_password_change
+        maximum_number_of_days_between_password_change = Facter::Core::Execution.exec("chage --list #{user} | grep \"Max\"")
+        local_users[user] = /\d+/.match(maximum_number_of_days_between_password_change)
       end
     end
     local_users
