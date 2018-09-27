@@ -39,7 +39,7 @@ class secure_linux_cis::redhat7::cis_5_4_1_1 (
         $facts['local_users'].each |String $user, String $maxdays| {
 
           if $maxdays != $pass_max_days {
-            exec { "chage --maxdays ${pass_max_days} ${user}": }
+            exec { "/bin/chage --maxdays ${pass_max_days} ${user}": }
           }
 
         }
