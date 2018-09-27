@@ -4,7 +4,7 @@ Facter.add(:local_users) do
   confine osfamily: 'RedHat'
   setcode do
     local_users = {}
-    user_list = Facter::Core::Execution.exec('egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1')
+    user_list = Facter::Core::Execution.exec('egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1').split("\n")
     if user_list
       user_list.each do |user|
         maximum_number_of_days_between_password_change = Facter::Core::Execution.exec("chage --list #{user}")
