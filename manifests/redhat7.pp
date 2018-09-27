@@ -36,6 +36,8 @@ class secure_linux_cis::redhat7 (
   Integer $lockout_time = 900,
   Integer $past_passwords = 5,
   Integer $pass_max_days = 90,
+  Integer $pass_min_days = 7,
+  Integer $pass_warn_days = 7,
 ) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
@@ -288,6 +290,12 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_5_3_4
   class { '::secure_linux_cis::redhat7::cis_5_4_1_1':
     pass_max_days => $pass_max_days,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_4_1_2':
+    pass_min_days => $pass_min_days,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_4_1_3':
+    pass_warn_days => $pass_warn_days,
   }
   # include ::secure_linux_cis::redhat7::cis_6_1_1
   include ::secure_linux_cis::redhat7::cis_6_1_2

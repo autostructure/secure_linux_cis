@@ -11,7 +11,14 @@ Facter.add(:local_users) do
         number_parser = %r{\d+}.match(maximum_number_of_days_between_password_change)
         local_users[user] = {}
         local_users[user]['max_days_between_password_change'] = number_parser[0].to_i
-        #
+        minimum_number_of_days_between_password_change = Facter::Core::Execution.exec("chage --list #{user} | grep \"Min\"")
+        number_parser = %r{\d+}.match(minimum_number_of_days_between_password_change)
+        local_users[user] = {}
+        local_users[user]['min_days_between_password_change'] = number_parser[0].to_i
+        warning_number_of_days_between_password_change = Facter::Core::Execution.exec("chage --list #{user} | grep \"warn\"")
+        number_parser = %r{\d+}.match(warning_number_of_days_between_password_change)
+        local_users[user] = {}
+        local_users[user]['warn_days_between_password_change'] = number_parser[0].to_i
       end
     end
     local_users

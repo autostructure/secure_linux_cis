@@ -45,6 +45,8 @@ class secure_linux_cis (
   Integer $lockout_time = 900,
   Integer $past_passwords = 5,
   Integer $pass_max_days = 90,
+  Integer $pass_min_days = 7,
+  Integer $pass_warn_days = 7,
 ) {
 
   # Local Variable for full Operating System
@@ -78,6 +80,8 @@ class secure_linux_cis (
         lockout_time            => $lockout_time,
         past_passwords          => $past_passwords,
         pass_max_days           => $pass_max_days,
+        pass_min_days           => $pass_min_days,
+        pass_warn_days          => $pass_warn_days,
       }
     }
     default: {
