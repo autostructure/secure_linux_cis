@@ -7,6 +7,7 @@ ipaddress: "172.16.254.254"
 is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
 augeasversion: "1.8.1"
+
 # Luther's custom facts
 world_writable: "true"
 unowned_user_files: "true"
