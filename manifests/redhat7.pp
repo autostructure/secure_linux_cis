@@ -317,6 +317,14 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_6_2_4
   include ::secure_linux_cis::redhat7::cis_6_2_5
   # include ::secure_linux_cis::redhat7::cis_6_2_6
+
+  file { '/tmp/cis_scripts':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
+
   # include ::secure_linux_cis::redhat7::cis_6_2_7
   include ::secure_linux_cis::redhat7::cis_6_2_8
   include ::secure_linux_cis::redhat7::cis_6_2_9

@@ -16,9 +16,11 @@ class secure_linux_cis::redhat7::cis_6_1_2 (
 
     file { '/etc/passwd':
       ensure => present,
-      group  => 'root',
       owner  => 'root',
+      group  => 'root',
       mode   => '0644',
     }
+
   }
+
 }

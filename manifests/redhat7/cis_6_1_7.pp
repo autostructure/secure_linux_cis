@@ -20,5 +20,7 @@ class secure_linux_cis::redhat7::cis_6_1_7 (
       group  => 'root',
       mode   => '0000',
     }
+
   }
+
 }

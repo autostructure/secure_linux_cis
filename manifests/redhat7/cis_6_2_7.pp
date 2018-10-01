@@ -13,7 +13,16 @@
 ) {
 
   if $enforced {
-    if $facts[ 'home_directory' ] {
+
+    file { '/tmp/cis_scripts/home_directory.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/home_directory.sh',
+    }
+
+    if $facts['home_directory'] {
       notify { 'hdir':
         message  => '[6.2.7] You have a user(s) that does not have a home directory',
         loglevel => 'warning',

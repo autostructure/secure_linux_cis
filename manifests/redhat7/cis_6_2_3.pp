@@ -17,7 +17,7 @@
   if $enforced {
     if $facts[ 'plus_shadow' ] {
       notify { 'ps':
-        message  => '[6.2.3] You have "+" entries in /etc/shadow! It is recommended they are removed',
+        message  => '[6.2.3] You have "+" entries in /etc/shadow. It is recommended they are removed',
         loglevel => 'warning',
       }
     }

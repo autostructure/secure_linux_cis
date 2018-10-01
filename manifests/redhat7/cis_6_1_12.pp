@@ -14,7 +14,7 @@ class secure_linux_cis::redhat7::cis_6_1_12 (
   if $enforced {
     if $facts['unowned_group_files'] {
       notify { 'gf':
-        message  => '[6.1.12] You have files or directories that are not owned by a group',
+        message  => '[6.1.12] You have files or directories that are not owned by a group. Check the unowned_group_files fact for details.',
         loglevel => 'warning',
       }
     }

@@ -17,7 +17,7 @@ class secure_linux_cis::redhat7::cis_6_1_13 (
   if $enforced {
     if $facts['suid_files'] {
       notify { 'sf':
-        message  => '[6.1.13] You have SUID files on your system',
+        message  => '[6.1.13] You have SUID files on your system. Check the suid_files fact for details.',
         loglevel => 'warning',
       }
     }
