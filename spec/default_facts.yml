@@ -26,6 +26,12 @@ dot_file_writable: "true"
 forward_files: "true"
 netrc_files: "true"
 netrc_access: "true"
+rhost_files: "true"
+password_group_exist: "true"
+duplicate_uid: "true"
+duplicate_gid: "true"
+duplicate_user: "true"
+duplicate_group: "true"
 # ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'

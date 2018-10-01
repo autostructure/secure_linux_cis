@@ -15,7 +15,7 @@ class secure_linux_cis::redhat7::cis_6_1_10 (
   if $enforced {
     if $facts['world_writable'] {
       notify { 'ww':
-        message => "You have one or more world writable files. They are: ${::world_writable}",
+        message => "[6.1.10] You have one or more world writable files. They are: ${::world_writable}",
       }
     }
   }

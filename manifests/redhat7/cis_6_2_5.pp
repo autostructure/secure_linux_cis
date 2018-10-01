@@ -15,7 +15,7 @@
   if $enforced {
     if $facts[ 'root_uid'] != 'root' {
       notify { 'ru':
-        message => "One or more users have superuser privileges on the system other than Root. They are: ${::root_uid}",
+        message => "[6.2.5] One or more users have superuser privileges on the system other than Root. They are: ${::root_uid}",
       }
     }
   }
