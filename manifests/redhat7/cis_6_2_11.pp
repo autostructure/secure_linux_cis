@@ -15,7 +15,9 @@
   if $enforced {
     if $facts[ 'forward_files' ] {
       notify { 'ff':
-        message => '[6.2.11] There are .forward files on the system'}
+        message  => '[6.2.11] There are .forward files on the system',
+        loglevel => 'warning',
+      }
     }
   }
 }

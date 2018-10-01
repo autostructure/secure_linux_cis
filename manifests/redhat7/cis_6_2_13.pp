@@ -15,7 +15,9 @@
   if $enforced {
     if $facts[ 'netrc_access' ] {
       notify { 'na':
-        message => '[6.2.13] There are .netrc files that are either group or world accessible'}
+        message  => '[6.2.13] There are .netrc files that are either group or world accessible',
+        loglevel => 'warning',
+      }
     }
   }
 }

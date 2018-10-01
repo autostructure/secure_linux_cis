@@ -11,7 +11,8 @@
   if $enforced {
     if $facts[root_path] {
       notify { 'rp':
-        message => 'There is a "." or other writable directory in the root executable path',
+        message  => '[6.2.6] There is a "." or other writable directory in the root executable path',
+        loglevel => 'warning',
       }
     }
   }
