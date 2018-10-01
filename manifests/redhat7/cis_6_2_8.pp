@@ -15,7 +15,8 @@
   if $enforced {
     if $facts[ 'home_directory_permission' ] {
       notify { 'hdp':
-        message => '[6.2.8] One or more user directories have permissions less restrictive than 750',
+        message  => '[6.2.8] One or more user directories have permissions less restrictive than 750',
+        loglevel => 'warning',
       }
     }
   }

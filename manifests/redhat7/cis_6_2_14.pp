@@ -15,7 +15,8 @@
   if $enforced {
     if $facts[ 'rhost_files' ] {
       notify { 'rf':
-        message => '[6.2.14] A user(s) has .rhost files in their home directory',
+        message  => '[6.2.14] A user(s) has .rhost files in their home directory',
+        loglevel => 'warning',
       }
     }
   }

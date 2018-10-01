@@ -16,7 +16,9 @@
   if $enforced {
       if $facts[ 'plus_group' ] {
         notify { 'pg':
-          message => '[6.2.4] You have "+" entries in /etc/group! It is recommended they are removed'}
+          message  => '[6.2.4] You have "+" entries in /etc/group! It is recommended they are removed',
+          loglevel => 'warning',
+          }
         }
       }
   }

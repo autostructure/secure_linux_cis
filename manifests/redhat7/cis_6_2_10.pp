@@ -15,7 +15,8 @@
   if $enforced {
     if $facts[ 'dot_file_writable' ] {
       notify { 'dfw':
-        message => '[6.2.10] There are DOT files that are either group or world writable',
+        message  => '[6.2.10] There are DOT files that are either group or world writable',
+        loglevel => 'warning',
       }
     }
   }

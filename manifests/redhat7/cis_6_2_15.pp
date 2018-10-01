@@ -15,7 +15,8 @@
   if $enforced {
     if $facts[ 'password_group_exist' ] {
       notify { 'pge':
-        message => '[6.2.15] There is a group(s) in /etc/passwd that does not exist in /etc/group',
+        message  => '[6.2.15] There is a group(s) in /etc/passwd that does not exist in /etc/group',
+        loglevel => 'warning',
       }
     }
   }

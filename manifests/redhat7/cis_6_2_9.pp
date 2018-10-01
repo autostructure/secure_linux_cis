@@ -15,7 +15,8 @@
   if $enforced {
     if $facts[ 'home_directory_owner' ] {
       notify { 'hdo':
-        message => '[6.2.9] You have a home directory that is not owned by a user',
+        message  => '[6.2.9] You have a home directory that is not owned by a user',
+        loglevel => 'warning',
       }
     }
   }

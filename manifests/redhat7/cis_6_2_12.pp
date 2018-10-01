@@ -15,7 +15,8 @@
   if $enforced {
     if $facts[ 'netrc_files' ] {
       notify { 'n':
-        message => '[6.2.12] There are .netrc files on the system',
+        message  => '[6.2.12] There are .netrc files on the system',
+        loglevel => 'warning',
       }
     }
   }

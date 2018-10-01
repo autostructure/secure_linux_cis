@@ -16,7 +16,8 @@
   if $enforced {
     if $facts[ 'duplicate_group' ] {
       notify { 'dgrp':
-        message => '[6.2.19] There is a duplicate group name(s) in /etc/group',
+        message  => '[6.2.19] There is a duplicate group name(s) in /etc/group',
+        loglevel => 'warning',
       }
     }
   }

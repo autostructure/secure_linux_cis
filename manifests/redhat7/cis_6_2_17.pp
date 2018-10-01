@@ -16,7 +16,8 @@
   if $enforced {
     if $facts[ 'duplicate_gid' ] {
       notify { 'dg':
-        message => '[6.2.17] There are duplicate GIDs that exist in /etc/group',
+        message  => '[6.2.17] There are duplicate GIDs that exist in /etc/group',
+        loglevel => 'warning',
       }
     }
   }

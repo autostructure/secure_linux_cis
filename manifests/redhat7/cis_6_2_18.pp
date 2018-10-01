@@ -16,7 +16,8 @@
   if $enforced {
     if $facts[ 'duplicate_user' ] {
       notify { 'dusr':
-        message => 'There is a duplicate user name(s) in /etc/passwd',
+        message  => 'There is a duplicate user name(s) in /etc/passwd',
+        loglevel => 'warning',
       }
     }
   }

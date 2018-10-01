@@ -16,7 +16,8 @@
   if $enforced {
     if $facts[ 'duplicate_uid' ] {
       notify { 'du':
-        message => '[6.2.16] There are duplicate UIDs in /etc/passwd',
+        message  => '[6.2.16] There are duplicate UIDs in /etc/passwd',
+        loglevel => 'warning',
       }
     }
   }
