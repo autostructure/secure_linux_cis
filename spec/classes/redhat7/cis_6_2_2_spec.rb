@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_6_2_2' do
 
         if option
           it {
-            is_expected.to contain_exec('plus')
+            is_expected.to contain_notify('pp')
           }
         else
-          it { is_expected.not_to contain_exec('plus') }
+          it { is_expected.not_to contain_notify('pp') }
         end
       end
     end

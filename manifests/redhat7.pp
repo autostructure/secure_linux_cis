@@ -19,7 +19,25 @@ class secure_linux_cis::redhat7 (
   Enum['ntp', 'chrony', 'none'] $time_sync = 'ntp',
   Boolean $ipv6_enabled = true,
   Array $approved_mac_algorithms = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh.com','umac-128-etm@openssh.com',
-                                    'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com']
+                                    'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com'],
+  Integer $client_alive_interval = 300,
+  Enum['0','1','2','3'] $client_alive_count_max = '0',
+  Integer $login_grace_time = 60,
+  Array[String] $allow_users = [],
+  Array[String] $allow_groups = [],
+  Array[String] $deny_users = [],
+  Array[String] $deny_groups =[],
+  Integer $minlen = 14,
+  Integer $dcredit = -1,
+  Integer $ucredit = -1,
+  Integer $ocredit = -1,
+  Integer $lcredit = -1,
+  Integer $attempts = 5,
+  Integer $lockout_time = 900,
+  Integer $past_passwords = 5,
+  Integer $pass_max_days = 90,
+  Integer $pass_min_days = 7,
+  Integer $pass_warn_days = 7,
 ) {
   include ::secure_linux_cis::redhat7::cis_1_1_1_1
   include ::secure_linux_cis::redhat7::cis_1_1_1_2
@@ -240,6 +258,45 @@ class secure_linux_cis::redhat7 (
   class { '::secure_linux_cis::redhat7::cis_5_2_11':
     approved_mac_algorithms => $approved_mac_algorithms,
   }
+  class { '::secure_linux_cis::redhat7::cis_5_2_12':
+    client_alive_interval  => $client_alive_interval,
+    client_alive_count_max => $client_alive_count_max,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_2_13':
+    login_grace_time => $login_grace_time,
+  }
+  # need to discuss class 5_2_14 spec testing, fails with empty lists
+  # class { '::secure_linux_cis::redhat7::cis_5_2_14':
+  # allow_users  => $allow_users,
+  # allow_groups => $allow_groups,
+  # deny_users   => $deny_users,
+  # deny_groups  => $deny_groups,
+  # }
+  include ::secure_linux_cis::redhat7::cis_5_2_15
+  class { '::secure_linux_cis::redhat7::cis_5_3_1':
+    minlen  => $minlen,
+    dcredit => $dcredit,
+    ucredit => $ucredit,
+    ocredit => $ocredit,
+    lcredit => $lcredit,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_3_2':
+  attempts     => $attempts,
+  lockout_time => $lockout_time,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_3_3':
+    past_passwords => $past_passwords,
+  }
+  include ::secure_linux_cis::redhat7::cis_5_3_4
+  class { '::secure_linux_cis::redhat7::cis_5_4_1_1':
+    pass_max_days => $pass_max_days,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_4_1_2':
+    pass_min_days => $pass_min_days,
+  }
+  class { '::secure_linux_cis::redhat7::cis_5_4_1_3':
+    pass_warn_days => $pass_warn_days,
+  }
   # include ::secure_linux_cis::redhat7::cis_6_1_1
   include ::secure_linux_cis::redhat7::cis_6_1_2
   include ::secure_linux_cis::redhat7::cis_6_1_3
@@ -256,6 +313,25 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_6_1_14
   include ::secure_linux_cis::redhat7::cis_6_2_1
   include ::secure_linux_cis::redhat7::cis_6_2_2
+  include ::secure_linux_cis::redhat7::cis_6_2_3
+  include ::secure_linux_cis::redhat7::cis_6_2_4
+  include ::secure_linux_cis::redhat7::cis_6_2_5
+  # include ::secure_linux_cis::redhat7::cis_6_2_6
+  # include ::secure_linux_cis::redhat7::cis_6_2_7
+  include ::secure_linux_cis::redhat7::cis_6_2_8
+  include ::secure_linux_cis::redhat7::cis_6_2_9
+  include ::secure_linux_cis::redhat7::cis_6_2_10
+  include ::secure_linux_cis::redhat7::cis_6_2_11
+  include ::secure_linux_cis::redhat7::cis_6_2_12
+  include ::secure_linux_cis::redhat7::cis_6_2_13
+  include ::secure_linux_cis::redhat7::cis_6_2_14
+  include ::secure_linux_cis::redhat7::cis_6_2_15
+  include ::secure_linux_cis::redhat7::cis_6_2_16
+  include ::secure_linux_cis::redhat7::cis_6_2_17
+  include ::secure_linux_cis::redhat7::cis_6_2_18
+  include ::secure_linux_cis::redhat7::cis_6_2_19
+
+
 
 
 

@@ -11,6 +11,7 @@ fixtures:
     postfix: "camptocamp/postfix"
     logrotate: "puppet/logrotate"
     augeasproviders_shellvar: "herculesteam/augeasproviders_shellvar"
+    augeasproviders_pam: "herculesteam/augeasproviders_pam"
     augeasproviders_core:
       repo: "herculesteam/augeasproviders_core"
       ref: "2.1.3"

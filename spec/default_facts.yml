@@ -7,12 +7,32 @@ ipaddress: "172.16.254.254"
 is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
 augeasversion: "1.8.1"
+
 # Luther's custom facts
 world_writable: "true"
 unowned_user_files: "true"
 unowned_group_files: "true"
 suid_files: "true"
 sgid_files: "true"
+plus_passwd: "true"
+plus_shadow: "true"
+plus_group: "true"
+root_uid: "true"
+root_path: "true"
+home_directory: "true"
+home_directory_permission: "true"
+home_directory_owner: "true"
+dot_file_writable: "true"
+forward_files: "true"
+netrc_files: "true"
+netrc_access: "true"
+rhost_files: "true"
+password_group_exist: "true"
+duplicate_uid: "true"
+duplicate_gid: "true"
+duplicate_user: "true"
+duplicate_group: "true"
+# ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'
 xorg_x11_packages:
