@@ -3,6 +3,6 @@
 
 Facter.add('dot_file_writable') do
   setcode do
-    Facter::Core::Execution.exec('puppet:///modules/secure_linux_cis/dot_file_wr.sh')
+    Facter::Core::Execution.exec('/tmp/cis_scripts/dot_file_wr.sh')
   end
 end

@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/forward.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/forward.sh',
+    }
+
     if $facts[ 'forward_files' ] {
       notify { 'ff':
-        message  => '[6.2.11] There are .forward files on the system',
+        message  => '[6.2.11] There are .forward files on the system. Check the forward_files fact for details',
         loglevel => 'warning',
       }
     }

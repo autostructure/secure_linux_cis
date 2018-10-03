@@ -3,6 +3,6 @@
 
 Facter.add('duplicate_group') do
   setcode do
-    Facter::Core::Execution.exec('puppet:///modules/secure_linux_cis/dup_group.sh')
+    Facter::Core::Execution.exec('/tmp/cis_scripts/dup_group.sh')
   end
 end

@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/rhost.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/rhost.sh',
+    }
+
     if $facts[ 'rhost_files' ] {
       notify { 'rf':
-        message  => '[6.2.14] A user(s) has .rhost files in their home directory',
+        message  => '[6.2.14] A user(s) has .rhost files in their home directory. Check the rhost_files fact for details',
         loglevel => 'warning',
       }
     }

@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/dot_file_wr.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/dot_file_wr.sh',
+    }
+
     if $facts[ 'dot_file_writable' ] {
       notify { 'dfw':
-        message  => '[6.2.10] There are DOT files that are either group or world writable',
+        message  => '[6.2.10] There are DOT files that are either group or world writable. Check the dot_file_writable fact for details',
         loglevel => 'warning',
       }
     }

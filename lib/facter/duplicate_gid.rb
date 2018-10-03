@@ -3,6 +3,6 @@
 
 Facter.add('duplicate_gid') do
   setcode do
-    Facter::Core::Execution.exec('puppet:///modules/secure_linux_cis/dup_gid.sh')
+    Facter::Core::Execution.exec('/tmp/cis_scripts/dup_gid.sh')
   end
 end

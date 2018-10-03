@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/netrc_access.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/netrc_access.sh',
+    }
+
     if $facts[ 'netrc_access' ] {
       notify { 'na':
-        message  => '[6.2.13] There are .netrc files that are either group or world accessible',
+        message  => '[6.2.13] There are .netrc files that are either group or world accessible. Check the netrc_access fact for details',
         loglevel => 'warning',
       }
     }

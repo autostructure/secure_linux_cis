@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/home_dir_perm.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/home_dir_perm.sh',
+    }
+
     if $facts[ 'home_directory_permission' ] {
       notify { 'hdp':
-        message  => '[6.2.8] One or more user directories have permissions less restrictive than 750',
+        message  => '[6.2.8] One or more user directories have permissions less restrictive than 750. Check the home_directory_permission fact for details', # lint:ignore:140chars
         loglevel => 'warning',
       }
     }

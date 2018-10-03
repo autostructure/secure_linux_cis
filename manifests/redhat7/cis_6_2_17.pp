@@ -14,9 +14,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/dup_gid.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/dup_gid.sh',
+    }
+
     if $facts[ 'duplicate_gid' ] {
       notify { 'dg':
-        message  => '[6.2.17] There are duplicate GIDs that exist in /etc/group',
+        message  => '[6.2.17] There are duplicate GIDs that exist in /etc/group. Check the duplicate_gid fact for details',
         loglevel => 'warning',
       }
     }

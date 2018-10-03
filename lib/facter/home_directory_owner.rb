@@ -3,6 +3,6 @@
 
 Facter.add('home_directory_owner') do
   setcode do
-    Facter::Core::Execution.exec('puppet:///modules/secure_linux_cis/home_dir_own.sh')
+    Facter::Core::Execution.exec('/tmp/cis_scripts/home_dir_own.sh')
   end
 end

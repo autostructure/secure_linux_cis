@@ -3,6 +3,6 @@
 
 Facter.add('rhost_files') do
   setcode do
-    Facter::Core::Execution.exec('puppet:///modules/secure_linux_cis/rhost.sh')
+    Facter::Core::Execution.exec('/tmp/cis_scripts/rhost.sh')
   end
 end

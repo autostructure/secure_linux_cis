@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/netrc.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/netrc.sh',
+    }
+
     if $facts[ 'netrc_files' ] {
       notify { 'n':
-        message  => '[6.2.12] There are .netrc files on the system',
+        message  => '[6.2.12] There are .netrc files on the system. Check the netrc_files fact for details',
         loglevel => 'warning',
       }
     }

@@ -14,9 +14,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/dup_uid.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/dup_uid.sh',
+    }
+
     if $facts[ 'duplicate_uid' ] {
       notify { 'du':
-        message  => '[6.2.16] There are duplicate UIDs in /etc/passwd',
+        message  => '[6.2.16] There are duplicate UIDs in /etc/passwd. Check the duplicate_uid fact for details',
         loglevel => 'warning',
       }
     }

@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/home_dir_own.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/home_dir_own.sh',
+    }
+
     if $facts[ 'home_directory_owner' ] {
       notify { 'hdo':
-        message  => '[6.2.9] You have a home directory that is not owned by a user',
+        message  => '[6.2.9] You have a home directory that is not owned by a user. Check the home_directory_owner fact for details',
         loglevel => 'warning',
       }
     }

@@ -9,9 +9,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/root_path.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/root_path.sh',
+    }
+
     if $facts['root_path'] {
       notify { 'rp':
-        message  => '[6.2.6] There is a "." or other writable directory in the root executable path',
+        message  => '[6.2.6] There is a "." or other writable directory in the root executable path. Check the root_path fact for details',
         loglevel => 'warning',
       }
     }

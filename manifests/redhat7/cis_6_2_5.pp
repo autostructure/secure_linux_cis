@@ -15,7 +15,7 @@
   if $enforced {
     if $facts[ 'root_uid'] != 'root' {
       notify { 'ru':
-        message  => '[6.2.5] One or more users have superuser privileges on the system other than Root',
+        message  => '[6.2.5] One or more users have superuser privileges on the system other than Root. Check the root_uid fact for details', # lint:ignore:140chars
         loglevel => 'warning',
       }
     }

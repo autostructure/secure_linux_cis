@@ -13,9 +13,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/pwd_group_exist.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/pwd_group_exist.sh',
+    }
+
     if $facts[ 'password_group_exist' ] {
       notify { 'pge':
-        message  => '[6.2.15] There is a group(s) in /etc/passwd that does not exist in /etc/group',
+        message  => '[6.2.15] There is a group(s) in /etc/passwd that does not exist in /etc/group. Check the password_group_exist fact for details', # lint:ignore:140chars
         loglevel => 'warning',
       }
     }

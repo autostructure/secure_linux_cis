@@ -14,9 +14,18 @@
 ) {
 
   if $enforced {
+
+    file { '/tmp/cis_scripts/dup_group.sh':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0711',
+      source => 'puppet:///modules/secure_linux_cis/dup_group.sh',
+    }
+
     if $facts[ 'duplicate_group' ] {
       notify { 'dgrp':
-        message  => '[6.2.19] There is a duplicate group name(s) in /etc/group',
+        message  => '[6.2.19] There is a duplicate group name(s) in /etc/group. Check the duplicate_group fact for details',
         loglevel => 'warning',
       }
     }

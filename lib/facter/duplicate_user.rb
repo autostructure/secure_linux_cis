@@ -3,6 +3,6 @@
 
 Facter.add('duplicate_user') do
   setcode do
-    Facter::Core::Execution.exec('puppet:///modules/secure_linux_cis/dup_usr.sh')
+    Facter::Core::Execution.exec('/tmp/cis_scripts/dup_usr.sh')
   end
 end
