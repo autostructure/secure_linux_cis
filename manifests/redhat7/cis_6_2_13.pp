@@ -15,7 +15,6 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/netrc_access.sh':
-      ensure => present,
       owner  => 'root',
       group  => 'root',
       mode   => '0711',

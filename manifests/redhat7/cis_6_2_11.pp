@@ -15,7 +15,6 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/forward.sh':
-      ensure => present,
       owner  => 'root',
       group  => 'root',
       mode   => '0711',

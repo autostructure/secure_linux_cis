@@ -16,7 +16,6 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/dup_usr.sh':
-      ensure => present,
       owner  => 'root',
       group  => 'root',
       mode   => '0711',
