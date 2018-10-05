@@ -32,6 +32,7 @@ duplicate_uid: "true"
 duplicate_gid: "true"
 duplicate_user: "true"
 duplicate_group: "true"
+tmp_partition: ""
 # ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'
