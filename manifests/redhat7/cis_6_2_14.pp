@@ -15,7 +15,7 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/rhost.sh':
-      ensure => file,
+      ensure => present,
       owner  => 'root',
       group  => 'root',
       mode   => '0711',
