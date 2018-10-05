@@ -325,7 +325,7 @@ class secure_linux_cis::redhat7 (
     mode   => '0755',
   }
 
-  include ::secure_linux_cis::redhat7::cis_6_2_7
+  # include ::secure_linux_cis::redhat7::cis_6_2_7
   include ::secure_linux_cis::redhat7::cis_6_2_8
   include ::secure_linux_cis::redhat7::cis_6_2_9
   include ::secure_linux_cis::redhat7::cis_6_2_10
