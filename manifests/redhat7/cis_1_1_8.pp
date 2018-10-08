@@ -1,8 +1,26 @@
-# A description of what this class does
+# 1.1.8 Ensure nodev option set on /var/tmp partition (Scored)
 #
-# @summary A short summary of the purpose of this class
+#
+# Description:
+# The nodev mount option specifies that the filesystem cannot contain special devices.
+#
+# @summary 1.1.8 Ensure nodev option set on /var/tmp partition (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_1_8
-class secure_linux_cis::redhat7::cis_1_1_8 {
+class secure_linux_cis::redhat7::cis_1_1_8 (
+  Boolean $enforced = true,
+  ) {
+    if $enforced {
+
+      if $facts['var_tmp_partition'] {
+
+        if $facts['var_tmp_partition_nodev'] == '' {
+          notify { 'vtpp':
+            message  => '[1.1.8] The /var/tmp partition does not have the nodev option set',
+            loglevel => 'warning',
+        }
+      }
+    }
+  }
 }

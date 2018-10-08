@@ -33,6 +33,15 @@ duplicate_gid: "true"
 duplicate_user: "true"
 duplicate_group: "true"
 tmp_partition: ""
+tmp_nodev: ""
+tmp_nosuid: ""
+tmp_noexec: ""
+var_partition: ""
+var_tmp_partition_nosuid: ""
+var_tmp_partition_nodev: ""
+var_tmp_partition: ""
+var_tmp_partition_noexec: ""
+var_log_partition: ""
 # ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'

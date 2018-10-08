@@ -1,8 +1,26 @@
-# A description of what this class does
+# 1.1.5 Ensure noexec option set on /tmp partition (Scored)
 #
-# @summary A short summary of the purpose of this class
+#
+# Description:
+# The noexec mount option specifies that the filesystem cannot contain executable binaries.
+#
+# @summary 1.1.5 Ensure noexec option set on /tmp partition (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_1_5
-class secure_linux_cis::redhat7::cis_1_1_5 {
+class secure_linux_cis::redhat7::cis_1_1_5 (
+  Boolean $enforced = true,
+  ) {
+    if $enforced {
+
+      if $facts['tmp_partition'] {
+
+        if $facts['tmp_noexec'] == '' {
+          notify { 'tnec':
+            message  => '[1.1.5] The noexec option is not enabled for the /tmp partition',
+            loglevel => 'warning',
+          }
+        }
+    }
+  }
 }
