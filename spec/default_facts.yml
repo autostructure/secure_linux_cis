@@ -33,6 +33,17 @@ duplicate_gid: "true"
 duplicate_user: "true"
 duplicate_group: "true"
 tmp_partition: ""
+# local_users:
+#   rando1:
+#     max_days_between_password_change:  192
+#     min_days_between_password_change:  22
+#     warn_days_between_password_change: 16
+#     password_inactive:                 21
+#   rando2:
+#     max_days_between_password_change:  167
+#     min_days_between_password_change:  25
+#     warn_days_between_password_change: 17
+#     password_inactive:                 18
 # ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'
