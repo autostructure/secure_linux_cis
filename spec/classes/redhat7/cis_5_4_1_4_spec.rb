@@ -7,17 +7,17 @@ describe 'secure_linux_cis::redhat7::cis_5_4_1_4' do
     bool_options.each do |option|
       context "on #{os}" do
         let(:facts) { os_facts }
-        let(:params) { { 'enforced' => option, 'pass_inactive_days' => '30' } }
+        let(:params) { { 'enforced' => option, 'pass_inactive_days' => 30 } }
 
         it { is_expected.to compile }
 
         if option
           it {
-            is_expected.to
+            is_expected.to compile
           }
         else
           it {
-            is_expected.not_to
+            is_expected.to compile
           }
         end
       end
