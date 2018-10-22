@@ -1,8 +1,25 @@
-# A description of what this class does
+# 1.1.15 Ensure nodev option set on /dev/shm partition (Scored)
 #
-# @summary A short summary of the purpose of this class
+#
+# Description:
+# The nodev mount option specifies that the filesystem cannot contain special devices.
+#
+# @summary 1.1.15 Ensure nodev option set on /dev/shm partition (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_1_15
-class secure_linux_cis::redhat7::cis_1_1_15 {
+class secure_linux_cis::redhat7::cis_1_1_15 (
+  Boolean $enforced = true,
+  ) {
+
+    if $enforced {
+
+      if $facts['shm_nodev'] == '' {
+
+        notify { 'sn':
+          message  => '[1.1.15] The "nodev" option is not set on the /dev/shm partition',
+          loglevel => 'warning',
+        }
+      }
+    }
 }

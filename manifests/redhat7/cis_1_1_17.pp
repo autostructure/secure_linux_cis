@@ -1,8 +1,24 @@
-# A description of what this class does
+# 1.1.17 Ensure noexec option set on /dev/shm partition (Scored)
 #
-# @summary A short summary of the purpose of this class
+#
+# Description:
+# The noexec mount option specifies that the filesystem cannot contain executable binaries.
+#
+# @summary 1.1.17 Ensure noexec option set on /dev/shm partition (Scored)
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_1_17
-class secure_linux_cis::redhat7::cis_1_1_17 {
+class secure_linux_cis::redhat7::cis_1_1_17 (
+  Boolean $enforced = true,
+  ) {
+    if $enforced {
+
+      if $facts['shm_noexec'] == '' {
+
+        notify { 'sne':
+          message  => '[1.1.17] The "noexec" option is not enabled on the /dev/shm partition',
+          loglevel => 'warning',
+        }
+      }
+    }
 }
