@@ -8,7 +8,7 @@ is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
 augeasversion: "1.8.1"
 
-# Luther's custom facts
+#---
 world_writable: "true"
 unowned_user_files: "true"
 unowned_group_files: "true"
@@ -49,6 +49,8 @@ shm_nodev: ""
 shm_nosuid: ""
 shm_noexec: ""
 automounting: "enabled"
+grub_pass: ""
+unconf_daemons: "true"
 # ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'
