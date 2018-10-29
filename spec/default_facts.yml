@@ -51,6 +51,7 @@ shm_noexec: ""
 automounting: "enabled"
 grub_pass: ""
 unconf_daemons: "true"
+motd: "true"
 # ---
 network: '10.0.0.0'
 netmask: '255.255.255.0'
