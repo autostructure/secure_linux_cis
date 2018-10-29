@@ -16,7 +16,6 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/dup_gid.sh':
-      ensure => file,
       owner  => 'root',
       group  => 'root',
       mode   => '0711',

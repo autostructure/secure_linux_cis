@@ -15,7 +15,6 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/dot_file_wr.sh':
-      ensure => file,
       owner  => 'root',
       group  => 'root',
       mode   => '0711',

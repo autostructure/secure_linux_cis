@@ -15,7 +15,6 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/pwd_group_exist.sh':
-      ensure => file,
       owner  => 'root',
       group  => 'root',
       mode   => '0711',
