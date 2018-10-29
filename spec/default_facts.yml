@@ -52,7 +52,7 @@ automounting: "enabled"
 grub_pass: ""
 unconf_daemons: "true"
 motd: "true"
-=======
+#-----
 # local_users:
 #   rando1:
 #     max_days_between_password_change:  192
