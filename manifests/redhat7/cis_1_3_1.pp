@@ -20,7 +20,7 @@
       }
     exec { 'aide_database':
       command => 'aide --init',
-      path    => '/bin/',
+      path    => '/var/lib',
     }
 Package['aide'] ~> Exec['aide_database']
   }
