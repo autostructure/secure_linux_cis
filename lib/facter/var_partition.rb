@@ -3,6 +3,8 @@
 
 Facter.add('var_partition') do
   # rubocop:disable Style/StringLiterals
-  setcode Facter::Core::Execution.exec("mount | grep \"/var\"")
+  setcode do
+    Facter::Core::Execution.exec("mount | grep \"/var\"")
+  end
   # rubocop:enable Style/StringLiterals
 end
