@@ -15,7 +15,7 @@
   if $enforced {
 
       exec { 'gpgkey':
-        command => "rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n > /tmp/gpgkeys.txt",
+        command => "rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\\n' > /tmp/gpgkeys.txt",
         creates => '/tmp/gpgkeys.txt',
         path    => '/bin/',
         notify  => Notify['gpg_keys'],
