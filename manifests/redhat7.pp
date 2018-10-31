@@ -332,6 +332,16 @@ class secure_linux_cis::redhat7 (
   class { '::secure_linux_cis::redhat7::cis_5_4_1_3':
     pass_warn_days => $pass_warn_days,
   }
+  include ::secure_linux_cis::redhat7::cis_5_4_1_4
+  include ::secure_linux_cis::redhat7::cis_5_4_1_5
+  include ::secure_linux_cis::redhat7::cis_5_4_2
+  include ::secure_linux_cis::redhat7::cis_5_4_3
+  include ::secure_linux_cis::redhat7::cis_5_4_4
+  # include ::secure_linux_cis::redhat7::cis_5_4_5
+  include ::secure_linux_cis::redhat7::cis_5_5
+  include ::secure_linux_cis::redhat7::cis_5_6
+
+
   # include ::secure_linux_cis::redhat7::cis_6_1_1
   include ::secure_linux_cis::redhat7::cis_6_1_2
   include ::secure_linux_cis::redhat7::cis_6_1_3

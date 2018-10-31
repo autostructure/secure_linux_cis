@@ -2,7 +2,7 @@
 # This fact contains a dictionary of local users and their value for max number of days between a password change
 Facter.add(:local_users) do
   confine osfamily: 'RedHat'
-  require "time"
+  require 'time'
   setcode do
     local_users = {}
     user_list = Facter::Core::Execution.exec('egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1').split("\n")
@@ -31,7 +31,7 @@ Facter.add(:local_users) do
           'min_days_between_password_change'  => number_parser_min[0].to_i,
           'warn_days_between_password_change' => number_parser_warn[0].to_i,
           'password_inactive'                 => number_parser_inactive[0].to_i,
-          'password_change'                   => password_valid_date
+          'password_change'                   => password_valid_date,
         }
       end
     end
