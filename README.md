@@ -75,7 +75,29 @@ Users need a complete list of your module's classes, types, defined types provid
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there are Known Issues, you might want to include them under their own heading here.
+Some things we just can not enforce :(
+
+### 1.1.18
+For all removable media partitions, make sure that the "nodev" option is set
+
+### 1.1.19
+For all removable media partitions, make sure that the "nosuid" option is set
+
+### 1.1.20
+For all removable media partitions, make sure that the "noexec" option is set
+
+### 1.2.4
+Please verify that your system is connected to the Red Hat Subscription Manager
+
+### 6.1.1
+Utilize the RPM package manager to ensure that system packages have been installed properly, and files have correct permissions to the OS
+
+### 6.1.10
+Ensure no world-writable files exist in network mounted partitions. We can only check the local filesystem
+
+### 6.2.1
+Lock any accounts that do not have passwords for review
+
 
 ## Development
 
