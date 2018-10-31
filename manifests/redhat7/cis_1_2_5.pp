@@ -14,9 +14,8 @@
 
   if $enforced {
 
-    exec { 'rhnsd':
-      command => 'chkconfig rhnsd off',
-      path    => '/bin/',
+    service { 'rhnsd':
+      ensure => stopped,
     }
   }
 }

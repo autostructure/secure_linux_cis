@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_1_2_5' do
 
         if option
           it {
-            is_expected.to contain_exec('rhnsd')
+            is_expected.to contain_service('rhnsd')
           }
         else
-          it { is_expected.not_to contain_exec('rhnsd') }
+          it { is_expected.not_to contain_service('rhnsd') }
         end
       end
     end
