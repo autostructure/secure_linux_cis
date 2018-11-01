@@ -20,9 +20,10 @@
       path => '/etc/security/limits.conf',
       line => '* hard core 0',
     }
-    file_line { 'sysctl_hc':
-      path => '/etc/sysctl.conf',
-      line => '* hard core 0',
+
+    sysctl { 'fs.suid_dumpable':
+      value => 0,
     }
+
   }
 }

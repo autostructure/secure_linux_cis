@@ -15,9 +15,8 @@
 
   if $enforced {
 
-    file_line { 'sysctl_randomize':
-      path => '/etc/sysctl.conf',
-      line => 'kernal.randomize_va_space = 2',
+    sysctl { 'kernel.randomize_va_space':
+      value => 2,
     }
   }
 }
