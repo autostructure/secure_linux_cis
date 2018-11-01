@@ -9,18 +9,21 @@
 #
 # @exampl e
 #   include secure_linux_cis::redhat7::cis_5_4_2
-  class secure_linux_cis::redhat7::cis_5_4_2 (
+class secure_linux_cis::redhat7::cis_5_4_2 (
   Boolean $enforced = true,
 ) {
 
   if $enforced {
 
-    if $facts['nologin'] != '' {
+    if $facts['nologin'] != [] {
 
-      exec {'nologin':
-        command => "usermod -s /sbin/nologin ${facts['nologin']}",
-        path    => '/sbin',
+      $facts['nologin'].each | String $user | {
+        exec { "nologin ${user}":
+          command => "usermod -s /sbin/nologin ${user}",
+          path    => '/sbin',
+        }
       }
+
     }
   }
 }
