@@ -16,24 +16,19 @@ class secure_linux_cis::redhat7::cis_1_4_1 (
 
   if $enforced {
 
-    exec { 'grub_own':
-      command => 'chown root:root /boot/grub2/grub.cfg',
-      path    => '/bin/',
-      creates => '/tmp/grub2_referance',
-    }
-    exec { 'grub_mod':
-      command => 'chmod og-rwx /boot/grub2/grub.cfg',
-      path    => '/bin/',
-    }
-    exec { 'user_own':
-      command => 'chown root:root /boot/grub2/user.cfg',
-      path    => '/bin/',
-    }
-    exec { 'user_mod':
-      command => 'chmod og-rwx /boot/grub2/user.cfg',
-      path    => '/bin/',
+    file { '/boot/grub2/grub.cfg':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
     }
 
-    Exec['grub_own'] ~> Exec['grub_mod'] ~> Exec['user_own'] ~> Exec['user_mod']
+    file { '/boot/grub2/user.cfg':
+      ensure => file,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
+    }
+
   }
 }

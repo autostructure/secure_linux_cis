@@ -9,7 +9,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_3_1
-  class secure_linux_cis::redhat7::cis_1_3_1 (
+class secure_linux_cis::redhat7::cis_1_3_1 (
   Boolean $enforced = true,
 ) {
 
@@ -17,11 +17,14 @@
 
     package { 'aide':
       ensure => installed,
-      }
-    exec { 'aide_database':
-      command => 'aide --init',
-      path    => '/sbin/',
+      notify => Exec['aide_database'],
     }
-Package['aide'] ~> Exec['aide_database']
+
+    exec { 'aide_database':
+      command     => 'aide --init',
+      refreshonly => true,
+      path        => '/sbin/',
+    }
+
   }
 }
