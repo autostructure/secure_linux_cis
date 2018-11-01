@@ -19,7 +19,7 @@
 
       exec {'nologin':
         command => "usermod -s /sbin/nologin ${facts['nologin']}",
-        path    => '/bin/',
+        path    => '/sbin',
       }
     }
   }

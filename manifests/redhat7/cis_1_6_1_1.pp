@@ -16,8 +16,8 @@
 
     file_line { 'cmdline_def':
       path  => '/etc/default/grub',
-      line  => 'GRUB CMDLINE LINUX DEFAULT="quiet"',
-      match => '^GRUB CMDLINE LINUX DEFAULT',
+      line  => 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"',
+      match => '^GRUB_CMDLINE_LINUX_DEFAULT',
     }
     file_line { 'cmdline_linux':
       path  => '/etc/default/grub',
