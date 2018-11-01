@@ -12,7 +12,7 @@
   Boolean $enforced = true,
 ) {
 
-  if $enforced {
+  if $enforced and $facts['gnome_installed'] {
 
     file { 'gdm':
       ensure  => present,
