@@ -11,10 +11,11 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/root_path':
+      ensure => file,
       owner  => 'root',
       group  => 'root',
       mode   => '0755',
-      force  => 'yes',
+      # force  => 'yes',
       source => 'puppet:///modules/secure_linux_cis/root_path.sh',
     }
 
