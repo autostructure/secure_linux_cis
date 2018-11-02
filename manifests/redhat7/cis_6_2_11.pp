@@ -15,10 +15,11 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/forward.sh':
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0711',
-      source => 'puppet:///modules/secure_linux_cis/forward.sh',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0711',
+      content => file('secure_linux_cis/forward.sh')
+      # source => 'puppet:///modules/secure_linux_cis/forward.sh',
     }
 
     if $facts[ 'forward_files' ] {

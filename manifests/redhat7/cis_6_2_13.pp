@@ -15,10 +15,11 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/netrc_access.sh':
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0711',
-      source => 'puppet:///modules/secure_linux_cis/netrc_access.sh',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0711',
+      content => file('secure_linux_cis/netrc_access.sh')
+      # source => 'puppet:///modules/secure_linux_cis/netrc_access.sh',
     }
 
     if $facts[ 'netrc_access' ] {

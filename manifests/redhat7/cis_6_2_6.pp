@@ -14,7 +14,7 @@
       ensure  => file,
       owner   => 'root',
       group   => 'root',
-      mode    => '0755',
+      mode    => '0711',
       content => file('secure_linux_cis/root_path.sh')
       # force  => 'yes',
       # source  => 'puppet:///modules/secure_linux_cis/root_path.sh',

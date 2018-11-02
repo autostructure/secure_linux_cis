@@ -15,10 +15,11 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/rhost.sh':
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0711',
-      source => 'puppet:///modules/secure_linux_cis/rhost.sh',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0711',
+      content => file('secure_linux_cis/rhost.sh')
+      # source => 'puppet:///modules/secure_linux_cis/rhost.sh',
     }
 
     if $facts[ 'rhost_files' ] {
