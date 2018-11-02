@@ -17,7 +17,8 @@
     file { '/tmp/cis_scripts/home_directory.sh':
       owner  => 'root',
       group  => 'root',
-      mode   => '0711',
+      mode   => '0755',
+      force  => 'yes',
       source => 'puppet:///modules/secure_linux_cis/home_directory.sh',
     }
 
