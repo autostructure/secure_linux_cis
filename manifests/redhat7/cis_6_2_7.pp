@@ -15,12 +15,13 @@
   if $enforced {
 
     file { '/tmp/cis_scripts/home_directory':
-      ensure => file,
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
+      ensure  => file,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0755',
+      content => file('secure_linux_cis/home_directory.sh')
       # force  => 'yes',
-      source => 'puppet:///modules/secure_linux_cis/home_directory.sh',
+      # source => 'puppet:///modules/secure_linux_cis/home_directory.sh',
     }
 
     if $facts['home_directory'] {
