@@ -3,6 +3,7 @@
 ---
 fixtures:
   forge_modules:
+    alternatives: "puppet/alternatives"
     kmod: "camptocamp/kmod"
     stdlib: "puppetlabs/stdlib"
     ntp: "puppetlabs/ntp"
