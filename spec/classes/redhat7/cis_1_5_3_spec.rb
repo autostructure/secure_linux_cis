@@ -16,7 +16,7 @@ describe 'secure_linux_cis::redhat7::cis_1_5_3' do
             is_expected.to contain_sysctl('kernel.randomize_va_space')
           }
         else
-          it { is_expected.not_to contain_sysctl'kernel.randomize_va_space') }
+          it { is_expected.not_to contain_sysctl('kernel.randomize_va_space') }
         end
       end
     end

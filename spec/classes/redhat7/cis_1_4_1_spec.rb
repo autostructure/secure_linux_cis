@@ -15,6 +15,7 @@ describe 'secure_linux_cis::redhat7::cis_1_4_1' do
           it {
             is_expected.to contain_file('/boot/grub2/grub.cfg')
             is_expected.to contain_file('/boot/grub2/user.cfg')
+          }
         else
           it {
             is_expected.not_to contain_exec('/boot/grub2/grub.cfg')
