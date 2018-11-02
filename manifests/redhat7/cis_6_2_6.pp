@@ -10,7 +10,7 @@
 
   if $enforced {
 
-    file { '/tmp/cis_scripts/root_path.sh':
+    file { '/tmp/cis_scripts/root_path':
       owner  => 'root',
       group  => 'root',
       mode   => '0711',
