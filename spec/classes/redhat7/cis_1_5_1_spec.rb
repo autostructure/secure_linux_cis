@@ -14,12 +14,12 @@ describe 'secure_linux_cis::redhat7::cis_1_5_1' do
         if option
           it {
             is_expected.to contain_file_line('limits_hc')
-            is_expected.to contain_file_line('sysctl_hc')
+            is_expected.to contain_sysctl('fs.suid_dumpable')
           }
         else
           it {
             is_expected.not_to contain_file_line('limits_hc')
-            is_expected.not_to contain_file_line('sysctl_hc')
+            is_expected.not_to contain_sysctl('fs.suid_dumpable')
           }
         end
       end

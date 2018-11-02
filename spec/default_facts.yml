@@ -53,6 +53,8 @@ grub_pass: ""
 unconf_daemons: "true"
 motd: "true"
 nologin: "true"
+gnome_installed: "true"
+user: luther
 #-----
 # local_users:
 #   rando1:

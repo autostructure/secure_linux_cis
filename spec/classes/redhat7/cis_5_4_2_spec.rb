@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_5_4_2' do
 
         if option
           it {
-            is_expected.to contain_exec('nologin')
+            is_expected.to contain_exec('nologin luther')
           }
         else
-          it { is_expected.not_to contain_exec('nologin') }
+          it { is_expected.not_to contain_exec('nologin luther') }
         end
       end
     end

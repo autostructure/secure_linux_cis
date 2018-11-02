@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_1_5_3' do
 
         if option
           it {
-            is_expected.to contain_file_line('sysctl_randomize')
+            is_expected.to contain_sysctl('kernel.randomize_va_space')
           }
         else
-          it { is_expected.not_to contain_file_line('sysctl_randomize') }
+          it { is_expected.not_to contain_sysctl'kernel.randomize_va_space') }
         end
       end
     end

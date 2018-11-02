@@ -13,14 +13,12 @@ describe 'secure_linux_cis::redhat7::cis_1_4_1' do
 
         if option
           it {
-            is_expected.to contain_exec('grub_own').that_comes_before('Exec[grub_mod]').that_comes_before('Exec[user_own]').that_comes_before('Exec[user_mod]')
-          }
+            is_expected.to contain_file('/boot/grub2/grub.cfg')
+            is_expected.to contain_file('/boot/grub2/user.cfg')
         else
           it {
-            is_expected.not_to contain_exec('grub_own')
-            is_expected.not_to contain_exec('grub_mod')
-            is_expected.not_to contain_exec('user_own')
-            is_expected.not_to contain_exec('user_mod')
+            is_expected.not_to contain_exec('/boot/grub2/grub.cfg')
+            is_expected.not_to contain_exec('/boot/grub2/user.cfg')
           }
         end
       end
