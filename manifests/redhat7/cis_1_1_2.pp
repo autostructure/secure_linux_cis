@@ -14,23 +14,27 @@ class secure_linux_cis::redhat7::cis_1_1_2 (
 
     if $enforced {
 
-      if $facts['tmp_partition'] == undef {
-
-        exec { 'systemctl unmask tmp.mount':
-          path   => '/bin/',
-          before => Exec['systemctl enable tmp.mount'],
-        }
-        exec { 'systemctl enable tmp.mount':
-          path   => '/bin/',
-          before => File_line['tmp_mount'],
-        }
-
-        file_line { 'tmp_mount':
-          ensure => present,
-          path   => '/etc/systemd/system/local-fs.target.wants/tmp.mount',
-          line   => "[Mount]\nWhat=tmpfs\nWhere=/tmp\nType=tmpfs\nOptions=mode=1777,strictatime,noexec,nodev,nosuid",
-          }
-          # Exec['systemctl unmask tmp.mount'] -> Exec['system enable tmp.mount'] -> File_line['tmp_mount']
+      mount { '/tmp/':
+        ensure  => mounted,
+        options => 'mode=1777,strictatime,noexec,nodev,nosuid',
       }
+      # if $facts['tmp_partition'] == undef {
+      #
+      #   exec { 'systemctl unmask tmp.mount':
+      #     path   => '/bin/',
+      #     before => Exec['systemctl enable tmp.mount'],
+      #   }
+      #   exec { 'systemctl enable tmp.mount':
+      #     path   => '/bin/',
+      #     before => File_line['tmp_mount'],
+      #   }
+      #
+      #   file_line { 'tmp_mount':
+      #     ensure => present,
+      #     path   => '/etc/systemd/system/local-fs.target.wants/tmp.mount',
+      #     line   => "[Mount]\nWhat=tmpfs\nWhere=/tmp\nType=tmpfs\nOptions=mode=1777,strictatime,noexec,nodev,nosuid",
+      #     }
+      #     # Exec['systemctl unmask tmp.mount'] -> Exec['system enable tmp.mount'] -> File_line['tmp_mount']
+      # }
     }
 }

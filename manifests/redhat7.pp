@@ -50,8 +50,8 @@ class secure_linux_cis::redhat7 (
 
   include ::secure_linux_cis::redhat7::cis_1_1_2
   # include ::secure_linux_cis::redhat7::cis_1_1_3
-  include ::secure_linux_cis::redhat7::cis_1_1_4
-  include ::secure_linux_cis::redhat7::cis_1_1_5
+  # include ::secure_linux_cis::redhat7::cis_1_1_4
+  # include ::secure_linux_cis::redhat7::cis_1_1_5
   include ::secure_linux_cis::redhat7::cis_1_1_6
   include ::secure_linux_cis::redhat7::cis_1_1_7
   include ::secure_linux_cis::redhat7::cis_1_1_8

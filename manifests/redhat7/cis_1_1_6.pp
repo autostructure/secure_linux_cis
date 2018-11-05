@@ -14,11 +14,8 @@ class secure_linux_cis::redhat7::cis_1_1_6 (
   ) {
     if $enforced {
 
-      if $facts['var_partition'] == '' {
-        notify { 'vp':
-          message  => '[1.1.6] A seperate partition does not exist for /var',
-          loglevel => 'warning',
+      mount { '/var/':
+        ensure => mounted,
       }
     }
-  }
 }

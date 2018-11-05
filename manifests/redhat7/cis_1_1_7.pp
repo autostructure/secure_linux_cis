@@ -13,9 +13,9 @@ class secure_linux_cis::redhat7::cis_1_1_7 (
   ) {
     if $enforced {
 
-      if $facts['var_tmp_partition'] == '' {
+      if $facts['var_tmp_partition'] == undef {
         notify { 'vtp':
-          message  => '[1.1.7] There is not a separate partition for /var/tmp',
+          message  => 'Not in compliance with CIS 1.1.7 (Scored). There is not a separate partition for /var/tmp',
           loglevel => 'warning',
       }
     }

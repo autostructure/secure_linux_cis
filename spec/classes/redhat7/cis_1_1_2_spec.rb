@@ -13,15 +13,11 @@ describe 'secure_linux_cis::redhat7::cis_1_1_2' do
 
         if option
           it {
-            is_expected.to contain_exec('systemctl unmask tmp.mount')
-            is_expected.to contain_exec('systemctl enable tmp.mount')
-            is_expected.to contain_file_line('tmp_mount')
+            is_expected.to contain_mount('/tmp/')
           }
         else
           it {
-            is_expected.not_to contain_exec('systemctl unmask tmp.mount')
-            is_expected.not_to contain_exec('systemctl enable tmp.mount')
-            is_expected.not_to contain_file_line('tmp_mount')
+            is_expected.not_to contain_mount('/tmp/')
           }
         end
       end
