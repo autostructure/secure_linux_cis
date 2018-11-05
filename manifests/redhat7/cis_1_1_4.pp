@@ -1,26 +1,26 @@
-# # 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
-# #
-# #
-# # Description:
-# # The nosuid mount option specifies that the filesystem cannot contain setuid files.
-# #
-# # @summary 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
-# #
-# # @example
-# #   include secure_linux_cis::redhat7::cis_1_1_4
-# class secure_linux_cis::redhat7::cis_1_1_4 (
-#   Boolean $enforced = true,
-#   ) {
-#     if $enforced {
+# 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
 #
-#       if $facts['tmp_partition'] {
 #
-#         if $facts['tmp_nosuid'] == '' {
-#           notify { 'tnos':
-#             message  => '[1.1.4] The nosuid option is not set on the /tmp partition',
-#             loglevel => 'warning',
-#             }
-#         }
-#     }
-#   }
-# }
+# Description:
+# The nosuid mount option specifies that the filesystem cannot contain setuid files.
+#
+# @summary 1.1.4 Ensure nosuid option set on /tmp partition (Scored)
+#
+# @example
+#   include secure_linux_cis::redhat7::cis_1_1_4
+class secure_linux_cis::redhat7::cis_1_1_4 (
+  Boolean $enforced = true,
+  ) {
+    if $enforced {
+
+      if $facts['tmp_partition'] {
+
+        if $facts['tmp_nosuid'] == undef {
+          notify { 'tnos':
+            message  => 'Not in compliance with CIS 1.1.4. The nosuid option is not set on the /tmp partition',
+            loglevel => 'warning',
+            }
+        }
+    }
+  }
+}

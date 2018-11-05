@@ -14,9 +14,11 @@ class secure_linux_cis::redhat7::cis_1_1_6 (
   ) {
     if $enforced {
 
-      mount { '/var/':
-        ensure => mounted,
-        fstype => 'ext4',
+      if $facts['var_partition'] == undef {
+              notify { 'vp':
+                message  => 'Not in compliance with CIS 1.1.6. A seperate partition does not exist for /var',
+                loglevel => 'warning',
       }
     }
+  }
 }
