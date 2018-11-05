@@ -17,6 +17,7 @@ class secure_linux_cis::redhat7::cis_1_1_2 (
       mount { '/tmp/':
         ensure  => mounted,
         options => 'mode=1777,strictatime,noexec,nodev,nosuid',
+        fstype  => 'tmpfs',
       }
       # if $facts['tmp_partition'] == undef {
       #

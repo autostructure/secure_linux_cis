@@ -16,6 +16,7 @@ class secure_linux_cis::redhat7::cis_1_1_6 (
 
       mount { '/var/':
         ensure => mounted,
+        fstype => 'ext4',
       }
     }
 }
