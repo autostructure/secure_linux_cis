@@ -13,7 +13,8 @@ class secure_linux_cis::redhat7::cis_1_1_2 (
   ) {
 
     if $enforced {
-      if $facts['tmp_partition'] == '' {
+
+      if $facts['tmp_partition'] == undef {
 
         exec { 'systemctl unmask tmp.mount':
           path   => '/bin/',
