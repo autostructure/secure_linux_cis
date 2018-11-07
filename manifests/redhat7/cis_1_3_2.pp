@@ -14,9 +14,11 @@
 
   if $enforced {
 
-    file_line { 'cron_aide':
-      path => '/tmp/crontab.upv0sK',
-      line => '0 5 * * * /usr/sbin/aide --check',
+    cron {'cron_aide':
+      command => '/usr/sbin/aide --check',
+      user    => 'root',
+      hour    => 5,
+      minute  => 0,
     }
   }
 }
