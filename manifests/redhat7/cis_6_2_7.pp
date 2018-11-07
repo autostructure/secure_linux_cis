@@ -26,7 +26,7 @@
 
     if $facts['home_directory'] {
       notify { 'hdir':
-        message  => '[6.2.7] You have a user(s) that does not have a home directory. Check the home_directory fact for details',
+        message  => 'Not in compliance with CIS 6.2.7 (Scored). You have a user(s) that does not have a home directory. Check the home_directory fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

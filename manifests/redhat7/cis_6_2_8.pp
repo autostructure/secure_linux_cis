@@ -24,7 +24,7 @@
 
     if $facts['home_directory_permission'] {
       notify { 'hdp':
-        message  => '[6.2.8] One or more user directories have permissions less restrictive than 750. Check the home_directory_permission fact for details', # lint:ignore:140chars
+        message  => 'Not in compliance with CIS 6.2.8 (Scored). One or more user directories have permissions less restrictive than 750. Check the home_directory_permission fact for details', # lint:ignore:140chars
         loglevel => 'warning',
       }
     }

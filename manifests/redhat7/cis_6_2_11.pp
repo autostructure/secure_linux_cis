@@ -24,7 +24,7 @@
 
     if $facts[ 'forward_files' ] {
       notify { 'ff':
-        message  => '[6.2.11] There are .forward files on the system. Check the forward_files fact for details',
+        message  => 'Not in compliance with CIS 6.2.11 (Scored). There are .forward files on the system. Check the forward_files fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

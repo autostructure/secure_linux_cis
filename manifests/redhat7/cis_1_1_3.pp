@@ -17,7 +17,7 @@ class secure_linux_cis::redhat7::cis_1_1_3 (
 
         if $facts['tmp_nodev'] == undef {
           notify { 'tn':
-            message  => 'Not in compliance with CIS 1.1.3 (scored). The nodev option is not set on the /tmp partition',
+            message  => 'Not in compliance with CIS 1.1.3 (Scored). The nodev option is not set on the /tmp partition',
             loglevel => 'warning',
           }
       }

@@ -24,7 +24,7 @@
 
     if $facts[ 'netrc_access' ] {
       notify { 'na':
-        message  => '[6.2.13] There are .netrc files that are either group or world accessible. Check the netrc_access fact for details',
+        message  => 'Not in compliance with CIS 6.2.13 (Scored). There are .netrc files that are either group or world accessible. Check the netrc_access fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

@@ -24,7 +24,7 @@
 
     if $facts[ 'rhost_files' ] {
       notify { 'rf':
-        message  => '[6.2.14] A user(s) has .rhost files in their home directory. Check the rhost_files fact for details',
+        message  => 'Not in compliance with CIS 6.2.14 (Scored). A user(s) has .rhost files in their home directory. Check the rhost_files fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

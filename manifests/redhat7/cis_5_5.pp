@@ -15,7 +15,7 @@
   if $enforced {
 
     notify { 'console':
-      message => '[5.5] Please ensure any consoles specified in /etc/securetty are valid and in a physically secure location',
+      message => '[5.5] (Not Scored) Please ensure any consoles specified in /etc/securetty are valid and in a physically secure location',
     }
   }
 }

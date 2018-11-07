@@ -22,7 +22,7 @@
 
     if $facts['root_path'] {
       notify { 'rp':
-        message  => '[6.2.6] There is a "." or other writable directory in the root executable path. Check the root_path fact for details',
+        message  => 'Not in compliance with CIS 6.2.6 (Scored). There is a "." or other writable directory in the root executable path. Check the root_path fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

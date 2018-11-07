@@ -25,7 +25,7 @@ class secure_linux_cis::redhat7::cis_6_2_10 (
     if $facts['dot_file_writable'] != '' {
 
       notify { 'dfw':
-        message  => '[6.2.10] There are DOT files that are either group or world writable. Check the dot_file_writable fact for details',
+        message  => 'Not in compliance with CIS 6.2.10 (Scored). There are DOT files that are either group or world writable. Check the dot_file_writable fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

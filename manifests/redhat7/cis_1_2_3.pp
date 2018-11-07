@@ -21,7 +21,7 @@
         notify  => Notify['gpg_keys'],
         }
       notify { 'gpg_keys':
-        message => '[1.2.3] Your GPG key configuration is stored in /tmp/gpgkeys.txt, please review and ensure all keys are in a desired state', #lint:ignore:140chars
+        message => '[1.2.3] (Not Scored) Your GPG key configuration is stored in /tmp/gpgkeys.txt, please review and ensure all keys are in a desired state', #lint:ignore:140chars
       }
   }
 }

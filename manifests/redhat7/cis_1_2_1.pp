@@ -20,7 +20,7 @@
       notify  => Notify['yum_repo'],
       }
     notify { 'yum_repo':
-      message => '[1.2.1] Your Yum repo configurations have been stored in /tmp/repolist.txt. Please review and ensure all repos are in desired state', #lint:ignore:140chars
+      message => '[1.2.1] (Not Scored) Your Yum repo configurations have been stored in /tmp/repolist.txt. Please review and ensure all repos are in desired state', #lint:ignore:140chars
     }
   }
 }

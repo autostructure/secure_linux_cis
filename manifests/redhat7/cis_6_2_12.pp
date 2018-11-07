@@ -24,7 +24,7 @@
 
     if $facts[ 'netrc_files' ] {
       notify { 'n':
-        message  => '[6.2.12] There are .netrc files on the system. Check the netrc_files fact for details',
+        message  => 'Not in compliance with CIS 6.2.12 (Scored). There are .netrc files on the system. Check the netrc_files fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

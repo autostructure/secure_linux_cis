@@ -17,7 +17,7 @@
   if $enforced {
     if $facts[ 'plus_shadow' ] {
       notify { 'ps':
-        message  => '[6.2.3] You have "+" entries in /etc/shadow. Check the plus_shadow fact for details',
+        message  => 'Not in compliance with CIS 6.2.3 (Scored). You have "+" entries in /etc/shadow. Check the plus_shadow fact for details', #lint:ignore:140chars
         loglevel => 'warning',
       }
     }

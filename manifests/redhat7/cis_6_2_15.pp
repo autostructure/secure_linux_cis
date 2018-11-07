@@ -24,7 +24,7 @@
 
     if $facts[ 'password_group_exist' ] {
       notify { 'pge':
-        message  => '[6.2.15] There is a group(s) in /etc/passwd that does not exist in /etc/group. Check the password_group_exist fact for details', # lint:ignore:140chars
+        message  => 'Not in compliance with CIS 6.2.15 (Scored). There is a group(s) in /etc/passwd that does not exist in /etc/group. Check the password_group_exist fact for details', # lint:ignore:140chars
         loglevel => 'warning',
       }
     }

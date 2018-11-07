@@ -25,7 +25,7 @@
 
     if $facts[ 'duplicate_group' ] {
       notify { 'dgrp':
-        message  => '[6.2.19] There is a duplicate group name(s) in /etc/group. Check the duplicate_group fact for details',
+        message  => 'Not in compliance with CIS 6.2.19 (Scored). There is a duplicate group name(s) in /etc/group. Check the duplicate_group fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

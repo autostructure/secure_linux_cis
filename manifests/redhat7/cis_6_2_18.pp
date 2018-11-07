@@ -25,7 +25,7 @@
 
     if $facts[ 'duplicate_user' ] {
       notify { 'dusr':
-        message  => 'There is a duplicate user name(s) in /etc/passwd. Check the duplicate_user fact for details',
+        message  => 'Not in compliance with CIS 6.2.18 (Scored). There is a duplicate user name(s) in /etc/passwd. Check the duplicate_user fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

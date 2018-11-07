@@ -17,7 +17,7 @@ class secure_linux_cis::redhat7::cis_1_1_4 (
 
         if $facts['tmp_nosuid'] == undef {
           notify { 'tnos':
-            message  => 'Not in compliance with CIS 1.1.4 (scored). The nosuid option is not set on the /tmp partition',
+            message  => 'Not in compliance with CIS 1.1.4 (Scored). The nosuid option is not set on the /tmp partition',
             loglevel => 'warning',
             }
         }

@@ -24,7 +24,7 @@
 
     if $facts[ 'home_directory_owner' ] {
       notify { 'hdo':
-        message  => '[6.2.9] You have a home directory that is not owned by a user. Check the home_directory_owner fact for details',
+        message  => 'Not in compliance with CIS 6.2.9 (Scored). You have a home directory that is not owned by a user. Check the home_directory_owner fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

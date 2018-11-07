@@ -19,8 +19,7 @@
   if $enforced {
 
     notify { 'NX':
-      message  => '[1.5.2] Please run "dmesg | grep NX" and verify that No Execute (or Execute Disable, for some Intel processors) protection is enabled', #lint:ignore:140chars
-      loglevel => 'warning',
+      message  => '[1.5.2] (Not Scored) Please run "dmesg | grep NX" and verify that No Execute (or Execute Disable, for some Intel processors) protection is enabled', #lint:ignore:140chars
     }
   }
 }

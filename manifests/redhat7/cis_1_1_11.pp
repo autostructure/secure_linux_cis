@@ -15,7 +15,7 @@ class secure_linux_cis::redhat7::cis_1_1_11 (
 
       if $facts['var_log_partition'] == undef {
         notify { 'vlp':
-          message  => 'Not in compliance with CIS 1.1.11 (scored). A separate partition does not exist for /var/log',
+          message  => 'Not in compliance with CIS 1.1.11 (Scored). A separate partition does not exist for /var/log',
           loglevel => 'warning',
         }
       }

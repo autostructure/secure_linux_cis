@@ -25,7 +25,7 @@
 
     if $facts[ 'duplicate_gid' ] {
       notify { 'dg':
-        message  => '[6.2.17] There are duplicate GIDs that exist in /etc/group. Check the duplicate_gid fact for details',
+        message  => 'Not in compliance with CIS 6.2.17 (Scored). There are duplicate GIDs that exist in /etc/group. Check the duplicate_gid fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }

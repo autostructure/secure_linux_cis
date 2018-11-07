@@ -25,7 +25,7 @@
 
     if $facts[ 'duplicate_uid' ] {
       notify { 'du':
-        message  => '[6.2.16] There are duplicate UIDs in /etc/passwd. Check the duplicate_uid fact for details',
+        message  => 'Not in compliance with CIS 6.2.16 (Scored). There are duplicate UIDs in /etc/passwd. Check the duplicate_uid fact for details',#lint:ignore:140chars
         loglevel => 'warning',
       }
     }
