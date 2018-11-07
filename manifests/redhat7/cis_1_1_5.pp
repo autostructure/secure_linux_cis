@@ -17,7 +17,7 @@ class secure_linux_cis::redhat7::cis_1_1_5 (
 
         if $facts['tmp_noexec'] == undef {
           notify { 'tnec':
-            message  => 'Not in compliance with CIS 1.1.5. The noexec option is not enabled for the /tmp partition',
+            message  => 'Not in compliance with CIS 1.1.5 (scored). The noexec option is not enabled for the /tmp partition',
             loglevel => 'warning',
           }
         }

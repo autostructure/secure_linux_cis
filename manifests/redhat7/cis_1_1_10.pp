@@ -15,9 +15,9 @@ class secure_linux_cis::redhat7::cis_1_1_10 (
 
       if $facts['var_tmp_partition'] {
 
-        if $facts['var_tmp_partition_noexec'] == '' {
+        if $facts['var_tmp_partition_noexec'] == undef {
           notify { 'vtpne':
-            message  => '[1.1.10] The noexec option is not set on the /var/tmp partition',
+            message  => 'Not in compliance with CIS 1.1.10 (scored). The noexec option is not set on the /var/tmp partition',
             loglevel => 'warning',
           }
         }

@@ -13,10 +13,10 @@ class secure_linux_cis::redhat7::cis_1_1_14 (
   ) {
     if $enforced {
 
-      if $facts['mount_home'] and $facts['home_nodev'] == '' {
+      if $facts['mount_home'] and $facts['home_nodev'] == undef {
 
         notify { 'hn':
-          message  => '[1.1.14] The "nodev" option is not included on the home partition',
+          message  => 'Not in compliance with CIS 1.1.14 (scored). The "nodev" option is not included on the home partition',
           loglevel => 'warning',
         }
       }

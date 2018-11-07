@@ -13,10 +13,10 @@ class secure_linux_cis::redhat7::cis_1_1_16 (
   ) {
     if $enforced {
 
-      if $facts['shm_nosuid'] == '' {
+      if $facts['shm_nosuid'] == undef {
 
         notify { 'sns':
-          message  => '[1.1.16] The "nosuid" option is not enabled on the /dev/shm partition',
+          message  => 'Not in compliance with CIS 1.1.16 (scored). The "nosuid" option is not enabled on the /dev/shm partition',
           loglevel => 'warning',
         }
       }
