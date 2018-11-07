@@ -15,7 +15,7 @@
   if $enforced {
 
     file_line { 'cron_aide':
-      path => '/etc/crontab',
+      path => '/tmp/crontab.upv0sK',
       line => '0 5 * * * /usr/sbin/aide --check',
     }
   }
