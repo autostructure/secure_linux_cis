@@ -32,7 +32,5 @@ class secure_linux_cis::redhat7::cis_4_1_15 (
       path   => '/etc/audit/audit.rules',
       line   => '-w /etc/sudoers.d/ -p wa -k scope',
     }
-
   }
-
 }

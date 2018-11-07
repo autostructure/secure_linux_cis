@@ -23,7 +23,5 @@ class secure_linux_cis::redhat7::cis_5_2_8 (
         line   => 'PermitRootLogin no',
         match  => '^#?PermitRootLogin',
     }
-
   }
-
 }

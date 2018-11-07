@@ -24,7 +24,5 @@ class secure_linux_cis::redhat7::cis_3_5_2 (
     kmod::install { 'sctp':
       command => '/bin/true',
     }
-
   }
-
 }

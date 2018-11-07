@@ -37,7 +37,6 @@ class secure_linux_cis::redhat7::cis_4_1_14 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete',
       }
-
     }
 
     # 32 bit architecture
@@ -48,9 +47,6 @@ class secure_linux_cis::redhat7::cis_4_1_14 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete',
       }
-
     }
-
   }
-
 }

@@ -29,7 +29,5 @@ class secure_linux_cis::redhat7::cis_4_1_16 (
       path   => '/etc/audit/audit.rules',
       line   => '-w /var/log/sudo.log -p wa -k actions',
     }
-
   }
-
 }

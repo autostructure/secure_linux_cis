@@ -9,14 +9,14 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_5_4
-  class secure_linux_cis::redhat7::cis_1_5_4 (
+class secure_linux_cis::redhat7::cis_1_5_4 (
   Boolean $enforced = true,
 ) {
 
   if $enforced {
 
     package { 'prelink':
-      ensure => absent,
+      ensure => purged,
     }
   }
 }

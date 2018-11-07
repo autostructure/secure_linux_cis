@@ -16,21 +16,23 @@ class secure_linux_cis::redhat7::cis_5_2_11 (
                                     'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com']
 ) {
 
-$acceptable_values = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh.com','umac-128-etm@openssh.com','hmac-sha2-512',
-'hmac-sha2-256','umac-128@openssh.com']
-
   if $enforced {
+
+    $acceptable_values = [
+      'hmac-sha2-512-etm@openssh.com',
+      'hmac-sha2-256-etm@openssh.com',
+      'umac-128-etm@openssh.com',
+      'hmac-sha2-512',
+      'hmac-sha2-256',
+      'umac-128@openssh.com'
+    ]
 
     $approved_mac_algorithms.each |$algorithm| {
 
-      if $algorithm in $acceptable_values {
-        # Do nothing
-      }
+      if !($algorithm in $acceptable_values) {
 
-      else {
-        fail('MAC Algorithm does not match CIS standards.')
+        fail("MAC Algorithm ${algorithm} does not match CIS standards. Please use CIS standard 5.2.11 for reference")
       }
-
     }
 
     $mac_algorithm_array = join($approved_mac_algorithms,',')
@@ -41,7 +43,5 @@ $acceptable_values = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh
       line   => "MACs ${mac_algorithm_array}",
       match  => '^#?MACs',
     }
-
   }
-
 }

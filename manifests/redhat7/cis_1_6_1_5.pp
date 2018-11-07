@@ -9,14 +9,14 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_6_1_5
-  class secure_linux_cis::redhat7::cis_1_6_1_5 (
+class secure_linux_cis::redhat7::cis_1_6_1_5 (
   Boolean $enforced = true,
 ) {
 
   if $enforced {
 
     package { 'mcstrans':
-      ensure => absent,
+      ensure => purged,
     }
   }
 }

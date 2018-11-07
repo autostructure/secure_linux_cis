@@ -22,7 +22,5 @@ class secure_linux_cis::redhat7::cis_5_2_9 (
         line   => 'PermitEmptyPasswords no',
         match  => '^#?PermitEmptyPasswords',
     }
-
   }
-
 }

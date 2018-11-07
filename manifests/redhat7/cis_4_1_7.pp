@@ -31,7 +31,5 @@ class secure_linux_cis::redhat7::cis_4_1_7 (
       path   => '/etc/audit/audit.rules',
       line   => '-w /usr/share/selinux/ -p wa -k MAC-policy',
     }
-
   }
-
 }

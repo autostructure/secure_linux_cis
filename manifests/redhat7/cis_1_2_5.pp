@@ -8,7 +8,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_2_5
-  class secure_linux_cis::redhat7::cis_1_2_5 (
+class secure_linux_cis::redhat7::cis_1_2_5 (
   Boolean $enforced = true,
 ) {
 
@@ -16,6 +16,7 @@
 
     service { 'rhnsd':
       ensure => stopped,
+      enable => false,
     }
   }
 }

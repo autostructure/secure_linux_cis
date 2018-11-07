@@ -18,7 +18,5 @@ class secure_linux_cis::redhat7::cis_4_2_4 (
       mode    => 'g-wx,o-rwx',
       ignore  => 'puppet',
     }
-
   }
-
 }

@@ -30,7 +30,5 @@ class secure_linux_cis::redhat7::cis_4_2_2_3 (
       command     => '/bin/pkill -HUP syslog-ng',
       refreshonly => true,
     }
-
   }
-
 }

@@ -27,7 +27,6 @@ class secure_linux_cis::redhat7::cis_4_2_3 (
       package { 'rsyslog':
         ensure => installed,
       }
-
     }
 
     elsif $logging == 'syslog-ng' {
@@ -35,9 +34,6 @@ class secure_linux_cis::redhat7::cis_4_2_3 (
       package { 'syslog-ng':
         ensure => installed,
       }
-
     }
-
   }
-
 }

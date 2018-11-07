@@ -32,7 +32,5 @@ class secure_linux_cis::redhat7::cis_3_6_2 (
       ensure => present,
       policy => drop,
     }
-
   }
-
 }

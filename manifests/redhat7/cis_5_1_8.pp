@@ -48,7 +48,5 @@ class secure_linux_cis::redhat7::cis_5_1_8 (
     file { '/etc/at.deny':
       ensure => absent,
     }
-
   }
-
 }

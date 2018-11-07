@@ -29,28 +29,21 @@ class secure_linux_cis::redhat7::cis_5_2_12 (
 
     if $client_alive_interval > 300 or $client_alive_interval < 1 {
 
-      fail('ClientAliveInterval must be set between 1 and 300')
-
+        fail('The Client Alive Interval has been manually set past the 1 - 300 threshold')
     }
 
-    else {
-
-      file_line { 'ssh alive interval':
-        ensure => 'present',
-        path   => '/etc/ssh/sshd_config',
-        line   => "ClientAliveInterval ${client_alive_interval}",
-        match  => '^#?ClientAliveInterval',
-      }
-
-      file_line { 'ssh alive count max':
-        ensure => 'present',
-        path   => '/etc/ssh/sshd_config',
-        line   => "ClientAliveCountMax ${client_alive_count_max}",
-        match  => '^#?ClientAliveCountMax',
-      }
-
+    file_line { 'ssh alive interval':
+      ensure => 'present',
+      path   => '/etc/ssh/sshd_config',
+      line   => "ClientAliveInterval ${client_alive_interval}",
+      match  => '^#?ClientAliveInterval',
     }
 
+    file_line { 'ssh alive count max':
+      ensure => 'present',
+      path   => '/etc/ssh/sshd_config',
+      line   => "ClientAliveCountMax ${client_alive_count_max}",
+      match  => '^#?ClientAliveCountMax',
+    }
   }
-
 }

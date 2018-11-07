@@ -8,7 +8,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_6_1_6
-  class secure_linux_cis::redhat7::cis_1_6_1_6 (
+class secure_linux_cis::redhat7::cis_1_6_1_6 (
   Boolean $enforced = true,
 ) {
 
@@ -17,7 +17,7 @@
     if $facts['unconf_daemons'] {
 
       notify { 'ud':
-        message  => '[1.6.1.6] There are unconfined daemons running on the system',
+        message  => 'Not in compliance with CIS 1.6.1.6 (Scored). There are unconfined daemons running on the system',
         loglevel => 'warning',
       }
     }

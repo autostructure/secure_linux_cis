@@ -24,6 +24,5 @@ class secure_linux_cis::redhat7::cis_2_2_13 (
       ensure => stopped,
       enable => false,
     }
-
   }
 }

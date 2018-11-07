@@ -27,7 +27,5 @@ class secure_linux_cis::redhat7::cis_5_2_4 (
       line   => 'X11Forwarding no',
       match  => '^#?[\r\n\f\v ]?X11Forwarding',
     }
-
   }
-
 }

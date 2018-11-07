@@ -13,11 +13,11 @@ describe 'secure_linux_cis::redhat7::cis_1_1_6' do
 
         if option
           it {
-            is_expected.to contain_mount('/var/')
+            is_expected.to contain_notify('vp')
           }
         else
           it {
-            is_expected.not_to contain_mount('/var/')
+            is_expected.not_to contain_notify('vp')
           }
         end
       end

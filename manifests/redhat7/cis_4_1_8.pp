@@ -31,7 +31,5 @@ class secure_linux_cis::redhat7::cis_4_1_8 (
       path   => '/etc/audit/audit.rules',
       line   => '-w /var/run/faillock/ -p wa -k logins',
     }
-
   }
-
 }

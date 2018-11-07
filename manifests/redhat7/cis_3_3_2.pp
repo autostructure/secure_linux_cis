@@ -27,6 +27,5 @@ class secure_linux_cis::redhat7::cis_3_3_2 (
     sysctl { 'net.ipv6.conf.default.accept_redirects':
       value => 0,
     }
-
   }
 }

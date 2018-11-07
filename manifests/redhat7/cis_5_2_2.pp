@@ -24,7 +24,5 @@ class secure_linux_cis::redhat7::cis_5_2_2 (
       line   => 'Protocol 2',
       match  => '^Protocol.*',
     }
-
   }
-
 }

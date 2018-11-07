@@ -21,7 +21,7 @@
 class secure_linux_cis (
   Array[String] $time_servers = [],
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
-  String $logging_host = 'loghost.example.com',
+  String $logging_host = '',
   Boolean $is_logging_host = false,
   Integer $max_log_file = 8,
   Enum['1', '2', '3', '4'] $max_auth_tries = '4',
@@ -29,6 +29,7 @@ class secure_linux_cis (
   Boolean $ipv6_enabled = true,
   Array $approved_mac_algorithms = ['hmac-sha2-512-etm@openssh.com','hmac-sha2-256-etm@openssh.com','umac-128-etm@openssh.com',
                                     'hmac-sha2-512','hmac-sha2-256','umac-128@openssh.com'],
+  # $client_alive_interval must be between 1 and 300
   Integer $client_alive_interval = 300,
   Enum['0','1','2','3'] $client_alive_count_max = '0',
   Integer $login_grace_time = 60,
@@ -48,6 +49,12 @@ class secure_linux_cis (
   Integer $pass_min_days = 7,
   Integer $pass_warn_days = 7,
 ) {
+
+# Validate parameters
+
+
+
+
 
   # Local Variable for full Operating System
   $os = "${facts['operatingsystem']}${facts['operatingsystemmajrelease']}"

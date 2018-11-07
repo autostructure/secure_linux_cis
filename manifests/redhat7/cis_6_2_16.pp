@@ -9,7 +9,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_6_2_16
-  class secure_linux_cis::redhat7::cis_6_2_16 (
+class secure_linux_cis::redhat7::cis_6_2_16 (
   Boolean $enforced = true,
 ) {
 
@@ -19,7 +19,7 @@
       owner   => 'root',
       group   => 'root',
       mode    => '0711',
-      content => file('secure_linux_cis/dup_uid.sh')
+      content => file('secure_linux_cis/dup_uid.sh'),
       # source => 'puppet:///modules/secure_linux_cis/dup_uid.sh',
     }
 

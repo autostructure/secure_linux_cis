@@ -40,7 +40,5 @@ class secure_linux_cis::redhat7::cis_4_1_9 (
       path   => '/etc/audit/audit.rules',
       line   => '-w /var/log/btmp -p wa -k logins',
     }
-
   }
-
 }

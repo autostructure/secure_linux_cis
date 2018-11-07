@@ -24,7 +24,5 @@ class secure_linux_cis::redhat7::cis_2_2_15 (
     class { '::postfix':
       inet_interfaces => 'loopback-only',
     }
-
   }
-
 }

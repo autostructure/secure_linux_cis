@@ -36,7 +36,5 @@ class secure_linux_cis::redhat7::cis_3_4_3 (
       mode    => '0644',
       content => 'ALL: ALL',
     }
-
   }
-
 }

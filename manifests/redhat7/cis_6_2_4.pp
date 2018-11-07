@@ -9,16 +9,16 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_6_2_4
-  class secure_linux_cis::redhat7::cis_6_2_4 (
+class secure_linux_cis::redhat7::cis_6_2_4 (
   Boolean $enforced = true,
 ) {
 
   if $enforced {
-      if $facts[ 'plus_group' ] {
-        notify { 'pg':
-          message  => 'Not in compliance with CIS 6.2.4 (Scored). You have "+" entries in /etc/group. Check the plus_group fact for details',#lint:ignore:140chars
-          loglevel => 'warning',
-          }
-        }
+    if $facts[ 'plus_group' ] {
+      notify { 'pg':
+        message  => 'Not in compliance with CIS 6.2.4 (Scored). You have "+" entries in /etc/group. Check the plus_group fact for details',#lint:ignore:140chars
+        loglevel => 'warning',
       }
+    }
   }
+}

@@ -77,9 +77,6 @@ class secure_linux_cis::redhat7::cis_4_1_4 (
         path   => '/etc/audit/audit.rules',
         line   => '-w /etc/localtime -p wa -k time-change',
       }
-
     }
-
   }
-
 }

@@ -8,7 +8,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_7_1_4
-  class secure_linux_cis::redhat7::cis_1_7_1_4 (
+class secure_linux_cis::redhat7::cis_1_7_1_4 (
   Boolean $enforced = true,
 ) {
 
@@ -19,6 +19,6 @@
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      }
+    }
   }
 }

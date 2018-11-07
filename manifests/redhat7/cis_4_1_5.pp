@@ -51,7 +51,5 @@ class secure_linux_cis::redhat7::cis_4_1_5 (
       path   => '/etc/audit/audit.rules',
       line   => '-w /etc/security/opasswd -p wa -k identity',
     }
-
   }
-
 }

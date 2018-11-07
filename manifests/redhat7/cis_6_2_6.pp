@@ -4,7 +4,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_6_2_6
-  class secure_linux_cis::redhat7::cis_6_2_6 (
+class secure_linux_cis::redhat7::cis_6_2_6 (
   Boolean $enforced = true,
 ) {
 
@@ -15,7 +15,7 @@
       owner   => 'root',
       group   => 'root',
       mode    => '0711',
-      content => file('secure_linux_cis/root_path.sh')
+      content => file('secure_linux_cis/root_path.sh'),
       # force  => 'yes',
       # source  => 'puppet:///modules/secure_linux_cis/root_path.sh',
     }

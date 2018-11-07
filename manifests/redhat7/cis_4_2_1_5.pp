@@ -29,7 +29,6 @@ class secure_linux_cis::redhat7::cis_4_2_1_5 (
         match  => '\$InputTCPServerRun',
         notify => Exec['reload rsyslog 4_2_1_5'],
       }
-
     }
 
     else {
@@ -49,14 +48,11 @@ class secure_linux_cis::redhat7::cis_4_2_1_5 (
         match  => '\$InputTCPServerRun',
         notify => Exec['reload rsyslog 4_2_1_5'],
       }
-
     }
 
     exec { 'reload rsyslog 4_2_1_5':
       command     => '/bin/pkill -HUP rsyslogd',
       refreshonly => true,
     }
-
   }
-
 }

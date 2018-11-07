@@ -35,10 +35,16 @@ class secure_linux_cis::redhat7::cis_5_3_1 (
 
   if $enforced {
 
-      if $minlen < 14 {
-        fail('minlen should be set to a value of 14 or more')
-      }
+      if $minlen == 0 and $dcredit == 0 and $ucredit == 0 and $ocredit == 0 and $lcredit == 0 {
 
+        notify { 'blackpass':
+          message  => 'Not in compliance with CIS 5.3.1 (Scored). At least one of the password requirements in /etc/security/pwquality.conf must be specified',#lint:ignore:140chars
+          loglevel => 'warning',
+        }
+      }
+      elsif $minlen == undef and $dcredit == undef and $ucredit == undef and $ocredit == undef and $lcredit == undef {
+
+        fail('All of the minimum characters in pwquality.conf are undefined')      }
       else {
 
         file_line { 'pam password auth':
@@ -89,9 +95,6 @@ class secure_linux_cis::redhat7::cis_5_3_1 (
           line   => "lcredit = ${lcredit}",
           match  => '^#?lcredit',
         }
-
       }
-
   }
-
 }

@@ -25,7 +25,5 @@ class secure_linux_cis::redhat7::cis_5_2_5 (
     line   => "MaxAuthTries ${max_auth_tries}",
     match  => '^#?MaxAuthTries',
     }
-
   }
-
 }

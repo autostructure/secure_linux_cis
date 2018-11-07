@@ -88,9 +88,6 @@ class secure_linux_cis::redhat7::cis_5_3_2 (
                             ],
         position         => 'after *[type="auth" and module="pam_faillock.so" and control="[default=die]"]',
       }
-
     }
-
   }
-
 }

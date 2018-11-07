@@ -20,6 +20,7 @@ class secure_linux_cis::redhat7::cis_5_4_1_1 (
 
   if $enforced {
 
+    # validate parameter
     if $pass_max_days > 365 {
       fail('PASS_MAX_DAYS should be set to a value less than 365')
     }
@@ -32,22 +33,15 @@ class secure_linux_cis::redhat7::cis_5_4_1_1 (
         match  => '^#?PASS_MAX_DAYS',
       }
 
-      if $facts['local_users'].empty {
-        #do nothing
-      }
-      else {
+      if !($facts['local_users'].empty) {
+
         $facts['local_users'].each |String $user, Hash $attributes| {
 
           if $attributes['max_days_between_password_change'] != $pass_max_days {
             exec { "/bin/chage --maxdays ${pass_max_days} ${user}": }
           }
-
         }
-
       }
-
     }
-
   }
-
 }

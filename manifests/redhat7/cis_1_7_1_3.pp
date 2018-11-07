@@ -18,12 +18,11 @@
 
   if $enforced {
 
-    file { '/etc/issue.net':
-      ensure  => present,
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
-      content => "\nAuthorized uses only. All activity may be monitored and reported\n",
+    if $facts['issue_net'] {
+
+      notify { 'issuen':
+        message => 'Not in compliance with CIS 1.7.1.3 (Scored). There is OS and/or patch level information in /etc/issue.net',
+      }
     }
   }
 }

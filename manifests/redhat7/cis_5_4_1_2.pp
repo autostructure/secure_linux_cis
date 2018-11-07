@@ -32,22 +32,15 @@ class secure_linux_cis::redhat7::cis_5_4_1_2 (
         match  => '^#?PASS_MIN_DAYS',
       }
 
-      if $facts['local_users'].empty {
-        #do nothing
-      }
-      else {
+      if !($facts['local_users'].empty) {
+
         $facts['local_users'].each |String $user, Hash $attributes| {
 
           if $attributes['min_days_between_password_change'] != $pass_min_days {
             exec { "/bin/chage --mindays ${pass_min_days} ${user}": }
           }
-
         }
-
       }
-
     }
-
   }
-
 }

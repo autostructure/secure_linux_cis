@@ -31,7 +31,5 @@ class secure_linux_cis::redhat7::cis_4_1_3 (
       command     => '/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg',
       refreshonly => true,
     }
-
   }
-
 }

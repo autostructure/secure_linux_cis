@@ -22,20 +22,14 @@ class secure_linux_cis::redhat7::cis_5_4_1_4 (
       fail('pass_inactive_days should be set to a value of 30 or less')
     }
 
-    if $facts['local_users'].empty {
-      #do nothing
-    }
-    else {
+    if !($facts['local_users'].empty) {
+
       $facts['local_users'].each |String $user, Hash $attributes| {
 
         if $attributes['password_inactive'] != $pass_inactive_days {
           exec { "/bin/chage --inactive ${pass_inactive_days} ${user}": }
         }
-
       }
-
     }
-
   }
-
 }

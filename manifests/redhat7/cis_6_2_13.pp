@@ -8,7 +8,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_6_2_13
-  class secure_linux_cis::redhat7::cis_6_2_13 (
+class secure_linux_cis::redhat7::cis_6_2_13 (
   Boolean $enforced = true,
 ) {
 
@@ -18,7 +18,7 @@
       owner   => 'root',
       group   => 'root',
       mode    => '0711',
-      content => file('secure_linux_cis/netrc_access.sh')
+      content => file('secure_linux_cis/netrc_access.sh'),
       # source => 'puppet:///modules/secure_linux_cis/netrc_access.sh',
     }
 

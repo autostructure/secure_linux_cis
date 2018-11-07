@@ -19,7 +19,5 @@ class secure_linux_cis::redhat7::cis_6_1_6 (
       group  => 'root',
       mode   => '0644',
     }
-
   }
-
 }

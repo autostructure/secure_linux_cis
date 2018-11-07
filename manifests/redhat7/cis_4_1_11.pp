@@ -49,7 +49,6 @@ class secure_linux_cis::redhat7::cis_4_1_11 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access', # lint:ignore:140chars
       }
-
     }
 
     # 32 bit architecture
@@ -66,9 +65,6 @@ class secure_linux_cis::redhat7::cis_4_1_11 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access', # lint:ignore:140chars
       }
-
     }
-
   }
-
 }

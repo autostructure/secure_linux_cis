@@ -22,7 +22,5 @@ class secure_linux_cis::redhat7::cis_3_5_3 (
     kmod::install { 'rds':
       command => '/bin/true',
     }
-
   }
-
 }

@@ -9,7 +9,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_5_4_3
-  class secure_linux_cis::redhat7::cis_5_4_3 (
+class secure_linux_cis::redhat7::cis_5_4_3 (
   Boolean $enforced = true,
 ) {
 
@@ -18,6 +18,6 @@
     user { 'root':
       ensure => present,
       gid    => '0',
-      }
+    }
   }
 }

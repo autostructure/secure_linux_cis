@@ -18,7 +18,7 @@ class secure_linux_cis::redhat7::cis_6_1_14 (
     if $facts['sgid_files'] {
       notify { 'sgf':
         message  => '[6.1.14] (Not Scored) You have SGID files on your system. It is recommended to verify that the files have md5 checksums that match with their corresponding package', # lint:ignore:140chars
-        }
+      }
     }
   }
 }

@@ -8,7 +8,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_6_2_8
-  class secure_linux_cis::redhat7::cis_6_2_8 (
+class secure_linux_cis::redhat7::cis_6_2_8 (
   Boolean $enforced = true,
 ) {
 

@@ -17,12 +17,11 @@
 
   if $enforced {
 
-    file { '/etc/issue':
-      ensure  => present,
-      content => '\nAuthorized uses only. All activity may be monitored and reported.\n',
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
+      if $facts['issue_os'] {
+
+        notify {'issue':
+          message => 'Not in compliance with CIS 1.7.1.2 (Scored). There is OS and/or patch level information in /etc/issue',
+      }
     }
   }
 }

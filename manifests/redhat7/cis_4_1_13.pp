@@ -42,7 +42,6 @@ class secure_linux_cis::redhat7::cis_4_1_13 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts',
       }
-
     }
 
     else {
@@ -52,9 +51,6 @@ class secure_linux_cis::redhat7::cis_4_1_13 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts',
       }
-
     }
-
   }
-
 }

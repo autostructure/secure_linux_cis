@@ -15,10 +15,10 @@
 
   if $enforced {
 
-    if $facts['grub_pass'] == '' {
+    if $facts['grub_pass'] == undef {
 
       notify { 'gp':
-        message  => '[1.4.2] The Grub bootloader does not have a set password. If using a bootloader other than this message, please ensure that an encrypted password is set', #lint:ignore:140chars
+        message  => 'Not in compliance with CIS 1.4.2 (Scored). The Grub bootloader does not have a set password. If using a bootloader other than this message, please ensure that an encrypted password is set', #lint:ignore:140chars
         loglevel => 'warning',
       }
     }

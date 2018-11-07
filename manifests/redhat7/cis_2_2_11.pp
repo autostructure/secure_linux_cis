@@ -27,5 +27,4 @@ class secure_linux_cis::redhat7::cis_2_2_11 (
       enable => false,
     }
   }
-
 }

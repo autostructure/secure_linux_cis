@@ -8,7 +8,7 @@
 #
 # @example
 #   include secure_linux_cis::redhat7::cis_1_8
-  class secure_linux_cis::redhat7::cis_1_8 (
+class secure_linux_cis::redhat7::cis_1_8 (
   Boolean $enforced = true,
 ) {
 
@@ -18,6 +18,6 @@
       ensure   => present,
       command  => 'yum check-update --security',
       monthday => '1',
-      }
+    }
   }
 }

@@ -52,7 +52,6 @@ class secure_linux_cis::redhat7::cis_4_1_17 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b64 -S init_module -S delete_module -k modules',
       }
-
     }
 
     # 32 bit architecture
@@ -81,9 +80,6 @@ class secure_linux_cis::redhat7::cis_4_1_17 (
         path   => '/etc/audit/audit.rules',
         line   => '-a always,exit -F arch=b32 -S init_module -S delete_module -k modules',
       }
-
     }
-
   }
-
 }

@@ -12,7 +12,7 @@
 class secure_linux_cis::redhat7 (
   Array[String] $time_servers = [],
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
-  String $logging_host = 'loghost.example.com',
+  String $logging_host = '',
   Boolean $is_logging_host = false,
   Integer $max_log_file = 8,
   Enum['1', '2', '3', '4'] $max_auth_tries = '4',
@@ -301,12 +301,12 @@ class secure_linux_cis::redhat7 (
     login_grace_time => $login_grace_time,
   }
   # need to discuss class 5_2_14 spec testing, fails with empty lists
-  # class { '::secure_linux_cis::redhat7::cis_5_2_14':
-  # allow_users  => $allow_users,
-  # allow_groups => $allow_groups,
-  # deny_users   => $deny_users,
-  # deny_groups  => $deny_groups,
-  # }
+  class { '::secure_linux_cis::redhat7::cis_5_2_14':
+    allow_users  => $allow_users,
+    allow_groups => $allow_groups,
+    deny_users   => $deny_users,
+    deny_groups  => $deny_groups,
+  }
   include ::secure_linux_cis::redhat7::cis_5_2_15
   class { '::secure_linux_cis::redhat7::cis_5_3_1':
     minlen  => $minlen,

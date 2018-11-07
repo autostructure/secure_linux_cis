@@ -76,7 +76,6 @@ class secure_linux_cis::redhat7::cis_4_1_6 (
         path   => '/etc/audit/audit.rules',
         line   => '-w /etc/sysconfig/network-scripts/ -p wa -k system-locale',
       }
-
     }
 
     # 32 bit architecture
@@ -117,9 +116,6 @@ class secure_linux_cis::redhat7::cis_4_1_6 (
         path   => '/etc/audit/audit.rules',
         line   => '-w /etc/sysconfig/network-scripts/ -p wa -k system-locale',
       }
-
     }
-
   }
-
 }

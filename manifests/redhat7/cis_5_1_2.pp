@@ -28,7 +28,5 @@ class secure_linux_cis::redhat7::cis_5_1_2 (
       owner  => 'root',
       mode   => '0600',
     }
-
   }
-
 }

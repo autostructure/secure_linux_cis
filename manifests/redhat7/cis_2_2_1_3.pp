@@ -16,8 +16,8 @@
 # @example
 #   include secure_linux_cis::redhat7::cis_2_2_1_3
 class secure_linux_cis::redhat7::cis_2_2_1_3 (
-  Array[String] $time_servers = [],
-  Boolean $enforced = true,
+  Array[String] $time_servers              = [],
+  Boolean $enforced                        = true,
   Enum['ntp', 'chrony', 'none'] $time_sync = 'ntp',
 ) {
 
@@ -34,7 +34,5 @@ class secure_linux_cis::redhat7::cis_2_2_1_3 (
       mode    => '0644',
       content => 'OPTIONS="-u chrony"',
     }
-
   }
-
 }

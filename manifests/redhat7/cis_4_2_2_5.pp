@@ -46,7 +46,6 @@ class secure_linux_cis::redhat7::cis_4_2_2_5 (
         line   => 'log { source(net); destination(remote); };',
         notify => Exec['reload syslog-ng 4_2_2_5'],
       }
-
     }
 
     else {
@@ -66,14 +65,11 @@ class secure_linux_cis::redhat7::cis_4_2_2_5 (
         match  => '^destination remote',
         notify => Exec['reload syslog-ng 4_2_2_5'],
       }
-
     }
 
     exec { 'reload syslog-ng 4_2_2_5':
       command     => '/bin/pkill -HUP syslog-ng',
       refreshonly => true,
     }
-
   }
-
 }

@@ -49,7 +49,5 @@ class secure_linux_cis::redhat7::cis_4_2_1_2 (
       command     => '/bin/pkill -HUP rsyslogd',
       refreshonly => true,
     }
-
   }
-
 }

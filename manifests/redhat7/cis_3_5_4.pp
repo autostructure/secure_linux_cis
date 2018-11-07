@@ -21,7 +21,5 @@ class secure_linux_cis::redhat7::cis_3_5_4 (
     kmod::install { 'tipc':
       command => '/bin/true',
     }
-
   }
-
 }

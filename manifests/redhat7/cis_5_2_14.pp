@@ -41,63 +41,63 @@ class secure_linux_cis::redhat7::cis_5_2_14 (
 
     if $allow_users == [] and $allow_groups == [] and $deny_users == [] and $deny_groups == [] {
 
-      fail('Rule is enfoced but no values are set. CIS remmomends using one of the following to set restrictions for SSH access:
-            AllowUsers, AllowGroups, DenyUsers, DenyGroups')
-
+      notify { 'allow_groups':
+        message  => 'Not in compliance with CIS 5.2.14 (Scored). One or more parameters in /etc/ssh/sshd_config have not been set.',
+        loglevel => 'warning',
+      }
     }
+    else {
 
-    if $allow_users != [] {
+      if $allow_users != [] {
 
-      $user_list_allow = join($allow_users, ' ')
+        $user_list_allow = join($allow_users, ' ')
 
-      file_line{ 'ssh allow users':
-        ensure => 'present',
-        path   => '/etc/ssh/sshd_config',
-        line   => "AllowUsers ${user_list_allow}",
-        match  => '^#?AllowUsers',
+        file_line{ 'ssh allow users':
+          ensure => 'present',
+          path   => '/etc/ssh/sshd_config',
+          line   => "AllowUsers ${user_list_allow}",
+          match  => '^#?AllowUsers',
+        }
+
       }
 
-    }
+      if $allow_groups != [] {
 
-    if $allow_groups != [] {
+        $group_list_allow = join($allow_groups, ' ')
 
-      $group_list_allow = join($allow_groups, ' ')
+        file_line{ 'ssh allow groups':
+          ensure => 'present',
+          path   => '/etc/ssh/sshd_config',
+          line   => "AllowGroups ${group_list_allow}",
+          match  => '^#?AllowGroups',
+        }
 
-      file_line{ 'ssh allow groups':
-        ensure => 'present',
-        path   => '/etc/ssh/sshd_config',
-        line   => "AllowGroups ${group_list_allow}",
-        match  => '^#?AllowGroups',
       }
 
-    }
+      if $deny_users != [] {
 
-    if $deny_users != [] {
+        $user_list_deny = join($deny_users, ' ')
 
-      $user_list_deny = join($deny_users, ' ')
+        file_line{ 'ssh deny users':
+          ensure => 'present',
+          path   => '/etc/ssh/sshd_config',
+          line   => "DenyUsers ${user_list_deny}",
+          match  => '^#?DenyUsers',
+        }
 
-      file_line{ 'ssh deny users':
-        ensure => 'present',
-        path   => '/etc/ssh/sshd_config',
-        line   => "DenyUsers ${user_list_deny}",
-        match  => '^#?DenyUsers',
       }
 
-    }
+      if $deny_groups != [] {
 
-    if $deny_groups != [] {
+        $group_list_deny = join($deny_groups, ' ')
 
-      $group_list_deny = join($deny_groups, ' ')
-
-      file_line{ 'ssh deny groups':
-        ensure => 'present',
-        path   => '/etc/ssh/sshd_config',
-        line   => "DenyUsers ${group_list_deny}",
-        match  => '^#?DenyUsers',
+        file_line{ 'ssh deny groups':
+          ensure => 'present',
+          path   => '/etc/ssh/sshd_config',
+          line   => "DenyUsers ${group_list_deny}",
+          match  => '^#?DenyUsers',
+        }
       }
-
     }
-
   }
-
 }

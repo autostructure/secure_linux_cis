@@ -19,11 +19,7 @@
         if !$attributes['password_change'] {
           fail("User ${user} has a password last changed date in the future. Please investigate.")
         }
-
       }
-
     }
-
   }
-
 }
