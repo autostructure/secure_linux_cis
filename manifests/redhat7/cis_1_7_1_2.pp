@@ -19,7 +19,7 @@
 
     file { '/etc/issue':
       ensure  => present,
-      content => 'Authorized uses only. All activity may be monitored and reported.',
+      content => '\nAuthorized uses only. All activity may be monitored and reported.\n',
       owner   => 'root',
       group   => 'root',
       mode    => '0644',

@@ -23,7 +23,7 @@
       owner   => 'root',
       group   => 'root',
       mode    => '0644',
-      content => 'Authorized uses only. All activity may be monitored and reported',
+      content => '\nAuthorized uses only. All activity may be monitored and reported\n',
     }
   }
 }
