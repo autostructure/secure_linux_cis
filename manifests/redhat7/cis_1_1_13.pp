@@ -13,7 +13,7 @@ class secure_linux_cis::redhat7::cis_1_1_13 (
   ) {
     if $enforced {
 
-      if $facts['mount_home'] == undef {
+      if $facts['mount_home'].empty {
 
         notify {'mh':
           message  => 'Not in compliance with CIS 1.1.13 (Scored). There is not a seperate partition for /home',

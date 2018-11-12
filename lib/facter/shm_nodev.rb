@@ -4,6 +4,10 @@
 Facter.add('shm_nodev') do
   setcode do
     shm = Facter::Core::Execution.exec('mount | grep /dev/shm')
-    %r{nodev}.match(shm)
+    if %r{nodev}.match(shm)
+      true
+    else
+      false
+    end
   end
 end
