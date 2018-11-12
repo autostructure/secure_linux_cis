@@ -13,7 +13,7 @@ class secure_linux_cis::redhat7::cis_1_1_8 (
   ) {
     if $enforced {
 
-      if $facts['var_tmp_partition'] {
+      if !($facts['var_tmp_partition'].empty) {
 
         if $facts['var_tmp_partition_nodev'] == undef {
           notify { 'vtpp':
