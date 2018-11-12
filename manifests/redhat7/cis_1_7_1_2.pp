@@ -20,7 +20,8 @@
       if $facts['issue_os'] {
 
         notify {'issue':
-          message => 'Not in compliance with CIS 1.7.1.2 (Scored). There is OS and/or patch level information in /etc/issue',
+          message  => 'Not in compliance with CIS 1.7.1.2 (Scored). There is OS and/or patch level information in /etc/issue',
+          loglevel => 'warning',
       }
     }
   }
