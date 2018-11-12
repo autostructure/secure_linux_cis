@@ -4,6 +4,10 @@
 Facter.add('tmp_noexec') do
   setcode do
     mounted = Facter::Core::Execution.exec('mount | grep /tmp')
-    %r{noexec}.match(mounted)
+    if %r{noexec}.match(mounted)
+      true
+    else
+      false
+    end
   end
 end

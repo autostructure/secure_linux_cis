@@ -15,7 +15,7 @@ class secure_linux_cis::redhat7::cis_1_1_8 (
 
       if !($facts['var_tmp_partition'].empty) {
 
-        if $facts['var_tmp_partition_nodev'] == undef {
+        if $facts['var_tmp_partition_nodev'] == false {
           notify { 'vtpp':
             message  => 'Not in compliance with CIS 1.1.8 (Scored). The /var/tmp partition does not have the nodev option set',
             loglevel => 'warning',

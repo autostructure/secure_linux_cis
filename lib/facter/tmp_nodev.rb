@@ -4,6 +4,10 @@
 Facter.add('tmp_nodev') do
   setcode do
     mounted = Facter::Core::Execution.exec('mount | grep /tmp')
-    %r{nodev}.match(mounted)
+    if %r{nodev}.match(mounted)
+      true
+    else
+      false
+    end
   end
 end

@@ -15,7 +15,7 @@ class secure_linux_cis::redhat7::cis_1_1_9 (
 
       if !($facts['var_tmp_partition'].empty) {
 
-        if $facts['var_tmp_partition_nosuid'] == undef {
+        if $facts['var_tmp_partition_nosuid'] == false {
           notify { 'vtpn':
             message  => 'Not in compliance with CIS 1.1.9 (Scored). The nosuid option is not set on the /var/tmp partition',
             loglevel => 'warning',

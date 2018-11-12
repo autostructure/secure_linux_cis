@@ -14,7 +14,7 @@ class secure_linux_cis::redhat7::cis_1_1_6 (
 ) {
   if $enforced {
 
-    if $facts['var_partition'] == undef {
+    if $facts['var_partition'].empty {
       notify { 'vp':
         message  => 'Not in compliance with CIS 1.1.6 (Scored). A seperate partition does not exist for /var',
         loglevel => 'warning',
