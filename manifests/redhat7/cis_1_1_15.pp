@@ -14,12 +14,15 @@ class secure_linux_cis::redhat7::cis_1_1_15 (
 
     if $enforced {
 
-      if $facts['shm_nodev'] == false {
-
-        notify { 'sn':
-          message  => 'Not in compliance with CIS 1.1.15 (Scored). The "nodev" option is not set on the /dev/shm partition',
-          loglevel => 'warning',
+      file_line { 'dev_shm':
+        path   => '/etc/fstab',
+        line   => 'tmpfs /dev/shm tmpfs defaults,nodev,nosuid,noexec 0 0',
+        notify => Exec['devm'],
         }
+      exec { 'devm':
+        command     => 'mount -o remount,nodev /dev/shm',
+        path        => '/bin/',
+        refreshonly => true,
       }
     }
 }

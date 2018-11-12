@@ -13,11 +13,12 @@ describe 'secure_linux_cis::redhat7::cis_1_1_15' do
 
         if option
           it {
-            is_expected.to contain_notify('sn')
+            is_expected.to contain_file_line('dev_shm').that_notifies('Exec[devm]')
           }
         else
           it {
-            is_expected.not_to contain_notify('sn')
+            is_expected.not_to contain_file_line('dev_shm')
+            is_expected.not_to contain_exec('devm')
           }
         end
       end
