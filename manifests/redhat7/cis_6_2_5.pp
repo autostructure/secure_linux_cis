@@ -13,7 +13,7 @@
 ) {
 
   if $enforced {
-    if $facts[ 'root_uid'] != 'root' {
+    if $facts['root_uid'] and $facts[ 'root_uid'] != 'root' {
       notify { 'ru':
         message  => 'Not in compliance with CIS 6.2.5 (Scored). One or more users have superuser privileges on the system other than Root. Check the root_uid fact for details', # lint:ignore:140chars
         loglevel => 'warning',

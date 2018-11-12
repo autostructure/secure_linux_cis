@@ -8,6 +8,6 @@ Facter.add('shm_nosuid') do
       true
     else
       false
-    end  
+    end
   end
 end

@@ -43,6 +43,7 @@ issue_net: "true"
 tmp_partition: "true"
 var_tmp_partition: "true"
 mount_home: "true"
+password_empty: "true"
 #-----
 # local_users:
 #   rando1:
