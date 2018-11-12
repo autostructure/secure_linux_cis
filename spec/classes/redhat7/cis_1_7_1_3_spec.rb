@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_1_7_1_3' do
 
         if option
           it {
-            is_expected.to contain_file('/etc/issue.net')
+            is_expected.to contain_notify('issuen')
           }
         else
-          it { is_expected.not_to contain_file('/etc/issue.net') }
+          it { is_expected.not_to contain_notify('issuen') }
         end
       end
     end

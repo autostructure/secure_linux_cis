@@ -23,6 +23,8 @@ class secure_linux_cis::redhat7::cis_1_7_2 (
       ensure  => present,
       path    => '/etc/dconf/db/gdm.d/01-banner-message',
       content => "[org/gnome/login-screen]\nbanner-message-enable=true\nbanner-message-text=\'Authorized uses only. All activity may be monitored and reported.\'", #lint:ignore:140chars
+      require => File['gdm'],
+      notify  => Exec['dconf'],
     }
     exec { 'dconf':
       path        => '/bin/',
@@ -30,6 +32,6 @@ class secure_linux_cis::redhat7::cis_1_7_2 (
       refreshonly => true,
     }
 
-    File['gdm'] -> File['banner-login'] ~> Exec['dconf']
+    # File['gdm'] -> File['banner-login'] ~> Exec['dconf']
   }
 }

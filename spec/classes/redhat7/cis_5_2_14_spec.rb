@@ -11,11 +11,11 @@ describe 'secure_linux_cis::redhat7::cis_5_2_14' do
 
         if option
           it {
-            is_expected.not_to compile
+            is_expected.to contain_notify('allow_groups')
           }
         else
           it {
-            is_expected.to compile
+            is_expected.not_to contain_notify('allow_groups')
           }
         end
       end

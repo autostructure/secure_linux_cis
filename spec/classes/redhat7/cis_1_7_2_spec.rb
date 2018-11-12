@@ -13,7 +13,9 @@ describe 'secure_linux_cis::redhat7::cis_1_7_2' do
 
         if option
           it {
-            is_expected.to contain_file('gdm').that_comes_before('File[banner-login]').that_notifies('Exec[dconf]')
+            # is_expected.to contain_file('gdm').that_requires('File[banner-login]').that_notifies('Exec[dconf]')
+            is_expected.to contain_file('banner-login').that_requires('File[gdm]')
+            is_expected.to contain_file('banner-login').that_notifies('Exec[dconf]')
           }
         else
           it {

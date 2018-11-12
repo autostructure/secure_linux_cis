@@ -32,16 +32,17 @@ duplicate_uid: "true"
 duplicate_gid: "true"
 duplicate_user: "true"
 duplicate_group: "true"
-mount_home: "true"
 automounting: "enabled"
 unconf_daemons: "true"
 motd: "true"
 nologin: "true"
 gnome_installed: "true"
 user: luther
-var_tmp_partition: "true"
+issue_os: "true"
+issue_net: "true"
 tmp_partition: "true"
-
+var_tmp_partition: "true"
+mount_home: "true"
 #-----
 # local_users:
 #   rando1:

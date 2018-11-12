@@ -338,7 +338,7 @@ class secure_linux_cis::redhat7 (
   include ::secure_linux_cis::redhat7::cis_5_4_3
   include ::secure_linux_cis::redhat7::cis_5_4_4
   # include ::secure_linux_cis::redhat7::cis_5_4_5
-  include ::secure_linux_cis::redhat7::cis_5_5
+  # include ::secure_linux_cis::redhat7::cis_5_5
   include ::secure_linux_cis::redhat7::cis_5_6
 
 
