@@ -13,7 +13,7 @@ class secure_linux_cis::redhat7::cis_1_1_17 (
   ) {
     if $enforced {
 
-      if $facts['shm_noexec'] == undef {
+      if $facts['shm_noexec'] == false {
 
         notify { 'sne':
           message  => 'Not in compliance with CIS 1.1.17 (Scored). The "noexec" option is not enabled on the /dev/shm partition',

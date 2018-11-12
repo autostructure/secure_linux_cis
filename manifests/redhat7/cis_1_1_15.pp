@@ -14,7 +14,7 @@ class secure_linux_cis::redhat7::cis_1_1_15 (
 
     if $enforced {
 
-      if $facts['shm_nodev'] == undef {
+      if $facts['shm_nodev'] == false {
 
         notify { 'sn':
           message  => 'Not in compliance with CIS 1.1.15 (Scored). The "nodev" option is not set on the /dev/shm partition',

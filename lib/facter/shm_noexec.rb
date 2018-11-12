@@ -4,6 +4,10 @@
 Facter.add('shm_noexec') do
   setcode do
     shmne = Facter::Core::Execution.exec('mount | grep /dev/shm')
-    %r{noexec}.match(shmne)
+     if %r{noexec}.match(shmne)
+       true
+     else
+       false
+     end
   end
 end
