@@ -22,7 +22,8 @@ class secure_linux_cis::redhat7::cis_6_2_13 (
       # source => 'puppet:///modules/secure_linux_cis/netrc_access.sh',
     }
 
-    if $facts[ 'netrc_access' ] {
+    if !($facts[ 'netrc_access' ].empty) {
+
       notify { 'na':
         message  => 'Not in compliance with CIS 6.2.13 (Scored). There are .netrc files that are either group or world accessible. Check the netrc_access fact for details',#lint:ignore:140chars
         loglevel => 'warning',

@@ -23,7 +23,8 @@ class secure_linux_cis::redhat7::cis_6_2_17 (
       # source => 'puppet:///modules/secure_linux_cis/dup_gid.sh',
     }
 
-    if $facts[ 'duplicate_gid' ] {
+    if !($facts['duplicate_gid'].empty) {
+
       notify { 'dg':
         message  => 'Not in compliance with CIS 6.2.17 (Scored). There are duplicate GIDs that exist in /etc/group. Check the duplicate_gid fact for details',#lint:ignore:140chars
         loglevel => 'warning',

@@ -23,7 +23,8 @@ class secure_linux_cis::redhat7::cis_6_2_19 (
       # source => 'puppet:///modules/secure_linux_cis/dup_group.sh',
     }
 
-    if $facts[ 'duplicate_group' ] {
+    if !($facts['duplicate_group'].empty) {
+
       notify { 'dgrp':
         message  => 'Not in compliance with CIS 6.2.19 (Scored). There is a duplicate group name(s) in /etc/group. Check the duplicate_group fact for details',#lint:ignore:140chars
         loglevel => 'warning',

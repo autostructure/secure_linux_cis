@@ -22,7 +22,8 @@ class secure_linux_cis::redhat7::cis_6_2_14 (
       # source => 'puppet:///modules/secure_linux_cis/rhost.sh',
     }
 
-    if $facts[ 'rhost_files' ] {
+    if !($facts['rhost_files'].empty) {
+
       notify { 'rf':
         message  => 'Not in compliance with CIS 6.2.14 (Scored). A user(s) has .rhost files in their home directory. Check the rhost_files fact for details',#lint:ignore:140chars
         loglevel => 'warning',

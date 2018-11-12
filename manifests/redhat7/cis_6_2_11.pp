@@ -22,7 +22,8 @@ class secure_linux_cis::redhat7::cis_6_2_11 (
       # source => 'puppet:///modules/secure_linux_cis/forward.sh',
     }
 
-    if $facts[ 'forward_files' ] {
+    if !($facts['forward_files'].empty) {
+
       notify { 'ff':
         message  => 'Not in compliance with CIS 6.2.11 (Scored). There are .forward files on the system. Check the forward_files fact for details',#lint:ignore:140chars
         loglevel => 'warning',

@@ -23,7 +23,8 @@ class secure_linux_cis::redhat7::cis_6_2_18 (
       # source => 'puppet:///modules/secure_linux_cis/dup_usr.sh',
     }
 
-    if $facts[ 'duplicate_user' ] {
+    if !($facts['duplicate_user'].empty) {
+
       notify { 'dusr':
         message  => 'Not in compliance with CIS 6.2.18 (Scored). There is a duplicate user name(s) in /etc/passwd. Check the duplicate_user fact for details',#lint:ignore:140chars
         loglevel => 'warning',
