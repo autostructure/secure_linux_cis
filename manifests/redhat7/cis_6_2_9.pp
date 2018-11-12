@@ -22,7 +22,8 @@ class secure_linux_cis::redhat7::cis_6_2_9 (
       # source => 'puppet:///modules/secure_linux_cis/home_dir_own.sh',
     }
 
-    if $facts[ 'home_directory_owner' ] {
+    if !($facts[ 'home_directory_owner' ]) {
+
       notify { 'hdo':
         message  => 'Not in compliance with CIS 6.2.9 (Scored). You have a home directory that is not owned by a user. Check the home_directory_owner fact for details',#lint:ignore:140chars
         loglevel => 'warning',
