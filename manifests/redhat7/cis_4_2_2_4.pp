@@ -16,10 +16,10 @@
 class secure_linux_cis::redhat7::cis_4_2_2_4 (
   Boolean $enforced = true,
   Enum['rsyslog', 'syslog-ng', 'none'] $logging = 'rsyslog',
-  String $logging_host = 'loghost.example.com',
+  String $logging_host = '',
 ) {
 
-  if $enforced and $logging == 'syslog-ng' {
+  if $enforced and $logging == 'syslog-ng' and $logging_host != '' {
 
     file_line { 'syslog-ng.conf logging_host':
       ensure => present,

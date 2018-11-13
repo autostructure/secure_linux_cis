@@ -10,6 +10,6 @@ Facter.add('var_tmp_partition_nosuid') do
       true
     else
       false
-    end  
+    end
   end
 end

@@ -4,7 +4,7 @@
 Facter.add('shm_nosuid') do
   setcode do
     shmns = Facter::Core::Execution.exec('mount | grep /dev/shm')
-    if %r{nosuid}.match(shmns)
+    if shmns =~ %r{nosuid}
       true
     else
       false
