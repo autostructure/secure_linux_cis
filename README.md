@@ -22,11 +22,11 @@ This Puppet module implements security controls defined in the Center for Intern
 | RedHat 7 | 2.2.0 |
 | CentOS 7 | 2.2.0 |
 
-CIS Benchmarks can be found here.
+CIS Benchmarks can be found [here](https://www.cisecurity.org/benchmark/centos_linux/).
 
 ## Setup
 
-To start with Secure Linux and harden your server to CIS standards, declare the 'secure_linux_cis::redhat7' class:
+To start with Secure Linux and harden your server to CIS standards, declare the `secure_linux_cis::redhat7` class:
 
 ```Puppet
 class {'::secure_linux_cis':}
