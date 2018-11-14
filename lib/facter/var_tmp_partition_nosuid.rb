@@ -6,7 +6,7 @@ Facter.add('var_tmp_partition_nosuid') do
   setcode do
     parsed = Facter::Core::Execution.exec("mount | grep \"/var/tmp\"")
     # rubocop:enable Style/StringLiterals
-    if %r{nosuid}.match(parsed)
+    if parsed =~ %r{nosuid}
       true
     else
       false

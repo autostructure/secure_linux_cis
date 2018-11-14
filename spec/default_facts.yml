@@ -44,6 +44,12 @@ tmp_partition: "true"
 var_tmp_partition: "true"
 mount_home: "true"
 password_empty: "true"
+tmp_nodev: false
+var_tmp_partition_nosuid: false
+var_tmp_partition_noexec: false
+tmp_nosuid: false
+var_tmp_partition_nodev: false
+tmp_noexec: false
 #-----
 # local_users:
 #   rando1:

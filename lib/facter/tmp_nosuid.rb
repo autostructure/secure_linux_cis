@@ -4,7 +4,7 @@
 Facter.add('tmp_nosuid') do
   setcode do
     mounted = Facter::Core::Execution.exec('mount | grep /tmp')
-    if %r{nosuid}.match(mounted)
+    if mounted =~ %r{nosuid}
       true
     else
       false

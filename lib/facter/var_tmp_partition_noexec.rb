@@ -6,7 +6,7 @@ Facter.add('var_tmp_partition_noexec') do
   setcode do
     parsed = Facter::Core::Execution.exec("mount | grep \"/var/tmp\"")
     # rubocop:enable Style/StringLiterals
-    if %r{noexec}.match(parsed)
+    if parsed =~ %r{noexec}
       true
     else
       false

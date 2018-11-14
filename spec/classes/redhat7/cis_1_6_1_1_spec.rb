@@ -14,12 +14,10 @@ describe 'secure_linux_cis::redhat7::cis_1_6_1_1' do
         if option
           it {
             is_expected.to contain_file_line('cmdline_def')
-            is_expected.to contain_file_line('cmdline_linux')
           }
         else
           it {
             is_expected.not_to contain_file_line('cmdline_def')
-            is_expected.not_to contain_file_line('cmdline_linux')
           }
         end
       end

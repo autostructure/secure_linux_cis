@@ -1,6 +1,6 @@
 {
-  "name": "jackcoleman-secure_linux_cis",
-  "version": "0.1.0",
+  "name": "autostructure-secure_linux_cis",
+  "version": "1.0.0",
   "author": "Autostructure",
   "summary": "This module hardens Linux servers to CIS security compliance",
   "license": "Apache-2.0",

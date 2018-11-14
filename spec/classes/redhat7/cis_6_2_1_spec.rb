@@ -13,10 +13,10 @@ describe 'secure_linux_cis::redhat7::cis_6_2_1' do
 
         if option
           it {
-            is_expected.to contain_notify('password_empty')
+            is_expected.to contain_notify('pass_emp')
           }
         else
-          it { is_expected.not_to contain_notify('password_empty') }
+          it { is_expected.not_to contain_notify('pass_emp') }
         end
       end
     end
