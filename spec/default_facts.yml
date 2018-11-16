@@ -2,7 +2,7 @@
 #
 # Facts specified here will override the values provided by rspec-puppet-facts.
 ---
-concat_basedir: "/tmp"
+concat_basedir: ""
 ipaddress: "172.16.254.254"
 is_pe: false
 macaddress: "AA:AA:AA:AA:AA:AA"
@@ -98,4 +98,4 @@ networking:
       ip: 127.0.0.1
       mtu: 65536
       netmask: 255.0.0.0
-      network: 127.0.0.0
+network: 127.0.0.0
