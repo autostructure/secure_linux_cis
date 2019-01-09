@@ -50,6 +50,7 @@ var_tmp_partition_noexec: false
 tmp_nosuid: false
 var_tmp_partition_nodev: false
 tmp_noexec: false
+world_writable_redhat: "true"
 #-----
 # local_users:
 #   rando1:
