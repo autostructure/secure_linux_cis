@@ -72,4 +72,3 @@ Gemfile:
 EOM
   end
 end
-
