@@ -24,7 +24,11 @@ Facter.add(:local_users) do
 
         password_change = Facter::Core::Execution.exec("chage --list #{user} | grep \"Last\"")
         number_parser_change = %r{\: ([^:]*)}.match(password_change)
-        Puppet.debug("number_parser_change is #{number_parser_change}")
+
+        if number_parser_change == "never" then
+          Return
+        end
+        
         password_valid_date = Date.parse(number_parser_change[0]) <= Date.today
 
         local_users[user] = {
