@@ -26,7 +26,7 @@ Facter.add(:local_users) do
         number_parser_change = %r{\: ([^:]*)}.match(password_change)
 
         fail = 'fail'
-        if number_parser_change.nil? || number_parser_change == 0 || number_parser_change == '' || number_parser_change == 'never' || number_parser_change == ': never'
+        if number_parser_change.nil? || number_parser_change == 0 || number_parser_change.empty? || number_parser_change == '' || number_parser_change.blank? || number_parser_change == ': never'
           return fail
         end
 
