@@ -40,6 +40,6 @@ Facter.add(:local_users) do
         # }
       end
     end
-    local_users = number_parser_change
+    # local_users
   end
 end
