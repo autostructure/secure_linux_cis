@@ -25,21 +25,21 @@ Facter.add(:local_users) do
         password_change = Facter::Core::Execution.exec("chage --list #{user} | grep \"Last\"")
         number_parser_change = %r{\: ([^:]*)}.match(password_change)
 
-        if number_parser_change == ": never" then
-          return
-        end
-
-        password_valid_date = Date.parse(number_parser_change[0]) <= Date.today
-
-        local_users[user] = {
-          'max_days_between_password_change'  => number_parser_max[0].to_i,
-          'min_days_between_password_change'  => number_parser_min[0].to_i,
-          'warn_days_between_password_change' => number_parser_warn[0].to_i,
-          'password_inactive'                 => number_parser_inactive ? number_parser_inactive[0].to_i : '',
-          'password_change'                   => password_valid_date,
-        }
-      end
-    end
-    local_users
-  end
-end
+#         if number_parser_change == ": never" then
+#           return
+#         end
+#
+#         password_valid_date = Date.parse(number_parser_change[0]) <= Date.today
+#
+#         local_users[user] = {
+#           'max_days_between_password_change'  => number_parser_max[0].to_i,
+#           'min_days_between_password_change'  => number_parser_min[0].to_i,
+#           'warn_days_between_password_change' => number_parser_warn[0].to_i,
+#           'password_inactive'                 => number_parser_inactive ? number_parser_inactive[0].to_i : '',
+#           'password_change'                   => password_valid_date,
+#         }
+#       end
+#     end
+#     local_users
+#   end
+# end
