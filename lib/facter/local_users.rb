@@ -25,8 +25,9 @@ Facter.add(:local_users) do
         password_change = Facter::Core::Execution.exec("chage --list #{user} | grep \"Last\"")
         number_parser_change = %r{\: ([^:]*)}.match(password_change)
 
+        fail = 'fail'
         if number_parser_change.nil? || number_parser_change == 0 || number_parser_change == '' || number_parser_change == 'never' || number_parser_change == ': never'
-          return
+          return fail
         end
 
         password_valid_date = Date.parse(number_parser_change[0]) <= Date.today
