@@ -7,5 +7,6 @@ Facter.add('aaa') do
       echo "yay"
     else
       echo "suspicious"
+    end
   end
 end
