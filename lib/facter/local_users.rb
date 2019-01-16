@@ -42,6 +42,6 @@ Facter.add(:local_users) do
       end
     end
     # local_users
-    number_parser_change
+    password_change
   end
 end
