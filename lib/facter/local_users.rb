@@ -26,9 +26,9 @@ Facter.add(:local_users) do
         number_parser_change = %r{\: ([^:]*)}.match(password_change)
 
         if number_parser_change == "never" then
-          Return
+          return
         end
-        
+
         password_valid_date = Date.parse(number_parser_change[0]) <= Date.today
 
         local_users[user] = {
