@@ -25,12 +25,14 @@ class secure_linux_cis::redhat7::cis_5_4_1_4 (
     if !($facts['local_users'].empty) {
 
       $facts['local_users'].each |String $user, Hash $attributes| {
-        # rubocop:disable Style/StringLiterals
-        if $attributes['number_parser_inactive'] != $pass_inactive_days {
-          exec { "/bin/chage --inactive ${pass_inactive_days} ${user}": }
-        unless $attributes['if_never_conditional'] == 'never',
+
+        unless $attributes['if_never_conditional'] == 'never' {
+
+          if $attributes['number_parser_inactive'] != $pass_inactive_days {
+
+            exec { "/bin/chage --inactive ${pass_inactive_days} ${user}": }
+          }
         }
-        # rubocop:enable Style/StringLiterals
       }
     }
   }
