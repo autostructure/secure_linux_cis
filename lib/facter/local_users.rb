@@ -26,7 +26,7 @@ Facter.add(:local_users) do
         number_parser_change = %r{\: ([^:]*)}.match(password_change)
 
         password_valid_date = Date.parse(number_parser_change[0]) <= Date.today
-
+        rescue ArgumentError
         local_users[user] = {
           'max_days_between_password_change'  => number_parser_max[0].to_i,
           'min_days_between_password_change'  => number_parser_min[0].to_i,
