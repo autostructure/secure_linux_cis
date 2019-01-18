@@ -21,6 +21,7 @@ Facter.add(:local_users) do
 
         password_inactive = Facter::Core::Execution.exec("chage --list #{user} | grep \"inactive\"")
         number_parser_inactive = %r{\d+}.match(password_inactive)
+        if_never_conditional = %r{never}.match(password_inactive)
 
         password_change = Facter::Core::Execution.exec("chage --list #{user} | grep \"Last\"")
         number_parser_change = %r{\: ([^:]*)}.match(password_change)
