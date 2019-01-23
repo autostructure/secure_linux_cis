@@ -30,7 +30,7 @@ Facter.add(:local_users) do
         password_valid_date = Date.parse(number_parser_change[0]) <= Date.today
       rescue ArgumentError
         # TODO: do something with the password valid date if it doesn't parse.
-          password_valid_date = 'never'
+          local_users = nil
         next
       end
 
