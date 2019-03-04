@@ -31,7 +31,7 @@ Facter.add(:local_users) do
       rescue ArgumentError
         # TODO: do something with the password valid date if it doesn't parse.
         # local_users = nil
-        password_valid_date == 'never'
+        password_valid_date = 'never'
         next
       end
 
