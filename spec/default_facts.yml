@@ -51,7 +51,10 @@ var_tmp_partition_nodev: false
 tmp_noexec: false
 world_writable_redhat: "true"
 #-----
-# local_users:
+local_users: {
+  "luther" : { },
+  "root" : { }
+  }
 #   rando1:
 #     max_days_between_password_change:  192
 #     min_days_between_password_change:  22
