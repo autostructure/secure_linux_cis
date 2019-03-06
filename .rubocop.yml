@@ -6,6 +6,7 @@ AllCops:
   Include:
   - "./**/*.rb"
   Exclude:
+  - 'root_path.rb'
   - bin/*
   - ".vendor/**/*"
   - "**/Gemfile"
