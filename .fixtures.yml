@@ -24,3 +24,4 @@ fixtures:
     firewall:
       repo: "puppetlabs/firewall"
       ref: "1.9.0"
+    augeas_core: "puppetlabs/augeas_core"
