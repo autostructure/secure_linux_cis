@@ -25,3 +25,5 @@ fixtures:
       repo: "puppetlabs/firewall"
       ref: "1.9.0"
     augeas_core: "puppetlabs/augeas_core"
+    cron_core: "puppetlabs/cron_core"
+    mailalias_core: "puppetlabs/mailalias_core"
